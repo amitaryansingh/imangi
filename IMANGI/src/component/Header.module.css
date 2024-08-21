@@ -1,16 +1,12 @@
 
 .header {
-  background-color: aqua;
-  margin: 0;
-  padding: 0;
+  display: flex;
   display: flex;
   align-items: center;
-  gap: 30px;
 }
 .logo {
   height: 50px;
   width: 120px;
-  background-color: red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,7 +27,7 @@
   align-items: center;
   margin: 0 15px;
   text-transform: uppercase;
-  color: #333;
+  color: #646060;
   font-weight: bold;
   cursor: pointer;
 }
@@ -44,15 +40,19 @@
 }
 .searchButton{
   padding-top: 3px;
+  color: #646060;
 }
 .navItem2{
   display:flex;
-  border:2px solid black;
+  border:2px solid #646060;
   justify-content: space-between;
   align-items: center;
   padding: 3px;
-  width:400px;
+  width:300px;
   border-radius: 5px;
 }
 .navbar{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
