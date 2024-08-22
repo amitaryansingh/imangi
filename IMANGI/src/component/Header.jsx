@@ -12,7 +12,7 @@ const Header = () => {
         data-bs-theme="dark"
       >
         <div className="container-fluid">
-          <img className={style.navbarBrand} src="logo2.png" alt="Imangi" />
+          <img className={style.navbarBrand} src="logo2.png" alt="LOGO" />
           <button
             className="navbar-toggler"
             type="button"
@@ -106,4 +106,5 @@ const Header = () => {
     </>
   );
 };
+
 export default Header;

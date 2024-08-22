@@ -28,6 +28,9 @@
   color: #868080;
   font-size: 1rem;
 }
+.mobnavbar{
+  display: none;
+}
 @media (max-width:991px) {
   .profile,
     .search{

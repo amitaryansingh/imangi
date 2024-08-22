@@ -6,3 +6,26 @@ body {
   font-weight: 300;
   font-style: normal;
 }
+
+@media (max-width: 991px) {
+  .mobileMenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #343a40; /* Dark background to match the navbar */
+    border-top: 1px solid #495057;
+    z-index: 1000; /* Ensure it's on top of other content */
+  }
+
+  .mobileMenu .nav-link {
+    display: block;
+    color: #fff; /* Text color for the menu items */
+    padding: 10px 15px;
+    text-align: center;
+  }
+
+  .mobileMenu .nav-link:hover {
+    background-color: #495057; /* Hover effect */
+  }
+}
