@@ -12,8 +12,8 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #343a40; /* Background color matching the navbar */
-    z-index: 1000; /* Ensures it stays on top of other elements */
+    background-color: #343a40;
+    z-index: 1000; 
   }
   
   .navitems {
