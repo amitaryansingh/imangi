@@ -55,7 +55,7 @@ const Header = () => {
                 >
                   Location
                 </button>
-                <ul className={`${location} dropdown-menu`}>
+                <ul className="dropdown-menu">
                   <li>
                     <a className="dropdown-item" href="#">
                       Bhubaneswar

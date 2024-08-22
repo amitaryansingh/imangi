@@ -16,9 +16,6 @@
 .profile,.search{
   margin-left: 1rem;
 }
-.profile{
-  padding: 0;
-}
 .searchContainer {
   position: relative;
   width: 100%;
@@ -33,7 +30,7 @@
 }
 @media (max-width:991px) {
   .profile,
-    .search,.location{
+    .search{
       margin-left:0;
       width: 100%;
     }
