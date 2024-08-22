@@ -55,7 +55,7 @@ const Header = () => {
                 >
                   Location
                 </button>
-                <ul className="dropdown-menu">
+                <ul className={`${location} dropdown-menu`}>
                   <li>
                     <a className="dropdown-item" href="#">
                       Bhubaneswar
@@ -82,7 +82,7 @@ const Header = () => {
                 </ul>
               </div>
             </li>
-            <form className="d-flex ms-3" role="search">
+            <form className={`${style.search} d-flex`} role="search">
               <div className={style.searchContainer}>
                 <input
                   className="form-control"
@@ -93,8 +93,11 @@ const Header = () => {
                 <FaSearch className={style.searchIcon} />
               </div>
             </form>
-            <button className="btn btn-outline-secondary ms-3" type="button">
-              <CgProfile className={style.icon} />
+            <button
+              className={`${style.profile} btn btn-outline-secondary`}
+              type="button"
+            >
+              <CgProfile className={style.icon2} />
               Profile
             </button>
           </div>
