@@ -9,17 +9,19 @@ const Mobheader = () => {
   return(<>
   <div className={style2.navigation}>
     <div className={style2.navitems}>
-        <div><FaHome className={style1.icon} />
-        Home
-        </div>
-        <div>
+        <li><a href="#">
+            <FaHome className={style1.icon} />
+        Home</a>
+        </li>
+        <li><a href="#">
         <LuCalendarClock className={style1.icon} />
         ShowTiming
-        </div>
-        <div>
+        </a>
+        </li>
+        <li><a href="#">
         <CgProfile className={style1.icon} />
-              Profile
-        </div>
+              Profile</a>
+        </li>
     </div>
   </div>
   </>);
