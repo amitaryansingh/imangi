@@ -58,17 +58,17 @@ const Header = () => {
                 <ul className="dropdown-menu">
                   <li>
                     <a className="dropdown-item" href="#">
-                      Action
+                      Bhubaneswar
                     </a>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Another action
+                      Ranchi
                     </a>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Something else here
+                      Patna
                     </a>
                   </li>
                   <li>
@@ -76,7 +76,7 @@ const Header = () => {
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
-                      Separated link
+                      Coming soon
                     </a>
                   </li>
                 </ul>
