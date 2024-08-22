@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <Header />
-      <Mobheader/>
-      <Herovideo/>
+      <Herovideo />
+      <Mobheader />
     </>
   );
 }
