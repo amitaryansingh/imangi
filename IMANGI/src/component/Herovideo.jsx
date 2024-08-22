@@ -1,19 +1,38 @@
-import style1 from "./Header.module.css";
-import style2 from "./Mobheader.module.css";
-import style3 from "./Herovideo.module.css";
-import { FaHome, FaSearch } from "react-icons/fa";
-import { LuCalendarClock } from "react-icons/lu";
-import { BiSolidOffer } from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
+import React, { useState, useRef } from 'react';
+import style from './Herovideo.module.css';
 
 const Herovideo = () => {
+    const videoRef = useRef(null);
+    const [isMuted, setIsMuted] = useState(true);
+
+    const toggleMute = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !isMuted;
+            setIsMuted(!isMuted);
+        }
+    };
+
     return (
-      <>
-      <div className="heroview">
-        
-      </div>
-      </>
-    )
-}
+        <>
+            <div className={style.videocontainer}>
+                <div className={style.videowrapper}>
+                    <video 
+                        id="myVideo" 
+                        ref={videoRef} 
+                        autoPlay 
+                        loop 
+                        muted 
+                        className={style.customvideo}
+                    >
+                        <source src="video.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <button className={style.mutebutton} onClick={toggleMute}>
+                    {isMuted ? 'Unmute' : 'Mute'}
+                </button>
+            </div>
+        </>
+    );
+};
 
 export default Herovideo;

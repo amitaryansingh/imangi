@@ -21,7 +21,9 @@ body {
   font-weight: 300;
   font-style: normal;
 }
-
+.navbar{
+  z-index: 1;
+}
 @media (max-width: 991px) {
   .mobileMenu {
     position: fixed;
