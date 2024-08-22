@@ -1,13 +1,13 @@
-/* Header.module.css */
 .icon {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   vertical-align: middle;
-  margin-right: 8px;
+  margin-right:4px;
+  margin-bottom: 5px;
 }
 
 .navbarBrand {
-  height: 50px;
-  width: 120px;
+  height: 40px;
+  width: 100px;
 }
 
 .navbar-nav .nav-link {
@@ -31,4 +31,89 @@
   transform: translateY(-50%);
   color: #868080;
   font-size: 1rem;
+}
+
+/* Default styles */
+.navbarBrand {
+  height: 40px;
+}
+
+.icon {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Icon does not interfere with input field */
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .collapse {
+    display: none;
+  }
+
+  .navbar-collapse.collapse.show {
+    display: block;
+  }
+
+  .navbar-nav {
+    margin-top: 1rem;
+  }
+
+  .nav-link {
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .searchContainer {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .searchIcon {
+    right: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbarBrand {
+    height: 30px;
+  }
+
+  .searchContainer {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .searchIcon {
+    right: 10px;
+  }
+
+  .btn-group {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
 }
