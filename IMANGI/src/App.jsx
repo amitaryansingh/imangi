@@ -1,13 +1,12 @@
 import Header from "./component/Header";
-import style from "./App.module.css";
-const App = () => {
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+function App() {
   return (
     <>
-      <div className="main">
-        <Header />
-        <p>Amit is a good Boy</p>
-      </div>
+      <Header />
     </>
   );
-};
+}
+
 export default App;
