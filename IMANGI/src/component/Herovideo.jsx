@@ -4,9 +4,9 @@ import { VscUnmute, VscMute } from "react-icons/vsc";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const videos = [
-  { src: "video.mp4", title: "Title 1" },
-  { src: "video.mp4", title: "Title 2" },
-  { src: "video.mp4", title: "Title 3" },
+  { src: "video.mp4", title: "Kalki 2898 AD" },
+  { src: "video.mp4", title: "Kalki 2898 AD" },
+  { src: "video.mp4", title: "TKalki 2898 AD" },
 ];
 
 const Herovideo = () => {
