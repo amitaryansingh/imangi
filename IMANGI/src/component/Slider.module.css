@@ -1,24 +1,26 @@
-.slidercontainer {
-  width: 100%;
-  margin: 0 auto;
-  overflow-x: scroll;
-  bottom:0px;
-}
-
-.slickslide img {
-  width: 100%;
-  border-radius: 10px;
+.sliderWrapper {
+  position: relative; /* Ensure the wrapper stays in the flow of the document */
+  width: 99%;
+  margin-left: 10px;
+  margin-top: 60vh;
+  overflow: hidden; /* Hide scrollbar */
 }
 
 .slick-slide {
-  padding: 0 10px;
-  /* Optional: Adds some spacing between slides */
-}
-
-.slick-list {
-  overflow: hidden;
+  padding: 0 5px; /* Adds 5px gap on both sides of each slide */
 }
 
 .slick-track {
   display: flex;
+  margin-left: -5px; /* Adjusts for the padding so the first slide aligns properly */
+}
+
+.slick-list {
+  padding-left: 5px; /* Ensures the left padding of the first slide is visible */
+  overflow: hidden; /* Hides the scrollbar */
+}
+
+.slickslide img {
+  width: calc(100% - 10px); /* Adjusts the image width to account for padding */
+  border-radius: 10px;
 }
