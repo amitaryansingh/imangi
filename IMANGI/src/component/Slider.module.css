@@ -2,7 +2,7 @@
   position: relative;
   width: 99%;
   margin-left: 10px;
-  margin-top: -70vh;
+  margin-top: -55vh;
 }
 
 .slickslide {
@@ -19,7 +19,7 @@
 .slickslide img {
   width: calc(100% - 10px);
   border-radius: 10px;
-  height: 250px;
+  height: 230px;
 }
 
 .imageContainer {
