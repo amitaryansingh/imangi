@@ -1,0 +1,24 @@
+.slidercontainer {
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: scroll;
+  bottom:0px;
+}
+
+.slickslide img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.slick-slide {
+  padding: 0 10px;
+  /* Optional: Adds some spacing between slides */
+}
+
+.slick-list {
+  overflow: hidden;
+}
+
+.slick-track {
+  display: flex;
+}
