@@ -12,6 +12,9 @@ body {
 .navbar{
   z-index: 1;
 }
+.form-control{
+  background-color: transparent;
+}
 @media (max-width: 991px) {
   .mobileMenu {
     position: fixed;
