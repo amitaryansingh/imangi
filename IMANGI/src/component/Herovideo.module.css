@@ -15,15 +15,18 @@
 
 .contentContainer {
   position: absolute;
+<<<<<<< HEAD
   /* Keep it absolute but relative to .videocontainer */
   top: 52%;
+=======
+  top: 55%;
+>>>>>>> 748ca3e9936b9f0d696084fcb29576f16f26b300
   left: 35px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   z-index: 1;
-  /* Ensure it stays above the video */
 }
 
 .title {
@@ -55,15 +58,17 @@
 
 .muteButton {
   position: absolute;
-  /* Keep it absolute but relative to .videocontainer */
   right: 30px;
+<<<<<<< HEAD
   top: 52%;
   /* Adjust to position it relative to the video */
+=======
+  top: 53%;
+>>>>>>> 748ca3e9936b9f0d696084fcb29576f16f26b300
   background-color: transparent;
   border: none;
   cursor: pointer;
   z-index: 1;
-  /* Ensure it stays above the video */
 }
 
 .icon3 {
