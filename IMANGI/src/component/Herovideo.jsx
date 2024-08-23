@@ -24,13 +24,13 @@ const Herovideo = () => {
   const handleNextVideo = () => {
     const nextIndex = (currentVideoIndex + 1) % videos.length;
     setCurrentVideoIndex(nextIndex);
-    videoRef.current.load(); // Reload the video when the source changes
+    videoRef.current.load(); 
   };
 
   const handlePreviousVideo = () => {
     const prevIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
     setCurrentVideoIndex(prevIndex);
-    videoRef.current.load(); // Reload the video when the source changes
+    videoRef.current.load();
   };
 
   return (
