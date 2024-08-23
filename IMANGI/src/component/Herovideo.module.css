@@ -15,25 +15,28 @@
 
 .contentContainer {
   position: absolute;
-  top: 50%;
-  left: 30px; 
+  /* Keep it absolute but relative to .videocontainer */
+  top: 55%;
+  left: 35px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Keep everything aligned to the left */
+  align-items: flex-start;
+  z-index: 1;
+  /* Ensure it stays above the video */
 }
 
 .title {
   font-size: 2.5rem;
   color: whitesmoke;
-  margin-bottom:0px;
+  margin-bottom: 0px;
 }
 
 .buttons {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   width: 100%;
-  max-width: 400px; 
+  max-width: 400px;
 }
 
 .bookButton,
@@ -43,20 +46,24 @@
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
-  margin-right:0px; /* Space between buttons */
+  margin-right: 0px;
 }
 
 .bookButton:last-child {
-  margin-right: 0; /* Remove margin from the last button */
+  margin-right: 0;
 }
 
 .muteButton {
   position: absolute;
+  /* Keep it absolute but relative to .videocontainer */
   right: 30px;
-  bottom: 350px;
+  top: 53%;
+  /* Adjust to position it relative to the video */
   background-color: transparent;
   border: none;
   cursor: pointer;
+  z-index: 1;
+  /* Ensure it stays above the video */
 }
 
 .icon3 {
