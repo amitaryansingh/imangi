@@ -1,9 +1,9 @@
 .videocontainer {
-  position: fixed; 
+  position: fixed;
   width: 100%;
   height: 100%;
-  top:0;
-  z-index:0;
+  top: 0;
+  z-index: 0;
 }
 
 .videocontainer video {
@@ -12,28 +12,80 @@
   object-fit: cover;
   background-color: black;
 }
-.book{
-  display:flex;
+
+.contentContainer {
   position: absolute;
-  background-color: transparent;
-  color: rgb(242, 238, 238);
-  border:none;
-  cursor: pointer;
-  right: 30px;
-  left: auto;
-  top: 70%;
-  color: rgb(221, 220, 225);
+  top: 50%;
+  left: 30px; /* Keep the content aligned to the left */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Keep everything aligned to the left */
 }
-.muteButton{
-  background-color: transparent;
-  border:none;
+
+.title {
+  font-size: 4rem;
+  color: whitesmoke;
+  margin-bottom:0px;
 }
-.bookButton{
+
+.buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally below the title */
+  width: 100%;
+  max-width: 400px; /* Limit the width to prevent buttons from stretching too far */
+}
+
+.bookButton,
+.infoButton {
   background-color: transparent;
   color: rgb(221, 220, 225);
   border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-right:0px; /* Space between buttons */
 }
-.icon3{
-  font-size:1.5rem;
-  color:whitesmoke;
+
+.bookButton:last-child {
+  margin-right: 0; /* Remove margin from the last button */
+}
+
+.muteButton {
+  position: absolute;
+  right: 30px;
+  bottom: 180px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.icon3 {
+  font-size: 2rem;
+  color: whitesmoke;
+}
+
+.leftButton,
+.rightButton {
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: whitesmoke;
+  font-size: 3rem;
+  z-index: 1;
+}
+
+.leftButton {
+  left: 10px;
+}
+
+.rightButton {
+  right: 10px;
+}
+
+.iconNav {
+  font-size: 3rem;
+  color: whitesmoke;
 }
