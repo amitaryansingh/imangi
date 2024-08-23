@@ -12,7 +12,9 @@ body {
   font-style: normal;
   background-color: black;
 }
-
+::-webkit-scrollbar {
+  display: none;
+}
 .slick-dots li button {
   display: none;
 }
