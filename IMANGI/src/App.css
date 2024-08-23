@@ -8,6 +8,10 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
+  background-color: black;
+}
+.slick-dots li button{
+  display: none;
 }
 .navbar{
   z-index: 1000;

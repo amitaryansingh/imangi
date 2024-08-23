@@ -2,25 +2,65 @@
   position: relative;
   width: 99%;
   margin-left: 10px;
-  margin-top:-22%;
-  overflow: hidden;
+  margin-top: -24.45%;
 }
 
-.slick-slide {
-  padding: 0 5px;
+.slickslide {
+  padding:14px;
+  transition: transform 0.5s ease;
 }
 
-.slick-track {
-  display: flex;
-  margin-left: -5px;
-}
-
-.slick-list {
-  padding-left: 5px;
-  overflow: hidden;
+.centerSlide {
+  filter: drop-shadow(0px 0px 10px rgb(255, 0, 81));
+    transform: scale(1.12);
 }
 
 .slickslide img {
   width: calc(100% - 10px);
   border-radius: 10px;
+  height: 195px;
+}
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.imageContainer:hover .overlay {
+  opacity: 1;
+}
+
+.movieTitle {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.bookNow {
+  padding: 10px 20px;
+  background-color: #ff3e3e;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.bookNow:hover {
+  background-color: #ff1a1a;
 }

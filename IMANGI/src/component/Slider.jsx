@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import style from "./Slider.module.css";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const ImageSlider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [centerSlide, setCenterSlide] = useState(0);
   const sliderRef = React.useRef(null);
 
   const settings = {
@@ -13,31 +14,29 @@ const ImageSlider = () => {
     infinite: true,
     speed: 1000,
     slidesToShow: 3,
-    slidesToScroll:1,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: false,
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
   };
 
-  const goToNext = () => {
-    sliderRef.current.slickNext();
-  };
-
-  const goToPrev = () => {
-    sliderRef.current.slickPrev();
-  };
+  useEffect(() => {
+    const middleSlide = Math.floor(settings.slidesToShow / 2);
+    setCenterSlide((currentSlide + middleSlide) % images.length);
+  }, [currentSlide]);
 
   const images = [
-    "https://via.placeholder.com/800x400?text=Image+1",
-    "https://via.placeholder.com/800x400?text=Image+2",
-    "https://via.placeholder.com/800x400?text=Image+3",
-    "https://via.placeholder.com/800x400?text=Image+4",
-    "https://via.placeholder.com/800x400?text=Image+5",
-    "https://via.placeholder.com/800x400?text=Image+6",
-    "https://via.placeholder.com/800x400?text=Image+7",
-    "https://via.placeholder.com/800x400?text=Image+8",
-    "https://via.placeholder.com/800x400?text=Image+9",
-    "https://via.placeholder.com/800x400?text=Image+10",
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    { src: "kalki.jpg", title: "Kalki 2898 AD" },
   ];
 
   return (
@@ -45,8 +44,19 @@ const ImageSlider = () => {
       <div className={style.slidercontainer}>
         <Slider ref={sliderRef} {...settings}>
           {images.map((image, index) => (
-            <div key={index} className={style.slickslide}>
-              <img src={image} alt={`Slide ${index + 1}`} />
+            <div
+              key={index}
+              className={`${style.slickslide} ${
+                index === centerSlide ? style.centerSlide : ""
+              }`}
+            >
+              <div className={style.imageContainer}>
+                <img src={image.src} alt={`Slide ${index + 1}`} />
+                <div className={style.overlay}>
+                  <div className={style.movieTitle}>{image.title}</div>
+                  <button className={style.bookNow}>Book Now</button>
+                </div>
+              </div>
             </div>
           ))}
         </Slider>

@@ -16,7 +16,7 @@
 .contentContainer {
   position: absolute;
   /* Keep it absolute but relative to .videocontainer */
-  top: 55%;
+  top: 52%;
   left: 35px;
   transform: translateY(-50%);
   display: flex;
@@ -57,7 +57,7 @@
   position: absolute;
   /* Keep it absolute but relative to .videocontainer */
   right: 30px;
-  top: 53%;
+  top: 52%;
   /* Adjust to position it relative to the video */
   background-color: transparent;
   border: none;
