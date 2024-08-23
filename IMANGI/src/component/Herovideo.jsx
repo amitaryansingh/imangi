@@ -6,7 +6,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 const videos = [
   { src: "video.mp4", title: "Kalki 2898 AD" },
   { src: "video.mp4", title: "Kalki 2898 AD" },
-  { src: "video.mp4", title: "TKalki 2898 AD" },
+  { src: "video.mp4", title: "Kalki 2898 AD" },
 ];
 
 const Herovideo = () => {
