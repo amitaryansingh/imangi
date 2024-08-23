@@ -2,7 +2,7 @@
   position: relative; /* Ensure the wrapper stays in the flow of the document */
   width: 99%;
   margin-left: 10px;
-  margin-top: 60vh;
+  margin-top: 120vh;
   overflow: hidden; /* Hide scrollbar */
 }
 
