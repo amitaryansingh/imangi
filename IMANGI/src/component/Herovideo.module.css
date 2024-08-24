@@ -20,7 +20,7 @@
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   z-index: 1;
 }
 
@@ -101,5 +101,26 @@
 }
 
 @media (max-width:991px) {
-  
- }
+  .videocontainer {
+    top: -35vh;
+  }  
+  .videocontainer video {
+    object-fit: contain;
+  }
+
+  .contentContainer {
+    bottom: 24.2vh;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .muteButton {
+    bottom: 40vh;
+    right: 1vw;
+  }
+}
