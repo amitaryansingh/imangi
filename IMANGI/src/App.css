@@ -30,8 +30,8 @@ body {
 .form-control {
   background-color: transparent;
   border: 1px solid #6c757d;
-  outline: none; /* Remove default focus outline */
-  box-shadow: none; /* Remove default focus box-shadow */
+  outline: none; 
+  box-shadow: none; 
 }
 
 .form-control:hover {
@@ -67,15 +67,15 @@ body {
 
 .dropdown-menu {
   background-color: #343a40;
-  border: none; /* Remove default border */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Reset margin */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  border: none; 
+  padding: 0; 
+  margin: 0; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .dropdown-menu .dropdown-item {
   padding: 8px 15px;
-  color: #fff; /* Ensure text color contrasts with background */
+  color: #fff; 
 }
 
 .dropdown-menu .dropdown-item:hover {
@@ -83,9 +83,9 @@ body {
 }
 
 .dropdown-menu input.form-control {
-  border: none; /* Clear border */
-  background-color: #495057; /* Slightly different shade for input */
-  color: #fff; /* Ensure input text is readable */
-  outline: none; /* Remove default focus outline */
-  box-shadow: none; /* Remove default focus box-shadow */
+  border: none; 
+  background-color: #495057; 
+  color: #fff;
+  outline: none; 
+  box-shadow: none; 
 }
