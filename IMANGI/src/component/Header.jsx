@@ -5,20 +5,38 @@ import { LuCalendarClock } from "react-icons/lu";
 import { BiSolidOffer } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import axios from "axios";
-import Profile from "./Profile"; // Ensure Profile component is imported correctly
+import Profile from "./Profile";
 
 const Header = () => {
   const [city, setCity] = useState("Location");
   const [selectedCity, setSelectedCity] = useState("Location");
   const [searchQuery, setSearchQuery] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const allLocations = [
-    "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata",
-    "Pune", "Jaipur", "Surat", "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane",
+    "Mumbai",
+    "Delhi",
+    "Bangalore",
+    "Hyderabad",
+    "Ahmedabad",
+    "Chennai",
+    "Kolkata",
+    "Pune",
+    "Jaipur",
+    "Surat",
+    "Lucknow",
+    "Kanpur",
+    "Nagpur",
+    "Indore",
+    "Thane",
   ];
 
-  const topLocations = ["Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad"];
+  const topLocations = [
+    "Mumbai",
+    "Delhi",
+    "Bangalore",
+    "Hyderabad",
+    "Ahmedabad",
+  ];
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -61,15 +79,18 @@ const Header = () => {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    console.log("profile clicked");
+    setShowPopup(!showPopup);
+  };
 
   const filteredLocations = searchQuery
     ? allLocations.filter((location) =>
         location.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : topLocations;
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   return (
     <nav className="navbar navbar-expand-lg border-body" data-bs-theme="dark">
@@ -107,7 +128,7 @@ const Header = () => {
               </a>
             </li>
           </ul>
-          <li className={`navbar-nav ${style['location-dropdown']}`}>
+          <li className={`navbar-nav ${style["location-dropdown"]}`}>
             <div className="btn-group">
               <button
                 type="button"
@@ -147,7 +168,6 @@ const Header = () => {
                     </a>
                   </li>
                 )}
-                
               </ul>
             </div>
           </li>
@@ -165,23 +185,14 @@ const Header = () => {
           <button
             className={`${style.profile} btn btn-outline-secondary`}
             type="button"
-            onClick={openModal}
+            onClick={togglePopup}
           >
             <CgProfile className={style.icon2} />
             Profile
           </button>
+          {showPopup && <Profile closePopup={togglePopup} />}
         </div>
       </div>
-
-      {/* Modal */}
-      {isModalOpen && (
-        <div className={style.modalOverlay} onClick={closeModal}>
-          <div className={style.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={style.closeButton} onClick={closeModal}>&times;</button>
-            <Profile />
-          </div>
-        </div>
-      )}
     </nav>
   );
 };
