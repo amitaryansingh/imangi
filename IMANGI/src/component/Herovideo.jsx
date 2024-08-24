@@ -4,8 +4,8 @@ import { VscUnmute, VscMute } from "react-icons/vsc";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const videos = [
-  { src: "video.mp4", title: "Kalki 2898 AD" },
-  { src: "video.mp4", title: "Kalki 2898 AD" },
+  { src: "t1.mp4", title: "John Wick" },
+  { src: "t1.mp4", title: "John Wick" },
   { src: "video.mp4", title: "Kalki 2898 AD" },
 ];
 
