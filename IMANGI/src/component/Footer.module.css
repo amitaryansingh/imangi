@@ -1,0 +1,79 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
+.footer {
+  background-color: transparent;
+  color: white;
+  padding: 1rem 3rem;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerTop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: -1rem;
+}
+
+.logoSection {
+  max-width: 300px;
+  text-align: left;
+  margin: 0rem;
+}
+
+.logo {
+  width: 7rem;
+  margin-bottom: 10px;
+}
+
+.linkSections {
+  display: flex;
+  gap: 40px;
+}
+
+.linkColumn {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.linkColumn a {
+  color: #bbb;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.linkColumn a:hover {
+  color: #007bff;
+  transform: scale(1.05); /* Slightly enlarges the link on hover */
+}
+
+.footerBottom {
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.footerBottom p {
+  margin: 0;
+}
+
+.socialMedia {
+  margin-top: 10px;
+}
+
+.socialMedia a {
+  color: white;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.socialMedia a:hover {
+  color: #007bff;
+  transform: scale(1.1); /* Slightly enlarges the icon on hover */
+}

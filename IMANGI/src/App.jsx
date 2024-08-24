@@ -5,6 +5,8 @@ import "./App.css";
 import Mobheader from "./component/Mobheader";
 import Herovideo from "./component/Herovideo";
 import ImageSlider from "./component/Slider";
+import Footer from "./component/Footer";
+import Body from "./component/Body";
 function App() {
   return (
     <>
@@ -12,6 +14,8 @@ function App() {
       <Herovideo />
       <ImageSlider />
       <Mobheader />
+      <Body/>
+      <Footer/>
     </>
   );
 }
