@@ -14,7 +14,6 @@ const Header = () => {
   const allLocations = [
     "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata",
     "Pune", "Jaipur", "Surat", "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane",
-    // Add more cities as needed...
   ];
 
   const topLocations = ["Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad"];
