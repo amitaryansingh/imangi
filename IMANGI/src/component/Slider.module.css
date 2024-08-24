@@ -105,3 +105,9 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+@media (max-width:991px) {
+ .sliderWrapper{
+  margin-top: -43vh;
+ }
+}
