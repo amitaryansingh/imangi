@@ -12,9 +12,11 @@ body {
   font-style: normal;
   background-color: black;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
+
 .slick-dots li button {
   display: none;
 }
@@ -22,12 +24,14 @@ body {
 .navbar {
   z-index: 1000;
   position: sticky;
-  top: 0px;
+  top: 0;
 }
 
 .form-control {
   background-color: transparent;
   border: 1px solid #6c757d;
+  outline: none; /* Remove default focus outline */
+  box-shadow: none; /* Remove default focus box-shadow */
 }
 
 .form-control:hover {
@@ -55,4 +59,33 @@ body {
   .mobileMenu .nav-link:hover {
     background-color: #495057;
   }
+}
+
+.location-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  background-color: #343a40;
+  border: none; /* Remove default border */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Reset margin */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+.dropdown-menu .dropdown-item {
+  padding: 8px 15px;
+  color: #fff; /* Ensure text color contrasts with background */
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #495057;
+}
+
+.dropdown-menu input.form-control {
+  border: none; /* Clear border */
+  background-color: #495057; /* Slightly different shade for input */
+  color: #fff; /* Ensure input text is readable */
+  outline: none; /* Remove default focus outline */
+  box-shadow: none; /* Remove default focus box-shadow */
 }
