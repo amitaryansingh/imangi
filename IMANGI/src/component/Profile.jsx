@@ -3,15 +3,9 @@ import style from "./Profile.module.css";
 
 const Profile = ({ closePopup }) => {
   const [isLogin, setIsLogin] = useState(true);
-  const [isAdmin, setIsAdmin] = useState(false);
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
-  };
-
-  const toggleAdmin = () => {
-    setIsAdmin(!isAdmin);
-    setIsLogin(true); // Reset to login mode when switching between User/Admin
   };
 
   return (
@@ -20,9 +14,9 @@ const Profile = ({ closePopup }) => {
         <button className={style.closeBtn} onClick={closePopup}>
           ×
         </button>
-        <h2>{isAdmin ? "Admin Login" : isLogin ? "User Login" : "Signup"}</h2>
+        <h2>{isLogin ? "Login" : "Signup"}</h2>
         <form>
-          {!isLogin && !isAdmin && (
+          {!isLogin && (
             <div className={style.formDiv}>
               <label className={style.labelStyle} htmlFor="name">
                 Name:
@@ -69,9 +63,6 @@ const Profile = ({ closePopup }) => {
             ? "Don't have an account? Signup"
             : "Already have an account? Login"}
         </p>
-        <button className={style.adminButton} onClick={toggleAdmin}>
-          {isAdmin ? "Switch to User" : "Admin Login"}
-        </button>
       </div>
     </div>
   );
