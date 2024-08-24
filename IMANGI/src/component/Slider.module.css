@@ -1,25 +1,25 @@
 .sliderWrapper {
   position: relative;
-  width: 99%;
-  margin-left: 10px;
-  margin-top: -55vh;
+  width:100vw;
+  margin-left: 0.5vw;
+  margin-top: -41vh;
 }
 
 .slickslide {
-  filter: brightness(0.5);
-  padding: 18px;
-  transition: transform 0.5s ease;
+  filter: brightness(0.6);
+  padding: 1vw;
+  transition: transform 0.2s ease;
 }
 
 .centerSlide {
   filter: brightness(1);
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
 .slickslide img {
   width: calc(100% - 10px);
   border-radius: 10px;
-  height: 230px;
+  height: calc(30vh - 10px);
 }
 
 .imageContainer {
@@ -49,7 +49,7 @@
 .movieTitle {
   color: #fff;
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 15vh;
 }
 
 .bookNow {
@@ -64,11 +64,4 @@
 
 .bookNow:hover {
   background-color: #ff1a1a;
-}
-
-
-@media (min-width: 1440px) {
-  .sliderWrapper {
-    margin-top: -46vh;
-  }
 }

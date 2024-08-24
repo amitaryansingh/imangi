@@ -1,16 +1,55 @@
+import React, { useEffect, useState } from "react";
 import style from "./Header.module.css";
 import { FaHome, FaSearch } from "react-icons/fa";
 import { LuCalendarClock } from "react-icons/lu";
 import { BiSolidOffer } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
+import axios from "axios";
 
 const Header = () => {
+  const [city, setCity] = useState("Location");
+  const [selectedCity, setSelectedCity] = useState("Location");
+
+  const locations = ["Bhubaneswar", "Ranchi", "Patna", "Kolkata", "Hyderabad"];
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          try {
+            const response = await axios.get(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`
+            );
+            let cityName = response.data.address.city || response.data.address.town || response.data.address.village;
+
+            // Remove unnecessary suffixes
+            if (cityName) {
+              cityName = cityName.replace(/ Municipal Corporation| Urban Agglomeration| Metropolitan Region/i, "");
+            }
+
+            setCity(cityName);
+            setSelectedCity(cityName);
+          } catch (error) {
+            console.error("Error fetching city name:", error);
+          }
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }, []);
+
+  const handleCityChange = (newCity) => {
+    setSelectedCity(newCity);
+  };
+
   return (
     <>
-      <nav
-        className="navbar navbar-expand-lg  border-body"
-        data-bs-theme="dark"
-      >
+      <nav className="navbar navbar-expand-lg  border-body" data-bs-theme="dark">
         <div className="container-fluid">
           <img className={style.navbarBrand} src="logo2.png" alt="LOGO" />
           <button
@@ -53,24 +92,20 @@ const Header = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Location
+                  {selectedCity}
                 </button>
                 <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Bhubaneswar
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Ranchi
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Patna
-                    </a>
-                  </li>
+                  {locations.map((location) => (
+                    <li key={location}>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        onClick={() => handleCityChange(location)}
+                      >
+                        {location}
+                      </a>
+                    </li>
+                  ))}
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
