@@ -9,12 +9,13 @@ const Footer = () => {
         <div className={style.logoSection}>
           <img src="/logo2.png" alt="Imangi-logo" className={style.logo} />
           <p>
-            Ireo Grand View Towers 14th Floor, Golf Course Extension Road,
-            Sector 58, Gurugram
+          Iter College, Jagmohan Nagar Bhubaneswar &51030, Odisha
+            Iter College, Bhubaneswar
           </p>
         </div>
         <div className={style.linkSections}>
-          <a href="/about-us">About Us</a>
+          {/* Updated About Us link to scroll to History of Imangi */}
+          <a href="#history-of-imangi">About Us</a>
           <a href="/terms">Terms of Service</a>
           <a href="/locations">Locations</a>
           <a href="/faq">FAQ</a>
