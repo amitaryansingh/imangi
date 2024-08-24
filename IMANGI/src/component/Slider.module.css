@@ -24,7 +24,7 @@
 }
 
 .slickslide:hover img {
-  filter: brightness(0.5) blur(0.5px);
+  filter: brightness(0.5) blur(2px);
 }
 
 .imageContainer {
@@ -70,7 +70,7 @@
 .timeAndDuration {
   display: flex;
   justify-content: center;
-  color: rgb(10, 164, 225);
+  color: whitesmoke;
   font-weight: 400;
   gap: 10px;
   margin-bottom: 15px;
@@ -85,23 +85,23 @@
 
 .bookNow {
   padding: 8px 15px;
-  background-color: #ff1a1a;
+  background-color: transparent;
   color: white;
-  border: none;
-  border-radius: 7px;
+  border: 1px solid  gray;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .bookNow:hover {
-  background-color: #ff1a1a;
+  background-color:  gray;
   transform: scale(1.05);
 }
 
 .moreInfo {
-  color: #c70dff;
+  color: red;
   font-weight: 400;
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
 }

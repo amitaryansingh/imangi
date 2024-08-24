@@ -40,20 +40,20 @@
 .bookButton,
 .infoButton {
   background-color: transparent;
-  color: #6c757d;
+  color: gray;
   border-radius: 5px;
-  border: 1px solid #6c757d;
+  border: 1px solid gray;
   cursor: pointer;
   font-size: 1.5rem;
   margin-right: 1vw;
 }
 .bookButton:hover {
   color: white;
-  background-color: #6c757d;
+  background-color: gray;
 }
 .infoButton:hover{
   color: white;
-  background-color: #6c757d;
+  background-color: gray;
 }
 .bookButton:last-child {
   margin-right: 0;
@@ -71,7 +71,7 @@
 
 .icon3 {
   font-size: 2rem;
-  color: whitesmoke;
+  color: gray;
 }
 
 .leftButton,
@@ -82,7 +82,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: whitesmoke;
+  color: gray;
   font-size: 3rem;
   z-index: 1;
 }
@@ -97,5 +97,5 @@
 
 .iconNav {
   font-size: 3rem;
-  color: whitesmoke;
+  color: gray;
 }
