@@ -5,11 +5,13 @@ import { LuCalendarClock } from "react-icons/lu";
 import { BiSolidOffer } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import axios from "axios";
+import Profile from "./Profile"; // Ensure Profile component is imported correctly
 
 const Header = () => {
   const [city, setCity] = useState("Location");
   const [selectedCity, setSelectedCity] = useState("Location");
   const [searchQuery, setSearchQuery] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const allLocations = [
     "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata",
@@ -65,6 +67,9 @@ const Header = () => {
         location.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : topLocations;
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <nav className="navbar navbar-expand-lg border-body" data-bs-theme="dark">
@@ -160,12 +165,23 @@ const Header = () => {
           <button
             className={`${style.profile} btn btn-outline-secondary`}
             type="button"
+            onClick={openModal}
           >
             <CgProfile className={style.icon2} />
             Profile
           </button>
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className={style.modalOverlay} onClick={closeModal}>
+          <div className={style.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={style.closeButton} onClick={closeModal}>&times;</button>
+            <Profile />
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

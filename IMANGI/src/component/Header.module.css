@@ -33,6 +33,47 @@
 .mobnavbar{
   display: none;
 }
+
+/* Profile Page CSS */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: gray;
+  opacity: 0.6;
+  border-radius: 0.5rem; /* Responsive border radius */
+  padding: 2rem; /* Responsive padding */
+  width: 50vw; /* Responsive width */
+  max-width: 80vw; /* Maximum width */
+  height: 50vh; /* Responsive height */
+  max-height: 80vh; /* Maximum height */
+  position: relative;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  overflow: auto; /* Ensures content is scrollable if it overflows */
+}
+
+.closeButton {
+  color:black;
+  position: absolute;
+  top: 0rem; /* Distance from top */
+  right: 22rem; /* Distance from right */
+  background: transparent;
+  border: none;
+  font-size: 3rem; /* Font size using rem */
+  cursor: pointer;
+}
+
+/* Profile Page CSS Upper Code*/
+
 @media (max-width:991px) {
   .profile,
     .search{
