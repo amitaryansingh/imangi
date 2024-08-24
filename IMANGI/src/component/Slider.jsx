@@ -27,16 +27,76 @@ const ImageSlider = () => {
   }, [currentSlide]);
 
   const images = [
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
-    { src: "kalki.jpg", title: "Kalki 2898 AD" },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
+    {
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+    },
   ];
 
   return (
@@ -53,8 +113,21 @@ const ImageSlider = () => {
               <div className={style.imageContainer}>
                 <img src={image.src} alt={`Slide ${index + 1}`} />
                 <div className={style.overlay}>
-                  <div className={style.movieTitle}>{image.title}</div>
-                  <button className={style.bookNow}>Book Now</button>
+                  <div className={style.movieDetails}>
+                    <div className={style.movieTitle}>{image.title}</div>
+                    <div className={style.languageAndGenre}>
+                      <span>{image.language}</span>
+                      <span>{image.genere}</span>
+                    </div>
+                    <div className={style.buttonsContainer}>
+                      <button className={style.bookNow}>Trailer</button>
+                      <button className={style.bookNow}>Book Now</button>
+                    </div>
+                    <div className={style.timeAndDuration}>
+                      <span>{image.duration}</span>
+                      <span className={style.moreInfo}>More Info</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

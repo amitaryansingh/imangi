@@ -1,6 +1,6 @@
 .sliderWrapper {
   position: relative;
-  width:100vw;
+  width: 100vw;
   margin-left: 0.5vw;
   margin-top: -41vh;
 }
@@ -20,6 +20,11 @@
   width: calc(100% - 10px);
   border-radius: 10px;
   height: calc(30vh - 10px);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.slickslide:hover img {
+  filter: brightness(0.5) blur(0.5px);
 }
 
 .imageContainer {
@@ -33,35 +38,70 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: transparent;
   display: flex;
   flex-direction: column;
+  filter: contrast(5);
   justify-content: center;
   align-items: center;
   opacity: 0;
   transition: opacity 0.5s ease;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .imageContainer:hover .overlay {
   opacity: 1;
 }
 
+.movieDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .movieTitle {
   color: #fff;
-  font-size: 24px;
-  margin-bottom: 15vh;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.languageAndGenre,
+.timeAndDuration {
+  display: flex;
+  justify-content: center;
+  color: rgb(10, 164, 225);
+  font-weight: 400;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
 }
 
 .bookNow {
-  padding: 10px 20px;
-  background-color: #ff3e3e;
+  padding: 8px 15px;
+  background-color: #ff1a1a;
   color: white;
   border: none;
   border-radius: 7px;
   cursor: pointer;
   font-size: 18px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .bookNow:hover {
   background-color: #ff1a1a;
+  transform: scale(1.05);
+}
+
+.moreInfo {
+  color: #c70dff;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: underline;
 }
