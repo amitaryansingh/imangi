@@ -4,7 +4,10 @@
 .li:hover{
    color: white;
 }
-
+.a{
+  color: #25292c;
+  font-weight: 650;
+}
 @media (max-width:991px) {
 .navigation {
     display: flex;

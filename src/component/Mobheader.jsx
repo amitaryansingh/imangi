@@ -17,23 +17,23 @@ const Mobheader = () => {
       <div className={style2.navigation}>
         <div className={style2.navitems}>
           <li className={style2.li}>
-            <Link to="/">
+            <Link className={style2.a} to="/">
               <FaHome className={style1.icon} />
               Home
             </Link>
           </li>
           <li className={style2.li}>
-            <Link to="/">
+            <Link className={style2.a} to="/booking">
               <LuCalendarClock className={style1.icon} />
               ShowTiming
             </Link>
           </li>
           <li className={style2.li}>
-            <Link onClick={togglePopup}>
+            <a className={style2.a} onClick={togglePopup}>
               <CgProfile className={style1.icon} />
               Profile
               {showPopup && <Profile closePopup={togglePopup} />}
-            </Link>
+            </a>
           </li>
         </div>
       </div>
