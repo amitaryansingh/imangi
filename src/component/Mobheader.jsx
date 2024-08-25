@@ -6,6 +6,7 @@ import { LuCalendarClock } from "react-icons/lu";
 import { BiSolidOffer } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import Profile from "./Profile";
+import { Link } from "react-router-dom";
 const Mobheader = () => {
   const [showPopup, setShowPopup] = useState(false);
   const togglePopup = () => {
@@ -16,22 +17,22 @@ const Mobheader = () => {
       <div className={style2.navigation}>
         <div className={style2.navitems}>
           <li className={style2.li}>
-            <a>
+            <Link to="/">
               <FaHome className={style1.icon} />
               Home
-            </a>
+            </Link>
           </li>
           <li className={style2.li}>
-            <a>
+            <Link to="/">
               <LuCalendarClock className={style1.icon} />
               ShowTiming
-            </a>
+            </Link>
           </li>
           <li className={style2.li}>
-            <a onClick={togglePopup}>
+            <Link onClick={togglePopup}>
               <CgProfile className={style1.icon} />
               Profile
-            </a>
+            </Link>
             {showPopup && <Profile closePopup={togglePopup} />}
           </li>
         </div>
