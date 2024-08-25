@@ -1,29 +1,38 @@
 import React, { useState } from "react";
-import { FaTimes, FaFilter } from "react-icons/fa"; // Import the cross icon for closing
+import { FaTimes, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
-import style from "./Bookingpage.module.css";
+import style from "./BookingPage.module.css";
 
 const BookingPage = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const location = useLocation();
-  const navigate = useNavigate(); // For programmatic navigation
-  const movieName = location.state?.movieName || "Book Your Movie Tickets"; // Default text
+  const navigate = useNavigate();
+  const movieName = location.state?.movieName || "Book Your Movie Tickets";
 
   const theaters = [
-    { name: "Newfangled Miniplex: Motera", times: ["11:00 PM"] },
-    { name: "AB Miniplex: Shivranjni Cross Road", times: ["11:05 PM"] },
-    { name: "Apple Cinema: Bapunagar", times: ["10:45 PM"] },
-    { name: "Apple Multiplex: Gota", times: ["10:15 PM"] },
+    { name: "Pvr Utkal Galleria", times: ["11:00 AM", "02:00 PM", "05:00 PM", "08:00 PM"] },
+    { name: "Inox DN Regallia", times: ["10:30 AM", "01:30 PM", "04:30 PM", "07:30 PM", "10:30 PM"] },
+    { name: "Cinepolis Esplanade", times: ["11:15 AM", "02:15 PM", "05:15 PM", "08:15 PM"] },
+    { name: "Mona 70mm", times: ["10:00 AM", "01:00 PM", "04:00 PM", "07:00 PM", "10:00 PM"] },
   ];
 
   const getNextSixDays = () => {
     const days = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const date = new Date();
-      date.setDate(selectedDate.getDate() + i);
-      days.push(date.toDateString());
+      date.setDate(date.getDate() + i + currentIndex);
+      days.push(date);
     }
     return days;
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex(Math.max(currentIndex - 6, 0));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex(currentIndex + 6);
   };
 
   return (
@@ -32,45 +41,69 @@ const BookingPage = () => {
         <FaTimes />
       </button>
       <h1>{movieName}</h1>
-      <div className={style.dateSelector}>
-        {getNextSixDays().map((date, index) => (
-          <button
-            key={index}
-            onClick={() => setSelectedDate(new Date(date))}
-            className={`${style.dateButton} ${
-              selectedDate.toDateString() === date ? style.activeDate : ""
-            }`}
-          >
-            {date}
+      <div className={style.content}>
+        <div className={style.dateSection}>
+          <button onClick={handlePrev} className={style.arrowButton}>
+            <FaArrowLeft />
           </button>
-        ))}
-      </div>
-
-      <div className={style.filterOptions}>
-        <h3>
-          <FaFilter /> Filters:
-        </h3>
-        <label>
-          <input type="checkbox" /> Available Seats
-        </label>
-        <label>
-          <input type="checkbox" /> Non-Cancellable
-        </label>
-      </div>
-
-      <div className={style.theaterList}>
-        {theaters.map((theater, index) => (
-          <div key={index} className={style.theater}>
-            <h2>{theater.name}</h2>
-            <div className={style.showtimes}>
-              {theater.times.map((time, idx) => (
-                <button className={style.showtimeButton} key={idx}>
-                  {time}
+          <div className={style.dateSelector}>
+            {getNextSixDays().map((date, index) => {
+              const day = date.toLocaleDateString("en-US", { weekday: 'short' });
+              const dateNum = date.toLocaleDateString("en-US", { day: '2-digit' });
+              const month = date.toLocaleDateString("en-US", { month: 'short' });
+              return (
+                <button
+                  key={index}
+                  onClick={() => setSelectedDate(date)}
+                  className={`${style.dateButton} ${
+                    selectedDate.toDateString() === date.toDateString() ? style.activeDate : ""
+                  }`}
+                >
+                  <div className={style.dateTag}>
+                    <div className={style.dateNum}>{dateNum}</div>
+                    <div className={style.dateMonth}>{month}</div>
+                  </div>
+                  <div className={style.dateDay}>{day}</div>
                 </button>
-              ))}
+              );
+            })}
+          </div>
+          <button onClick={handleNext} className={style.arrowButton}>
+            <FaArrowRight />
+          </button>
+        </div>
+        <div className={style.theaterSection}>
+          <div className={style.filterOptions}>
+            <div className={style.filterOption}>
+              <input type="checkbox" id="availableSeats" />
+              <label htmlFor="availableSeats">
+                <span></span>
+                Available Seats
+              </label>
+            </div>
+            <div className={style.filterOption}>
+              <input type="checkbox" id="nonCancellable" />
+              <label htmlFor="nonCancellable">
+                <span></span>
+                Non-Cancellable
+              </label>
             </div>
           </div>
-        ))}
+          <div className={style.theaterList}>
+            {theaters.map((theater, index) => (
+              <div key={index} className={style.theater}>
+                <h2>{theater.name}</h2>
+                <div className={style.showtimes}>
+                  {theater.times.map((time, timeIndex) => (
+                    <button key={timeIndex} className={style.showtimeButton}>
+                      {time}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
