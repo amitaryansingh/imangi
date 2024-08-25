@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.brandTag}>
-          <img src="/logo2.png" alt="Imangi" className={styles.logo} />
+          <img src="logo2.png" alt="Imangi" className={styles.logo} />
         </div>
         <div className={styles.rightSection}>
           <div className={styles.address}>
