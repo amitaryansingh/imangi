@@ -1,36 +1,23 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import style from "./Herovideo.module.css";
 import { VscUnmute, VscMute } from "react-icons/vsc";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-const videos = [
-  { src: "t1.mp4", title: "John Wick" },
-  { src: "t1.mp4", title: "John Wick" },
-  { src: "video.mp4", title: "Kalki 2898 AD" },
-];
-
-const Herovideo = () => {
+const Herovideo = ({ video, onNext, onPrevious }) => {
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, [video]);
 
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
       setIsMuted(videoRef.current.muted);
     }
-  };
-
-  const handleNextVideo = () => {
-    const nextIndex = (currentVideoIndex + 1) % videos.length;
-    setCurrentVideoIndex(nextIndex);
-    videoRef.current.load(); 
-  };
-
-  const handlePreviousVideo = () => {
-    const prevIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
-    setCurrentVideoIndex(prevIndex);
-    videoRef.current.load();
   };
 
   return (
@@ -45,20 +32,20 @@ const Herovideo = () => {
         onError={() => alert("Video failed to load")}
         style={{ display: "none" }}
       >
-        <source src={videos[currentVideoIndex].src} type="video/mp4" />
+        <source src={video.vid} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className={style.contentContainer}>
-        <h1 className={style.title}>{videos[currentVideoIndex].title}</h1>
+        <h1 className={style.title}>{video.title}</h1>
         <div className={style.buttons}>
           <button className={style.bookButton}>Book Now</button>
           <button className={style.infoButton}>Info</button>
         </div>
       </div>
-      <button className={style.leftButton} onClick={handlePreviousVideo}>
+      <button className={style.leftButton} onClick={onPrevious}>
         <FaAngleLeft className={style.iconNav} />
       </button>
-      <button className={style.rightButton} onClick={handleNextVideo}>
+      <button className={style.rightButton} onClick={onNext}>
         <FaAngleRight className={style.iconNav} />
       </button>
       <button onClick={toggleMute} className={style.muteButton}>

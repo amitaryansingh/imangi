@@ -22,7 +22,6 @@ function App() {
           path="/"
           element={
             <>
-              <Herovideo />
               <ImageSlider />
               <Body />
             </>

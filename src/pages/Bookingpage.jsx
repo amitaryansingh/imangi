@@ -18,7 +18,7 @@ const BookingPage = () => {
 
   const getNextSixDays = () => {
     const days = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 5; i++) {
       const date = new Date();
       date.setDate(selectedDate.getDate() + i);
       days.push(date.toDateString());
