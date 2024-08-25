@@ -6,7 +6,7 @@
 }
 
 .slickslide {
-  filter: brightness(0.6);
+  filter: brightness(1);
   padding: 1vw;
   transition: transform 0.2s ease;
 }
@@ -83,7 +83,6 @@
   margin-bottom: 10px;
 }
 
-/* Enhanced Book Now Button Styles */
 .bookNow {
   padding: 12px 25px;
   background: linear-gradient(135deg, #ff416c, #ff4b2b);
@@ -142,6 +141,6 @@
 
 @media (max-width: 991px) {
   .sliderWrapper {
-    margin-top: -43vh;
+    margin-top: -60vh;
   }
 }
