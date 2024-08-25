@@ -23,7 +23,7 @@ const Body = () => {
               Today, Imangi Studios stands as a testament to the power of innovation and storytelling. With a dedicated team and a passion for pushing the envelope, Imangi continues to shape the future of entertainment, creating memorable experiences for audiences around the globe. As the company looks to the future, it remains committed to exploring new horizons and setting new standards in the world of interactive media.
             </p>
           </div>
-          <img src="/m1.jpg" alt="History of Imangi" />
+          <img src="/m1.jpg" alt="History of Imangi"/>
         </section>
         <section id="our-vision" className={styles.bodySection}>
           <div className={styles.bodyText}>
