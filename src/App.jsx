@@ -9,7 +9,6 @@ import Herovideo from "./component/Herovideo";
 import ImageSlider from "./component/ImageSlider";
 import Footer from "./component/Footer";
 import Body from "./component/Body";
-import BookingPage from "./pages/Bookingpage";
 
 function App() {
   const location = useLocation(); // Get the current location
@@ -27,7 +26,6 @@ function App() {
             </>
           }
         />
-        <Route path="booking" element={<BookingPage />} />
       </Routes>
       <Footer />
       <Mobheader />

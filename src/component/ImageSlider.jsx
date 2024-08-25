@@ -3,11 +3,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import style from "./ImageSlider.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Herovideo from "./Herovideo";
+import BookingPopup from "./BookingPopup"; // Import BookingPopup component
 
 const ImageSlider = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [showBookingPopup, setShowBookingPopup] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
   const sliderRef = useRef(null);
   const navigate = useNavigate();
 
@@ -37,7 +40,6 @@ const ImageSlider = () => {
       },
     ],
   };
-  
 
   const images = [
     {
@@ -75,7 +77,13 @@ const ImageSlider = () => {
   ];
 
   const handleBookNowClick = (title) => {
-    navigate("/booking", { state: { movieName: title } });
+    setSelectedMovie(title);
+    setShowBookingPopup(true); // Show the booking popup
+  };
+
+  const handleClosePopup = () => {
+    setShowBookingPopup(false);
+    setSelectedMovie(null);
   };
 
   const handleTrailerClick = (index) => {
@@ -140,6 +148,12 @@ const ImageSlider = () => {
           </Slider>
         </div>
       </div>
+      {showBookingPopup && (
+        <BookingPopup
+          movieName={selectedMovie}
+          closePopup={handleClosePopup}
+        />
+      )}
     </>
   );
 };
