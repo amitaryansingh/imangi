@@ -32,8 +32,8 @@ const Mobheader = () => {
             <Link onClick={togglePopup}>
               <CgProfile className={style1.icon} />
               Profile
+              {showPopup && <Profile closePopup={togglePopup} />}
             </Link>
-            {showPopup && <Profile closePopup={togglePopup} />}
           </li>
         </div>
       </div>
