@@ -1,80 +1,81 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
-
 .footer {
-  background-color: transparent;
-  color: white;
-  padding: 1rem 3rem;
-  text-align: center;
-  position: relative;
-  bottom: -1vw;
-  width: 100vw;
-}
-
-.footerTop {
+  background-color: rgba(0, 0, 0, 0.1); /* Transparent background */
+  padding: 2rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: -1rem;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem; /* Adjusted font size for readability */
 }
 
-.logoSection {
-  width:6vw;
-  text-align: left;
-  margin: 0rem;
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.brandTag {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  width: 6vw;
-  margin-bottom: 10px;
+  width: auto; /* Maintain original aspect ratio */
+  height: auto; /* Maintain original aspect ratio */
+  max-width: 250px; /* Adjust width to fit your design */
+  max-height: 80px; /* Adjust height to fit your design */
+  object-fit: contain; /* Maintain aspect ratio without distortion */
 }
 
-.linkSections {
-  
+.rightSection {
   display: flex;
-  gap:0.5vw;
+  align-items: center;
 }
 
-.linkColumn {
+.address {
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.centerSection {
   display: flex;
-  flex-direction: column;
-  text-align: left;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.linkColumn a {
-  color: #bbb;
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcons a {
+  color: #333;
+  font-size: 1.5rem;
   text-decoration: none;
-  margin-bottom: 10px;
-  font-size: 14px;
-  transition: color 0.3s, transform 0.3s;
 }
 
-.linkColumn a:hover {
-  color: #007bff;
-  transform: scale(1.05); /* Slightly enlarges the link on hover */
+.footerLinks {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.footerBottom {
-  border-top: 1px solid #444;
-  padding-top: 20px;
+.link {
+  color: #333;
+  text-decoration: none;
 }
 
-.footerBottom p {
-  margin: 0;
+.link:hover {
+  text-decoration: underline;
 }
 
-.socialMedia {
-  margin-top: 10px;
-}
-
-.socialMedia a {
-  color: white;
-  margin: 0 10px;
-  font-size: 20px;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.socialMedia a:hover {
-  color: #007bff;
-  transform: scale(1.1);
+.copyright {
+  text-align: center;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+  padding: 0 1rem;
 }
