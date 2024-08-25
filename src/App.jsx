@@ -6,7 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./App.css";
 import Mobheader from "./component/Mobheader";
 import Herovideo from "./component/Herovideo";
-import ImageSlider from "./component/Slider";
+import ImageSlider from "./component/ImageSlider";
 import Footer from "./component/Footer";
 import Body from "./component/Body";
 import BookingPage from "./pages/Bookingpage";
