@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaTimes, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
-import style from "./BookingPage.module.css";
+import style from "./Bookingpage.module.css";
 
 const BookingPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,10 +11,22 @@ const BookingPage = () => {
   const movieName = location.state?.movieName || "Book Your Movie Tickets";
 
   const theaters = [
-    { name: "Pvr Utkal Galleria", times: ["11:00 AM", "02:00 PM", "05:00 PM", "08:00 PM"] },
-    { name: "Inox DN Regallia", times: ["10:30 AM", "01:30 PM", "04:30 PM", "07:30 PM", "10:30 PM"] },
-    { name: "Cinepolis Esplanade", times: ["11:15 AM", "02:15 PM", "05:15 PM", "08:15 PM"] },
-    { name: "Mona 70mm", times: ["10:00 AM", "01:00 PM", "04:00 PM", "07:00 PM", "10:00 PM"] },
+    {
+      name: "Pvr Utkal Galleria",
+      times: ["11:00 AM", "02:00 PM", "05:00 PM", "08:00 PM"],
+    },
+    {
+      name: "Inox DN Regallia",
+      times: ["10:30 AM", "01:30 PM", "04:30 PM", "07:30 PM", "10:30 PM"],
+    },
+    {
+      name: "Cinepolis Esplanade",
+      times: ["11:15 AM", "02:15 PM", "05:15 PM", "08:15 PM"],
+    },
+    {
+      name: "Mona 70mm",
+      times: ["10:00 AM", "01:00 PM", "04:00 PM", "07:00 PM", "10:00 PM"],
+    },
   ];
 
   const getNextSixDays = () => {
@@ -48,15 +60,23 @@ const BookingPage = () => {
           </button>
           <div className={style.dateSelector}>
             {getNextSixDays().map((date, index) => {
-              const day = date.toLocaleDateString("en-US", { weekday: 'short' });
-              const dateNum = date.toLocaleDateString("en-US", { day: '2-digit' });
-              const month = date.toLocaleDateString("en-US", { month: 'short' });
+              const day = date.toLocaleDateString("en-US", {
+                weekday: "short",
+              });
+              const dateNum = date.toLocaleDateString("en-US", {
+                day: "2-digit",
+              });
+              const month = date.toLocaleDateString("en-US", {
+                month: "short",
+              });
               return (
                 <button
                   key={index}
                   onClick={() => setSelectedDate(date)}
                   className={`${style.dateButton} ${
-                    selectedDate.toDateString() === date.toDateString() ? style.activeDate : ""
+                    selectedDate.toDateString() === date.toDateString()
+                      ? style.activeDate
+                      : ""
                   }`}
                 >
                   <div className={style.dateTag}>
