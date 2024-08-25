@@ -1,3 +1,5 @@
+/* BookingPage.module.css */
+
 .container {
   width: 85%;
   margin: 40px auto;
@@ -7,6 +9,32 @@
   background: linear-gradient(135deg, #2e3d4b, #000000);
   border-radius: 15px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  position: relative; /* Position relative for the close button positioning */
+}
+
+/* Close Button Styles */
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px; /* Font size for desktop */
+  color: #000000; /* Red color for close button */
+  cursor: pointer;
+  position: absolute;
+  top: 20px; /* Positioning from the top */
+  right: 20px; /* Positioning from the right */
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.closeButton:hover {
+  background-color: transparent; /* Light red background on hover */
+  color: #000000; /* Darker red color on hover */
+}
+
+.closeButton svg {
+  margin: 0;
+  font-size: inherit; /* Inherit font size from the button */
 }
 
 h1 {
@@ -23,6 +51,7 @@ h1 {
   justify-content: space-around;
   margin-bottom: 30px;
   gap: 15px;
+  flex-wrap: wrap; /* Wrap for better mobile view */
 }
 
 .dateButton {
@@ -52,6 +81,7 @@ h1 {
   align-items: center;
   margin-bottom: 30px;
   gap: 25px;
+  flex-wrap: wrap; /* Wrap for better mobile view */
 }
 
 .filterOptions h3 {
@@ -119,4 +149,32 @@ h1 {
 .showtimeButton:hover {
   background-color: #c0392b;
   transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .closeButton {
+    font-size: 20px; /* Smaller font size for mobile */
+    top: 15px; /* Adjusted positioning for mobile */
+    right: 15px; /* Adjusted positioning for mobile */
+  }
+
+  .dateButton {
+    padding: 10px 20px;
+    font-size: 14px; /* Adjust font size for mobile */
+  }
+
+  .filterOptions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .filterOptions h3 {
+    font-size: 20px;
+  }
+
+  .showtimeButton {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }

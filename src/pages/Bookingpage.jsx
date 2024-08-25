@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { FaFilter } from "react-icons/fa";
-import { useLocation } from "react-router-dom";
+import { FaTimes, FaFilter } from "react-icons/fa"; // Import the cross icon for closing
+import { useLocation, useNavigate } from "react-router-dom";
 import style from "./BookingPage.module.css";
 
 const BookingPage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const location = useLocation();
+  const navigate = useNavigate(); // For programmatic navigation
   const movieName = location.state?.movieName || "Book Your Movie Tickets"; // Default text
 
   const theaters = [
@@ -27,6 +28,9 @@ const BookingPage = () => {
 
   return (
     <div className={style.container}>
+      <button onClick={() => navigate(-1)} className={style.closeButton}>
+        <FaTimes />
+      </button>
       <h1>{movieName}</h1>
       <div className={style.dateSelector}>
         {getNextSixDays().map((date, index) => (
