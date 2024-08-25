@@ -16,19 +16,19 @@ const Mobheader = () => {
       <div className={style2.navigation}>
         <div className={style2.navitems}>
           <li className={style2.li}>
-            <a href="#">
+            <a>
               <FaHome className={style1.icon} />
               Home
             </a>
           </li>
           <li className={style2.li}>
-            <a href="#">
+            <a>
               <LuCalendarClock className={style1.icon} />
               ShowTiming
             </a>
           </li>
           <li className={style2.li}>
-            <a href="#" onClick={togglePopup}>
+            <a onClick={togglePopup}>
               <CgProfile className={style1.icon} />
               Profile
             </a>
