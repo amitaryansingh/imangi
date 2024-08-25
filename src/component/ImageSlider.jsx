@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,8 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Herovideo from "./Herovideo";
 
 const ImageSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [centerSlide, setCenterSlide] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const sliderRef = useRef(null);
   const navigate = useNavigate();
@@ -22,13 +20,7 @@ const ImageSlider = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: false,
-    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
   };
-
-  useEffect(() => {
-    const middleSlide = Math.floor(settings.slidesToShow / 2);
-    setCenterSlide((currentSlide + middleSlide) % images.length);
-  }, [currentSlide]);
 
   const images = [
     {
@@ -94,12 +86,7 @@ const ImageSlider = () => {
         <div className={style.slidercontainer}>
           <Slider ref={sliderRef} {...settings}>
             {images.map((image, index) => (
-              <div
-                key={index}
-                className={`${style.slickslide} ${
-                  index === centerSlide ? style.centerSlide : ""
-                }`}
-              >
+              <div key={index} className={style.slickslide}>
                 <div className={style.imageContainer}>
                   <img src={image.src} alt={`Slide ${index + 1}`} />
                   <div className={style.overlay}>
