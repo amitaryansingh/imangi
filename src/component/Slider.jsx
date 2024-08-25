@@ -3,12 +3,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import style from "./Slider.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ImageSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [centerSlide, setCenterSlide] = useState(0);
   const sliderRef = React.useRef(null);
+  const navigate = useNavigate(); // For programmatic navigation
 
   const settings = {
     dots: true,
@@ -28,77 +29,16 @@ const ImageSlider = () => {
   }, [currentSlide]);
 
   const images = [
-    {
-      src: "j1.webp",
-      title: "John Wick Part 1",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      src: "j2.webp",
-      title: "John Wick Part 2",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      src: "j3.webp",
-      title: "John Wick Part 3",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      src: "j4.webp",
-      title: "John Wick Part 4",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      src: "j4.webp",
-      title: "John Wick Part 4",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      src: "j4.webp",
-      title: "John Wick Part 4",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      src: "j4.webp",
-      title: "John Wick Part 4",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      src: "j4.webp",
-      title: "John Wick Part 4",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      src: "j4.webp",
-      title: "John Wick Part 4",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      src: "j4.webp",
-      title: "John Wick Part 4",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
+    { src: "j1.webp", title: "John Wick Part 1", language: "Hindi", genere: "Sci-Fi", duration: "2h 30m" },
+    { src: "j2.webp", title: "John Wick Part 2", language: "Hindi", genere: "Sci-Fi", duration: "2h 30m" },
+    { src: "j3.webp", title: "John Wick Part 3", language: "Hindi", genere: "Sci-Fi", duration: "2h 30m" },
+    { src: "j4.webp", title: "John Wick Part 4", language: "Hindi", genere: "Sci-Fi", duration: "2h 30m" },
+    // Repeat as needed
   ];
+
+  const handleBookNowClick = (title) => {
+    navigate("/booking", { state: { movieName: title } });
+  };
 
   return (
     <div className={style.sliderWrapper}>
@@ -107,9 +47,7 @@ const ImageSlider = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              className={`${style.slickslide} ${
-                index === centerSlide ? style.centerSlide : ""
-              }`}
+              className={`${style.slickslide} ${index === centerSlide ? style.centerSlide : ""}`}
             >
               <div className={style.imageContainer}>
                 <img src={image.src} alt={`Slide ${index + 1}`} />
@@ -122,8 +60,8 @@ const ImageSlider = () => {
                     </div>
                     <div className={style.buttonsContainer}>
                       <button className={style.bookNow}>Trailer</button>
-                      <button className={style.bookNow}>
-                        <Link to="/booking">Book Now</Link>
+                      <button className={style.bookNow} onClick={() => handleBookNowClick(image.title)}>
+                        Book Now
                       </button>
                     </div>
                     <div className={style.timeAndDuration}>

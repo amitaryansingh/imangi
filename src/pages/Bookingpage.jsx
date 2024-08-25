@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { FaFilter } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 import style from "./BookingPage.module.css";
 
 const BookingPage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const location = useLocation();
+  const movieName = location.state?.movieName || "Book Your Movie Tickets"; // Default text
+
   const theaters = [
     { name: "Newfangled Miniplex: Motera", times: ["11:00 PM"] },
     { name: "AB Miniplex: Shivranjni Cross Road", times: ["11:05 PM"] },
@@ -23,7 +27,7 @@ const BookingPage = () => {
 
   return (
     <div className={style.container}>
-      <h1>Book Your Movie Tickets</h1>
+      <h1>{movieName}</h1>
       <div className={style.dateSelector}>
         {getNextSixDays().map((date, index) => (
           <button
