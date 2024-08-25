@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaFilter } from "react-icons/fa";
 import style from "./BookingPage.module.css";
 
 const BookingPage = () => {
@@ -22,7 +23,7 @@ const BookingPage = () => {
 
   return (
     <div className={style.container}>
-      <h1>Booking Page</h1>
+      <h1>Book Your Movie Tickets</h1>
       <div className={style.dateSelector}>
         {getNextSixDays().map((date, index) => (
           <button
@@ -38,7 +39,9 @@ const BookingPage = () => {
       </div>
 
       <div className={style.filterOptions}>
-        <h3>Filters:</h3>
+        <h3>
+          <FaFilter /> Filters:
+        </h3>
         <label>
           <input type="checkbox" /> Available Seats
         </label>
