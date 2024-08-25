@@ -3,7 +3,7 @@ import style from "./Herovideo.module.css";
 import { VscUnmute, VscMute } from "react-icons/vsc";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-const Herovideo = ({ video, onNext, onPrevious }) => {
+const Herovideo = ({ video, onNext, onPrevious, bookNow }) => {
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -38,7 +38,12 @@ const Herovideo = ({ video, onNext, onPrevious }) => {
       <div className={style.contentContainer}>
         <h1 className={style.title}>{video.title}</h1>
         <div className={style.buttons}>
-          <button className={style.bookButton}>Book Now</button>
+          <button
+            className={style.bookButton}
+            onClick={() => bookNow(video.title)}
+          >
+            Book Now
+          </button>
           <button className={style.infoButton}>Info</button>
         </div>
       </div>

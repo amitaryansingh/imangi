@@ -81,6 +81,7 @@ const ImageSlider = () => {
         video={images[currentVideoIndex]}
         onNext={handleNextVideo}
         onPrevious={handlePreviousVideo}
+        bookNow={handleBookNowClick}
       />
       <div className={style.sliderWrapper}>
         <div className={style.slidercontainer}>
