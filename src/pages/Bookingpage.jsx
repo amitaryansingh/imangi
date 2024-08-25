@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaTimes, FaFilter } from "react-icons/fa"; // Import the cross icon for closing
 import { useLocation, useNavigate } from "react-router-dom";
-import style from "./BookingPage.module.css";
+import style from "./Bookingpage.module.css";
 
 const BookingPage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
