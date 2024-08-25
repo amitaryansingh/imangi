@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import style from "./Slider.module.css";
+import { Link } from "react-router-dom";
 
 const ImageSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -121,7 +122,9 @@ const ImageSlider = () => {
                     </div>
                     <div className={style.buttonsContainer}>
                       <button className={style.bookNow}>Trailer</button>
-                      <button className={style.bookNow}>Book Now</button>
+                      <button className={style.bookNow}>
+                        <Link to="/booking">Book Now</Link>
+                      </button>
                     </div>
                     <div className={style.timeAndDuration}>
                       <span>{image.duration}</span>

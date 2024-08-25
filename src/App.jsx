@@ -1,3 +1,5 @@
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./component/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -7,16 +9,31 @@ import Herovideo from "./component/Herovideo";
 import ImageSlider from "./component/Slider";
 import Footer from "./component/Footer";
 import Body from "./component/Body";
+import BookingPage from "./pages/Bookingpage";
+
 function App() {
+  const location = useLocation(); // Get the current location
+
   return (
     <>
       <Header />
-      <Herovideo />
-      <ImageSlider />
-      <Body/>
-      <Footer/>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Herovideo />
+              <ImageSlider />
+              <Body />
+            </>
+          }
+        />
+        <Route path="booking" element={<BookingPage />} />
+      </Routes>
+      <Footer />
       <Mobheader />
     </>
   );
 }
+
 export default App;

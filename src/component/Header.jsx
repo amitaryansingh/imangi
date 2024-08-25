@@ -6,6 +6,7 @@ import { BiSolidOffer } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import axios from "axios";
 import Profile from "./Profile";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [city, setCity] = useState("Location");
@@ -110,10 +111,10 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="#">
+              <Link className="nav-link" to="/">
                 <FaHome className={style.icon} />
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
