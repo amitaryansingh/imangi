@@ -61,11 +61,13 @@ const Profile = ({ closePopup }) => {
             />
           </div>
           <button className={style.submitButton} type="submit">
-            {isLogin ? "Login" : "Signup"}
+            {isAdmin ? "Login" : isLogin ? "Login" : "Signup"}
           </button>
         </form>
         <p className={style.toggleText} onClick={toggleForm}>
-          {isLogin
+          {isAdmin
+            ? ""
+            : isLogin
             ? "Don't have an account? Signup"
             : "Already have an account? Login"}
         </p>
