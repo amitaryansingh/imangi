@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import style from "./SeatSelectionPopup.module.css";
 import { FaTimes } from "react-icons/fa";
-import screenSvg from "/Users/amitaryan/Documents/GitHub/imangi/public/screen.svg";
 
 const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
   const [selectedSeats, setSelectedSeats] = useState({});
@@ -22,8 +21,6 @@ const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
         </button>
         <div className={style.theaterInfo}>
           <h2>{theater}</h2>
-          <img src={screenSvg} alt="Screen" className={style.screenImage} />
-          <h2>Screen Here</h2>
         </div>
         <div className={style.seatingArrangement}>
           {sections.map((section) => (

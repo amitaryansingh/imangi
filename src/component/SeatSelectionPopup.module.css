@@ -68,8 +68,7 @@
 
 .row {
   display: flex;
-  justify-content: center; /* Center the row content */
-  gap: 10px; /* Consistent gap between row elements */
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -80,7 +79,7 @@
 
 .seatBlock {
   display: flex;
-  justify-content: center; /* Center the seats within the block */
+  align-items: center;
   gap: 5px;
 }
 
