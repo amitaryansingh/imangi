@@ -18,10 +18,10 @@
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 8px 22px gray;
-    width: 85vw;
+    width: 60vw;
     height: auto;
     max-height: 80vh;
-    overflow: scroll;
+    overflow: auto;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@
     top: 15px;
     right: 15px;
     color: white;
-    z-index: 1010; 
+    z-index: 1010; /* Ensure the button is on top */
   }
   
   .theaterInfo {
@@ -79,52 +79,3 @@
     color: white;
   }
   
-  .seatingArrangement {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .section {
-    margin-bottom: 20px;
-  }
-  
-  .sectionName {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .rowLabel {
-    margin-right: 10px;
-    font-weight: bold;
-  }
-  
-  .seatBlock {
-    display: flex;
-    gap: 5px;
-  }
-  
-  .seat {
-    width: 30px;
-    height: 30px;
-    background-color: green;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    color: white;
-  }
-  
-  .seatGap {
-    width: 40px;
-  }
-  
-  .selectedSeat {
-    background-color: yellow;
-  }
