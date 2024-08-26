@@ -11,6 +11,19 @@
   z-index: 1000;
 }
 
+
+.popupOverlay.hide {
+  opacity: 0;
+  pointer-events: none; /* Ensures no clicks on hidden popup */
+}
+
+
+.arrowButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .popupContent {
   background: transparent;
   padding: 30px;
