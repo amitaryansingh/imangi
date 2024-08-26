@@ -132,3 +132,7 @@
   font-size: 1rem;
 }
 }
+.yourComponentClass {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

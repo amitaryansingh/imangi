@@ -163,3 +163,7 @@ h2 {
     width: 85vw;
   }
 }
+.yourComponentClass {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

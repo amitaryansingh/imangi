@@ -43,3 +43,7 @@
     margin-bottom: 5px;
   }
 }
+.yourComponentClass {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

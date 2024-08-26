@@ -89,3 +89,37 @@ body {
   outline: none; 
   box-shadow: none; 
 }
+/* Global theme variables */
+body.light-mode {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Ensure your components inherit these variables */
+.yourComponentClass {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

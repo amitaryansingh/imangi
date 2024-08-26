@@ -60,4 +60,8 @@
     text-align: center;
     color: white; /* Ensure text is visible */
   }
+  .yourComponentClass {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
   

@@ -132,3 +132,8 @@ h2 {
       padding: 1.2vw;
     }
   }
+  .yourComponentClass {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  

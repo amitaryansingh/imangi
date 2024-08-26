@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./Header.module.css";
-import { FaHome, FaSearch } from "react-icons/fa";
+import { FaHome, FaSearch, FaSun, FaMoon } from "react-icons/fa";
 import { LuCalendarClock } from "react-icons/lu";
 import { BiSolidOffer } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
@@ -12,6 +12,7 @@ const Header = () => {
   const [city, setCity] = useState("Location");
   const [selectedCity, setSelectedCity] = useState("Location");
   const [searchQuery, setSearchQuery] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const allLocations = [
     "Mumbai",
@@ -38,6 +39,18 @@ const Header = () => {
     "Hyderabad",
     "Ahmedabad",
   ];
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode) {
+      setIsDarkMode(JSON.parse(savedMode));
+    }
+  }, []);
+
+  useEffect(() => {
+    document.body.className = isDarkMode ? "dark-mode" : "light-mode";
+    localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -80,6 +93,7 @@ const Header = () => {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
+
   const [showPopup, setShowPopup] = useState(false);
 
   const togglePopup = () => {
@@ -93,8 +107,12 @@ const Header = () => {
       )
     : topLocations;
 
+  const toggleMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg border-body" data-bs-theme="dark">
+    <nav className="navbar navbar-expand-lg border-body" data-bs-theme={isDarkMode ? "dark" : "light"}>
       <div className="container-fluid">
         <img className={style.navbarBrand} src="logo2.png" alt="LOGO" />
         <button
@@ -190,6 +208,13 @@ const Header = () => {
           >
             <CgProfile className={style.icon2} />
             Profile
+          </button>
+          <button
+            className={`${style.modeToggle} btn btn-outline-secondary`}
+            type="button"
+            onClick={toggleMode}
+          >
+            {isDarkMode ? <FaSun /> : <FaMoon />}
           </button>
           {showPopup && <Profile closePopup={togglePopup} />}
         </div>

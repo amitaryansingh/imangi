@@ -79,3 +79,7 @@
   max-width: 1200px; /* Adjust as needed */
   padding: 0 1rem;
 }
+.yourComponentClass {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

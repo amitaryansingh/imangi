@@ -1,25 +1,45 @@
+/* Header.module.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.headerIcons {
+  display: flex;
+  align-items: center;
+}
+
 .icon {
   font-size: 1.6rem;
   vertical-align: middle;
   margin-right: 4px;
   margin-bottom: 5px;
 }
+
 .icon2 {
   font-size: 1.6rem;
   vertical-align: middle;
   margin-right: 4px;
 }
+
 .navbarBrand {
   height: 40px;
   width: 100px;
 }
-.profile, .search {
+
+.profile, .search, .modeToggle {
   margin-left: 1rem;
 }
+
 .searchContainer {
   position: relative;
   width: 100%;
 }
+
 .searchIcon {
   position: absolute;
   right: 10px;
@@ -28,9 +48,11 @@
   color: #868080;
   font-size: 1rem;
 }
+
 .mobnavbar {
   display: none;
 }
+
 @media (max-width: 991px) {
   .profile, .search {
     margin-left: 0;
@@ -51,6 +73,7 @@
   justify-content: center;
   z-index: 1000;
 }
+
 .modalContent {
   background: white;
   padding: 20px;
@@ -58,4 +81,54 @@
   width: 80%;
   max-width: 500px;
   text-align: center;
+}
+
+/* Dark mode styles */
+.dark-mode .navbar {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .btn-outline-secondary {
+  border-color: #666;
+  color: #fff;
+}
+
+.dark-mode .dropdown-menu {
+  background-color: #444;
+  color: #fff;
+}
+
+.dark-mode .form-control {
+  background-color: #555;
+  color: #fff;
+}
+
+.dark-mode .searchIcon {
+  color: #ccc;
+}
+
+/* Light mode styles */
+.light-mode .navbar {
+  background-color: #fff;
+  color: #000;
+}
+
+.light-mode .btn-outline-secondary {
+  border-color: #ccc;
+  color: #000;
+}
+
+.light-mode .dropdown-menu {
+  background-color: #fff;
+  color: #000;
+}
+
+.light-mode .form-control {
+  background-color: #fff;
+  color: #000;
+}
+
+.light-mode .searchIcon {
+  color: #666;
 }
