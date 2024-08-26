@@ -3,16 +3,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import style from "./ImageSlider.module.css";
-import { useNavigate } from "react-router-dom";
 import Herovideo from "./Herovideo";
-import BookingPopup from "./BookingPopup"; // Import BookingPopup component
+import BookingPopup from "./BookingPopup";
+import MoreInfoPopup from "./MoreInfoPopup";
 
 const ImageSlider = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [showBookingPopup, setShowBookingPopup] = useState(false);
+  const [showMoreInfoPopup, setShowMoreInfoPopup] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const sliderRef = useRef(null);
-  const navigate = useNavigate();
 
   const settings = {
     dots: true,
@@ -25,14 +25,14 @@ const ImageSlider = () => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 991, // max-width 991px
+        breakpoint: 991,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
         },
       },
       {
-        breakpoint: 600, // max-width 600px
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -49,40 +49,66 @@ const ImageSlider = () => {
       language: "Hindi",
       genere: "Sci-Fi",
       duration: "2h 30m",
+      isAdult: true,
+      castDetails: [
+        { name: "Keanu Reeves", role: "Actor" },
+        { name: "Halle Berry", role: "Actress" },
+        { name: "Ian McShane", role: "Actor" },
+        { name: "Prabhas", role: "Actor" },
+        { name: "Deepika Padukone", role: "Actress" },
+        { name: "Amitabh Bachchan", role: "Actor" },
+        { name: "Prabhas", role: "Actor" },
+        { name: "Deepika Padukone", role: "Actress" },
+        { name: "Amitabh Bachchan", role: "Actor" },
+        { name: "Prabhas", role: "Actor" },
+        { name: "Deepika Padukone", role: "Actress" },
+        { name: "Amitabh Bachchan", role: "Actor" },
+      ],
+      releaseDate: "2014-10-24",
+      story: "John Wick is an ex-hitman who comes out of retirement...",
+      trailer: "t1.mp4"
     },
     {
       vid: "video.mp4",
       src: "kalki.jpg",
       title: "Kalki 2898 AD",
       language: "Hindi",
+      isAdult: false,
       genere: "Sci-Fi",
       duration: "2h 30m",
-    },
-    {
-      vid: "t1.mp4",
-      src: "j1.webp",
-      title: "John Wick Part 3",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
-    },
-    {
-      vid: "video.mp4",
-      src: "kalki.jpg",
-      title: "Kalki 2898 AD",
-      language: "Hindi",
-      genere: "Sci-Fi",
-      duration: "2h 30m",
+      castDetails: [
+        { name: "Prabhas", role: "Actor" },
+        { name: "Deepika Padukone", role: "Actress" },
+        { name: "Amitabh Bachchan", role: "Actor" },
+        { name: "Prabhas", role: "Actor" },
+        { name: "Deepika Padukone", role: "Actress" },
+        { name: "Amitabh Bachchan", role: "Actor" },
+        { name: "Prabhas", role: "Actor" },
+        { name: "Deepika Padukone", role: "Actress" },
+        { name: "Amitabh Bachchan", role: "Actor" },
+        { name: "Prabhas", role: "Actor" },
+        { name: "Deepika Padukone", role: "Actress" },
+        { name: "Amitabh Bachchan", role: "Actor" },
+      ],
+      releaseDate: "2024-08-15",
+      story: "A sci-fi adventure in the year 2898...",
+      trailer: "kalki_trailer.mp4"
     },
   ];
 
   const handleBookNowClick = (title) => {
     setSelectedMovie(title);
-    setShowBookingPopup(true); // Show the booking popup
+    setShowBookingPopup(true);
+  };
+
+  const handleMoreInfoClick = (movie) => {
+    setSelectedMovie(movie);
+    setShowMoreInfoPopup(true);
   };
 
   const handleClosePopup = () => {
     setShowBookingPopup(false);
+    setShowMoreInfoPopup(false);
     setSelectedMovie(null);
   };
 
@@ -90,22 +116,12 @@ const ImageSlider = () => {
     setCurrentVideoIndex(index);
   };
 
-  const handleNextVideo = () => {
-    const nextIndex = (currentVideoIndex + 1) % images.length;
-    setCurrentVideoIndex(nextIndex);
-  };
-
-  const handlePreviousVideo = () => {
-    const prevIndex = (currentVideoIndex - 1 + images.length) % images.length;
-    setCurrentVideoIndex(prevIndex);
-  };
-
   return (
     <>
       <Herovideo
         video={images[currentVideoIndex]}
-        onNext={handleNextVideo}
-        onPrevious={handlePreviousVideo}
+        onNext={() => setCurrentVideoIndex((currentVideoIndex + 1) % images.length)}
+        onPrevious={() => setCurrentVideoIndex((currentVideoIndex - 1 + images.length) % images.length)}
         bookNow={handleBookNowClick}
       />
       <div className={style.sliderWrapper}>
@@ -138,7 +154,12 @@ const ImageSlider = () => {
                       </div>
                       <div className={style.timeAndDuration}>
                         <span>{image.duration}</span>
-                        <span className={style.moreInfo}>More Info</span>
+                        <span
+                          className={style.moreInfo}
+                          onClick={() => handleMoreInfoClick(image)}
+                        >
+                          More Info
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -151,6 +172,12 @@ const ImageSlider = () => {
       {showBookingPopup && (
         <BookingPopup
           movieName={selectedMovie}
+          closePopup={handleClosePopup}
+        />
+      )}
+      {showMoreInfoPopup && selectedMovie && (
+        <MoreInfoPopup
+          movie={selectedMovie}
           closePopup={handleClosePopup}
         />
       )}
