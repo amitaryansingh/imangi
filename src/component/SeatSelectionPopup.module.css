@@ -135,14 +135,3 @@
   cursor: not-allowed; /* Not allowed cursor when disabled */
 }
 
-@media (max-width: 991px) {
-  .popupContent {
-    width: 95vw;
-    height:auto;
-    max-height: 85vw;
-    padding: 1.2vw;
-    overflow-x: auto; /* Ensure horizontal scrolling is enabled */
-    overflow-y: auto; /* Ensure vertical scrolling is enabled */
-  }
-
-}

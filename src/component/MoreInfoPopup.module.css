@@ -128,13 +128,9 @@ h2 {
 @media (max-width: 991px) {
     .popupContent {
       width: 95vw;
-      height:auto;
-      max-height: 85vw;
+      height: 85vh;
       padding: 1.2vw;
-      overflow-x: auto; /* Ensure horizontal scrolling is enabled */
-      overflow-y: auto; /* Ensure vertical scrolling is enabled */
     }
-  
   }
   .yourComponentClass {
     background-color: var(--background-color);
