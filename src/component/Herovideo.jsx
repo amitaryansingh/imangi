@@ -38,10 +38,7 @@ const Herovideo = ({ video, onNext, onPrevious, bookNow, moreInfo }) => {
       <div className={style.contentContainer}>
         <h1 className={style.title}>{video.title}</h1>
         <div className={style.buttons}>
-          <button
-            className={style.bookButton}
-            onClick={() => bookNow(video.title)}
-          >
+          <button className={style.bookButton} onClick={() => bookNow(video)}>
             Book Now
           </button>
           <button className={style.infoButton} onClick={() => moreInfo(video)}>
