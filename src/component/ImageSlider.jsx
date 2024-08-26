@@ -19,7 +19,7 @@ const ImageSlider = () => {
     infinite: true,
     speed: 1000,
     slidesToShow: 3,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: false,
@@ -28,7 +28,7 @@ const ImageSlider = () => {
         breakpoint: 991,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         },
       },
       {
@@ -51,22 +51,22 @@ const ImageSlider = () => {
       duration: "2h 30m",
       isAdult: true,
       castDetails: [
-        { name: "Keanu Reeves", role: "Actor" },
-        { name: "Halle Berry", role: "Actress" },
-        { name: "Ian McShane", role: "Actor" },
-        { name: "Prabhas", role: "Actor" },
-        { name: "Deepika Padukone", role: "Actress" },
-        { name: "Amitabh Bachchan", role: "Actor" },
-        { name: "Prabhas", role: "Actor" },
-        { name: "Deepika Padukone", role: "Actress" },
-        { name: "Amitabh Bachchan", role: "Actor" },
-        { name: "Prabhas", role: "Actor" },
-        { name: "Deepika Padukone", role: "Actress" },
-        { name: "Amitabh Bachchan", role: "Actor" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
       ],
       releaseDate: "2014-10-24",
       story: "John Wick is an ex-hitman who comes out of retirement...",
-      trailer: "t1.mp4"
+      trailer: "t1.mp4",
     },
     {
       vid: "video.mp4",
@@ -77,27 +77,131 @@ const ImageSlider = () => {
       genere: "Sci-Fi",
       duration: "2h 30m",
       castDetails: [
-        { name: "Prabhas", role: "Actor" },
-        { name: "Deepika Padukone", role: "Actress" },
-        { name: "Amitabh Bachchan", role: "Actor" },
-        { name: "Prabhas", role: "Actor" },
-        { name: "Deepika Padukone", role: "Actress" },
-        { name: "Amitabh Bachchan", role: "Actor" },
-        { name: "Prabhas", role: "Actor" },
-        { name: "Deepika Padukone", role: "Actress" },
-        { name: "Amitabh Bachchan", role: "Actor" },
-        { name: "Prabhas", role: "Actor" },
-        { name: "Deepika Padukone", role: "Actress" },
-        { name: "Amitabh Bachchan", role: "Actor" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
       ],
       releaseDate: "2024-08-15",
       story: "A sci-fi adventure in the year 2898...",
-      trailer: "kalki_trailer.mp4"
+      trailer: "kalki_trailer.mp4",
+    },
+    {
+      vid: "t1.mp4",
+      src: "j1.webp",
+      title: "John Wick Part 1",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+      isAdult: true,
+      castDetails: [
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+      ],
+      releaseDate: "2014-10-24",
+      story: "John Wick is an ex-hitman who comes out of retirement...",
+      trailer: "t1.mp4",
+    },
+    {
+      vid: "video.mp4",
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      isAdult: false,
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+      castDetails: [
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+      ],
+      releaseDate: "2024-08-15",
+      story: "A sci-fi adventure in the year 2898...",
+      trailer: "kalki_trailer.mp4",
+    },
+    {
+      vid: "t1.mp4",
+      src: "j1.webp",
+      title: "John Wick Part 1",
+      language: "Hindi",
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+      isAdult: true,
+      castDetails: [
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+      ],
+      releaseDate: "2014-10-24",
+      story: "John Wick is an ex-hitman who comes out of retirement...",
+      trailer: "t1.mp4",
+    },
+    {
+      vid: "video.mp4",
+      src: "kalki.jpg",
+      title: "Kalki 2898 AD",
+      language: "Hindi",
+      isAdult: false,
+      genere: "Sci-Fi",
+      duration: "2h 30m",
+      castDetails: [
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+        { name: "Prabhas", role: "Actor", image: "/j3.webp" },
+        { name: "Deepika Padukone", role: "Actress", image: "/j3.webp" },
+        { name: "Amitabh Bachchan", role: "Actor", image: "/j3.webp" },
+      ],
+      releaseDate: "2024-08-15",
+      story: "A sci-fi adventure in the year 2898...",
+      trailer: "kalki_trailer.mp4",
     },
   ];
 
-  const handleBookNowClick = (title) => {
-    setSelectedMovie(title);
+  const handleBookNowClick = (movie) => {
+    setSelectedMovie(movie);
     setShowBookingPopup(true);
   };
 
@@ -120,9 +224,16 @@ const ImageSlider = () => {
     <>
       <Herovideo
         video={images[currentVideoIndex]}
-        onNext={() => setCurrentVideoIndex((currentVideoIndex + 1) % images.length)}
-        onPrevious={() => setCurrentVideoIndex((currentVideoIndex - 1 + images.length) % images.length)}
+        onNext={() =>
+          setCurrentVideoIndex((currentVideoIndex + 1) % images.length)
+        }
+        onPrevious={() =>
+          setCurrentVideoIndex(
+            (currentVideoIndex - 1 + images.length) % images.length
+          )
+        }
         bookNow={handleBookNowClick}
+        moreInfo={handleMoreInfoClick}
       />
       <div className={style.sliderWrapper}>
         <div className={style.slidercontainer}>
@@ -147,7 +258,7 @@ const ImageSlider = () => {
                         </button>
                         <button
                           className={style.bookNow}
-                          onClick={() => handleBookNowClick(image.title)}
+                          onClick={() => handleBookNowClick(image)}
                         >
                           Book Now
                         </button>
@@ -169,17 +280,14 @@ const ImageSlider = () => {
           </Slider>
         </div>
       </div>
-      {showBookingPopup && (
+      {showBookingPopup && selectedMovie && (
         <BookingPopup
-          movieName={selectedMovie}
+          movieName={selectedMovie.title}
           closePopup={handleClosePopup}
         />
       )}
       {showMoreInfoPopup && selectedMovie && (
-        <MoreInfoPopup
-          movie={selectedMovie}
-          closePopup={handleClosePopup}
-        />
+        <MoreInfoPopup movie={selectedMovie} closePopup={handleClosePopup} />
       )}
     </>
   );

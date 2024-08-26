@@ -16,11 +16,18 @@ const MoreInfoPopup = ({ movie, closePopup }) => {
               {movie.isAdult && <span className={style.adultIcon}>18+</span>}
             </div>
             <div className={style.genreReleaseDuration}>
-              <span><strong>Genre:</strong> {movie.genere}</span>
-              <span><strong>Release Date:</strong> {movie.releaseDate}</span>
-              <span><strong>Duration:</strong> {movie.duration}</span>
+              <span>
+                <strong>Genre:</strong> {movie.genre}
+              </span>
+              <span>
+                <strong>Release Date:</strong> {movie.releaseDate}
+              </span>
+              <span>
+                <strong>Duration:</strong> {movie.duration}
+              </span>
             </div>
           </div>
+
           <div className={style.cast}>
             <h3>Cast:</h3>
             {movie.castDetails && movie.castDetails.length > 0 ? (
@@ -28,7 +35,7 @@ const MoreInfoPopup = ({ movie, closePopup }) => {
                 {movie.castDetails.map((castMember, index) => (
                   <div key={index} className={style.castItem}>
                     <img
-                      src={`path_to_actor_images/${castMember.name}.jpg`}
+                      src={castMember.image}
                       alt={castMember.name}
                       className={style.castImage}
                     />
@@ -41,14 +48,16 @@ const MoreInfoPopup = ({ movie, closePopup }) => {
               <p>No cast details available.</p>
             )}
           </div>
+
           <div className={style.movieStory}>
             <h3>About the Movie</h3>
             <p>{movie.story}</p>
           </div>
+
           <div className={style.movieTrailer}>
             <h3>Watch the Trailer</h3>
             <video controls>
-              <source src={`path_to_trailer/${movie.trailer}`} type="video/mp4" />
+              <source src={movie.vid} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
