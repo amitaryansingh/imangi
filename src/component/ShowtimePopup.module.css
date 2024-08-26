@@ -119,6 +119,17 @@
     text-align: center;
     font-size: 14px;
   }
+  @media (max-width: 991px) {
+    .popupContent {
+      width: 95vw;
+      height:auto;
+      max-height: 85vw;
+      padding: 1.2vw;
+      overflow-x: auto; /* Ensure horizontal scrolling is enabled */
+      overflow-y: auto; /* Ensure vertical scrolling is enabled */
+    }
+  
+  }
   .yourComponentClass {
     background-color: var(--background-color);
     color: var(--text-color);
