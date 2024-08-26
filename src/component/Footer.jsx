@@ -13,8 +13,8 @@ const Footer = () => {
         <div className={styles.rightSection}>
           <div className={styles.address}>
             <p>
-              1234 Imangi St, Suite 567<br />
-              City, State, 12345
+              Iter College, Jagmohan Nagar     <br />
+                 Bhubaneswar, odisha, 751030
             </p>
           </div>
         </div>
@@ -43,7 +43,7 @@ const Footer = () => {
       </div>
       <div className={styles.copyright}>
         <p>
-          Copyright © 2024 Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+          Copyright © 2024 Imangi Entertainment Pvt. Ltd. All Rights Reserved.
         </p>
       </div>
     </footer>
