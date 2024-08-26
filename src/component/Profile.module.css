@@ -171,3 +171,11 @@ h2 {
 .optionContent button {
   margin-top: 10px;
 }
+
+@media (max-width: 991px) {
+  .popupContent {
+    width: 95vw;
+    height:70vh;
+    padding: 1.2vw;
+  }
+}
