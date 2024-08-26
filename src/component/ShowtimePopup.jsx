@@ -13,23 +13,33 @@ const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) 
 
   const sections = [
     {
-      id: "vip",
-      name: "VIP Section",
-      rows: ["A", "B", "C"],
-      seatsPerRow: [10, 10, 10],
-      pricePerSeat: 20,
-      gap: true,
+      id: "club",
+      name: "Rs. 370 CLUB",
+      rows: ["J", "K", "L", "M"],
+      seatsPerRow: [
+        { seats: 6 },
+        { gap: true }, // gap
+        { seats: 12 }, // 12 seats in the second block
+        { gap: true }, // gap
+        { seats: 6 },  // 6 seats in the third block
+      ],
+      pricePerSeat: 370,
     },
     {
-      id: "standard",
-      name: "Standard Section",
-      rows: ["D", "E", "F", "G"],
-      seatsPerRow: [15, 15, 15, 15],
-      pricePerSeat: 10,
-      gap: true,
+      id: "executive",
+      name: "Rs. 340 EXECUTIVE",
+      rows: ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+      seatsPerRow: [
+        { seats: 6 },  // 6 seats in the first block
+        { gap: true }, // gap
+        { seats: 12 }, // 12 seats in the second block
+        { gap: true }, // gap
+        { seats: 6 },  // 6 seats in the third block
+      ],
+      pricePerSeat: 340,
     },
-    // Add more sections as needed
   ];
+  
 
   const handleNumPeopleClick = (num) => {
     setNumPeople(num);
