@@ -5,18 +5,18 @@ import { FaTimes } from "react-icons/fa";
 const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
   const [selectedSeats, setSelectedSeats] = useState({});
 
-  const handleSeatClick = (row, seatNumber, sectionId) => {
-    const seatKey = `${sectionId}-${row}${seatNumber}`;
+  const handleSeatClick = (sectionId, row, seatNumber) => {
+    const seatKey = `${sectionId}-${row}-${seatNumber}`;
     setSelectedSeats((prev) => ({
       ...prev,
-      [seatKey]: !prev[seatKey],
+      [seatKey]: !prev[seatKey], // Toggle seat selection
     }));
   };
 
   return (
     <div className={style.popupOverlay}>
       <div className={style.popupContent}>
-        <button className={style.closeBtn} onClick={() => closePopup()}>
+        <button className={style.closeBtn} onClick={closePopup}>
           <FaTimes />
         </button>
         <div className={style.theaterInfo}>
@@ -29,29 +29,60 @@ const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
               {section.rows.map((row, rowIndex) => (
                 <div key={`${section.id}-${row}`} className={style.row}>
                   <span className={style.rowLabel}>{row}</span>
-                  {section.seatsPerRow.map((block, blockIndex) =>
-                    block.gap ? (
-                      <div key={`gap-${blockIndex}`} className={style.seatGap}></div>
-                    ) : (
-                      <div key={`block-${blockIndex}`} className={style.seatBlock}>
-                        {Array.from({ length: block.seats }).map((_, seatIndex) => (
-                          <button
-                            key={`${row}-${seatIndex + 1}`}
-                            className={`${style.seat} ${
-                              selectedSeats[`${section.id}-${row}${seatIndex + 1}`]
-                                ? style.selectedSeat
-                                : ""
-                            }`}
-                            onClick={() =>
-                              handleSeatClick(row, seatIndex + 1, section.id)
-                            }
-                          >
-                            {seatIndex + 1}
-                          </button>
-                        ))}
-                      </div>
-                    )
-                  )}
+                  <div className={style.seatBlock}>
+                    {/* Part 1: Seats 1-4 */}
+                    {Array.from({ length: 4 }).map((_, seatIndex) => {
+                      const seatNumber = seatIndex + 1;
+                      const seatKey = `${section.id}-${row}-${seatNumber}`;
+                      return (
+                        <button
+                          key={seatKey}
+                          className={`${style.seat} ${
+                            selectedSeats[seatKey] ? style.selectedSeat : ""
+                          }`}
+                          onClick={() => handleSeatClick(section.id, row, seatNumber)}
+                        >
+                          {seatNumber}
+                        </button>
+                      );
+                    })}
+                    {/* Blank Space */}
+                    <div className={style.seatGap}></div>
+                    {/* Part 2: Seats 5-13 */}
+                    {Array.from({ length: 9 }).map((_, seatIndex) => {
+                      const seatNumber = seatIndex + 5;
+                      const seatKey = `${section.id}-${row}-${seatNumber}`;
+                      return (
+                        <button
+                          key={seatKey}
+                          className={`${style.seat} ${
+                            selectedSeats[seatKey] ? style.selectedSeat : ""
+                          }`}
+                          onClick={() => handleSeatClick(section.id, row, seatNumber)}
+                        >
+                          {seatNumber}
+                        </button>
+                      );
+                    })}
+                    {/* Blank Space */}
+                    <div className={style.seatGap}></div>
+                    {/* Part 3: Seats 14-18 */}
+                    {Array.from({ length: 5 }).map((_, seatIndex) => {
+                      const seatNumber = seatIndex + 14;
+                      const seatKey = `${section.id}-${row}-${seatNumber}`;
+                      return (
+                        <button
+                          key={seatKey}
+                          className={`${style.seat} ${
+                            selectedSeats[seatKey] ? style.selectedSeat : ""
+                          }`}
+                          onClick={() => handleSeatClick(section.id, row, seatNumber)}
+                        >
+                          {seatNumber}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               ))}
             </div>

@@ -1,133 +1,101 @@
+/* src/SeatSelectionPopup.module.css */
+
 .popupOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.321);
-    z-index: 1000;
-  }
-  
-  .popupContent {
-    background: transparent;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 22px gray;
-    width: 80vw;
-    height: auto;
-    max-height: 80vh;
-    overflow:scroll;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    color: white;
-  }
-  
-  .closeBtn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    color: white;
-    z-index: 1010; /* Ensure the button is on top */
-  }
-  
-  .theaterInfo {
-    margin-bottom: 20px;
-    font-size: 24px;
-    text-align: center;
-  }
-  
-  .seatingArrangement {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .row {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .rowLabel {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .seat {
-    background: white;
-    color: black;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .seat.selectedSeat {
-    background: #007bff;
-    color: white;
-  }
-  
-  .seatingArrangement {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .section {
-    margin-bottom: 20px;
-  }
-  
-  .sectionName {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .rowLabel {
-    margin-right: 10px;
-    font-weight: bold;
-  }
-  
-  .seatBlock {
-    display: flex;
-    gap: 5px;
-  }
-  
-  .seat {
-    width: 30px;
-    height: 30px;
-    background-color: green;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    color: white;
-  }
-  
-  .seatGap {
-    width: 40px;
-  }
-  
-  .selectedSeat {
-    background-color: yellow;
-  }
-  
-  /* Additional styles as needed */
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.321);
+  z-index: 1000;
+}
+
+.popupContent {
+  background: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px gray;
+  width: 80vw;
+  height: auto;
+  max-height: 80vh;
+  overflow: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: white;
+  z-index: 1010; /* Ensure the button is on top */
+}
+
+.theaterInfo {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.seatingArrangement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Adjust gap for spacing */
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionName {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rowLabel {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.seatBlock {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  background-color: green; /* Green color for seats */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  color: white; /* Text color */
+}
+
+.selectedSeat {
+  background-color: rgb(62, 68, 62); /* Dark green for selected seats */
+}
+
+.seatGap {
+  width: 20px; /* Space between seat blocks */
+}
