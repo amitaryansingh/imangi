@@ -147,6 +147,9 @@ h2 {
 .theater {
   margin-bottom: 20px;
 }
+.theater h2{
+  position: inherit;
+}
 
 .showtimeButton {
   background: transparent;

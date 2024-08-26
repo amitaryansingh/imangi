@@ -8,6 +8,7 @@ import Mobheader from "./component/Mobheader";
 import ImageSlider from "./component/ImageSlider";
 import Footer from "./component/Footer";
 import Body from "./component/Body";
+import AdminDashboard from "./Dashboard/AdminDashboard";
 
 function App() {
   const location = useLocation();
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      {location.pathname !== "/admin" && <Header />}
       <button onClick={toggleMode} className="mode-toggle">
         {isDarkMode ? "Light Mode" : "Dark Mode"}
       </button>
@@ -45,8 +46,9 @@ function App() {
             </>
           }
         />
+        <Route path="/admin" element={<AdminDashboard />}></Route>
       </Routes>
-      <Footer />
+      {location.pathname !== "/admin" && <Footer />}
       <Mobheader />
     </>
   );

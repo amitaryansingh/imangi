@@ -1,0 +1,69 @@
+/* AdminDashboard.module.css */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  background-color: #ecf0f1;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav li {
+  margin: 0;
+}
+
+.navButton {
+  background: none;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  color: #3498db;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.navButton.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.overlay {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+}
+
+.welcome {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
