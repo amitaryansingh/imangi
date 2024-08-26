@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./SeatSelectionPopup.module.css";
 import { FaTimes } from "react-icons/fa";
-import screenSvg from "/Users/amitaryan/Documents/GitHub/imangi/public/screen.svg";
+import screenSvg from "//public/screen.svg";
 
 const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
   const [selectedSeats, setSelectedSeats] = useState({});
