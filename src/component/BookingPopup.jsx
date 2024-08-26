@@ -3,7 +3,7 @@ import style from "./BookingPopup.module.css";
 import { FaTimes, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ShowtimePopup from "./ShowtimePopup";
 
-const BookingPopup = ({ closePopup, movieName }) => {
+const BookingPopup = ({ closePopup, movieName, movieDuration }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedShowtime, setSelectedShowtime] = useState(null);
@@ -126,6 +126,8 @@ const BookingPopup = ({ closePopup, movieName }) => {
           closePopup={handleCloseShowtimePopup}
           theater={selectedShowtime.theater}
           time={selectedShowtime.time}
+          movieName={movieName}
+          movieDuration={movieDuration} // Pass the movie duration here
         />
       )}
     </>

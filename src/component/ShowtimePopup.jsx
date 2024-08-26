@@ -2,17 +2,25 @@ import React, { useState } from "react";
 import style from "./ShowtimePopup.module.css";
 import { FaTimes } from "react-icons/fa";
 
-const ShowtimePopup = ({ closePopup, theater, time }) => {
-  const [numPeople, setNumPeople] = useState(1);
+const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) => {
+  const [numPeople, setNumPeople] = useState(null);
+  const [viewingFormat, setViewingFormat] = useState(null);
+  const [language, setLanguage] = useState(null);
 
   // Assume price per seat
   const pricePerSeat = 10;
 
-  const handleChange = (e) => {
-    setNumPeople(e.target.value);
+  const handleNumPeopleClick = (num) => {
+    setNumPeople(num);
   };
 
-  const totalPrice = numPeople * pricePerSeat;
+  const handleViewingFormatClick = (format) => {
+    setViewingFormat(format);
+  };
+
+  const handleLanguageClick = (lang) => {
+    setLanguage(lang);
+  };
 
   return (
     <div className={style.popupOverlay}>
@@ -20,20 +28,60 @@ const ShowtimePopup = ({ closePopup, theater, time }) => {
         <button className={style.closeBtn} onClick={closePopup}>
           <FaTimes />
         </button>
-        <h2>{theater}</h2>
-        <p>Showtime: {time}</p>
+        <div className={style.theaterInfo}>
+          <p>{theater}</p>
+          <p>Showtime: {time}</p>
+        </div>
+        <div className={style.movieInfo}>
+          <span>{movieName}</span>
+          <span>{movieDuration ? movieDuration : "Duration not available"}</span>
+        </div>
         <div className={style.details}>
-          <label htmlFor="numPeople">Number of people:</label>
-          <input
-            type="number"
-            id="numPeople"
-            value={numPeople}
-            min="1"
-            onChange={handleChange}
-          />
+          <p className={style.selectText}>Select number of people:</p>
+          <div className={style.numPeople}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+              <button
+                key={num}
+                className={`${style.numButton} ${num === numPeople ? style.selected : ''}`}
+                onClick={() => handleNumPeopleClick(num)}
+              >
+                {num}
+              </button>
+            ))}
+          </div>
+          <div className={style.viewingOptions}>
+            <div
+              className={`${style.option} ${viewingFormat === '2D' ? style.selected : ''}`}
+              onClick={() => handleViewingFormatClick('2D')}
+            >
+              2D
+            </div>
+            <div
+              className={`${style.option} ${viewingFormat === '3D' ? style.selected : ''}`}
+              onClick={() => handleViewingFormatClick('3D')}
+            >
+              3D
+            </div>
+          </div>
+          <div className={style.languageOptions}>
+            <div
+              className={`${style.option} ${language === 'Hindi' ? style.selected : ''}`}
+              onClick={() => handleLanguageClick('Hindi')}
+            >
+              Hindi
+            </div>
+            <div
+              className={`${style.option} ${language === 'English' ? style.selected : ''}`}
+              onClick={() => handleLanguageClick('English')}
+            >
+              English
+            </div>
+          </div>
+          {(numPeople && viewingFormat && language) && (
+            <button className={style.selectSeatBtn}>Select seat</button>
+          )}
           <div className={style.priceDetails}>
             <p>Price per seat: ${pricePerSeat}</p>
-            <p>Total Price: ${totalPrice}</p>
           </div>
         </div>
       </div>
