@@ -1,4 +1,3 @@
-// BookingPopup.jsx
 import React, { useState } from "react";
 import style from "./BookingPopup.module.css";
 import { FaTimes, FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -51,76 +50,74 @@ const BookingPopup = ({ closePopup, movieName }) => {
           <FaTimes />
         </button>
         <h2>{movieName}</h2>
-        <div className={style.content}>
-          <div className={style.dateSection}>
-            <button onClick={handlePrev} className={style.arrowButton}>
-              <FaArrowLeft />
-            </button>
-            <div className={style.dateSelector}>
-              {getNextSixDays().map((date, index) => {
-                const day = date.toLocaleDateString("en-US", {
-                  weekday: "short",
-                });
-                const dateNum = date.toLocaleDateString("en-US", {
-                  day: "2-digit",
-                });
-                const month = date.toLocaleDateString("en-US", {
-                  month: "short",
-                });
-                return (
-                  <button
-                    key={index}
-                    onClick={() => setSelectedDate(date)}
-                    className={`${style.dateButton} ${
-                      selectedDate.toDateString() === date.toDateString()
-                        ? style.activeDate
-                        : ""
-                    }`}
-                  >
-                    <div className={style.dateTag}>
-                      <div className={style.dateNum}>{dateNum}</div>
-                      <div className={style.dateMonth}>{month}</div>
-                    </div>
-                    <div className={style.dateDay}>{day}</div>
-                  </button>
-                );
-              })}
-            </div>
-            <button onClick={handleNext} className={style.arrowButton}>
-              <FaArrowRight />
-            </button>
-          </div>
-          <div className={style.theaterSection}>
-            <div className={style.filterOptions}>
-              <div className={style.filterOption}>
-                <input type="checkbox" id="availableSeats" />
-                <label htmlFor="availableSeats">
-                  <span></span>
-                  Available Seats
-                </label>
-              </div>
-              <div className={style.filterOption}>
-                <input type="checkbox" id="nonCancellable" />
-                <label htmlFor="nonCancellable">
-                  <span></span>
-                  Non-Cancellable
-                </label>
-              </div>
-            </div>
-            <div className={style.theaterList}>
-              {theaters.map((theater, index) => (
-                <div key={index} className={style.theater}>
-                  <h2>{theater.name}</h2>
-                  <div className={style.showtimes}>
-                    {theater.times.map((time, timeIndex) => (
-                      <button key={timeIndex} className={style.showtimeButton}>
-                        {time}
-                      </button>
-                    ))}
+        <div className={style.dateSection}>
+          <button onClick={handlePrev} className={style.arrowButton}>
+            <FaArrowLeft />
+          </button>
+          <div className={style.dateSelector}>
+            {getNextSixDays().map((date, index) => {
+              const day = date.toLocaleDateString("en-US", {
+                weekday: "short",
+              });
+              const dateNum = date.toLocaleDateString("en-US", {
+                day: "2-digit",
+              });
+              const month = date.toLocaleDateString("en-US", {
+                month: "short",
+              });
+              return (
+                <button
+                  key={index}
+                  onClick={() => setSelectedDate(date)}
+                  className={`${style.dateButton} ${
+                    selectedDate.toDateString() === date.toDateString()
+                      ? style.activeDate
+                      : ""
+                  }`}
+                >
+                  <div className={style.dateTag}>
+                    <div className={style.dateNum}>{dateNum}</div>
+                    <div className={style.dateMonth}>{month}</div>
                   </div>
-                </div>
-              ))}
+                  <div className={style.dateDay}>{day}</div>
+                </button>
+              );
+            })}
+          </div>
+          <button onClick={handleNext} className={style.arrowButton}>
+            <FaArrowRight />
+          </button>
+        </div>
+        <div className={style.theaterSection}>
+          <div className={style.filterOptions}>
+            <div className={style.filterOption}>
+              <input type="checkbox" id="availableSeats" />
+              <label htmlFor="availableSeats">
+                <span></span>
+                Available Seats
+              </label>
             </div>
+            <div className={style.filterOption}>
+              <input type="checkbox" id="nonCancellable" />
+              <label htmlFor="nonCancellable">
+                <span></span>
+                Non-Cancellable
+              </label>
+            </div>
+          </div>
+          <div className={style.theaterList}>
+            {theaters.map((theater, index) => (
+              <div key={index} className={style.theater}>
+                <h2>{theater.name}</h2>
+                <div className={style.showtimes}>
+                  {theater.times.map((time, timeIndex) => (
+                    <button key={timeIndex} className={style.showtimeButton}>
+                      {time}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

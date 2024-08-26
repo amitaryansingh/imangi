@@ -1,138 +1,152 @@
 .popupOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.321);
-    align-items: center;
-    z-index: 1000;
-    color: whitesmoke;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.321);
+  z-index: 1000;
+}
+
+.popupContent {
+  background: transparent;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px gray;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  width: 60vw;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: black;
+  z-index: 1001;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: whitesmoke;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.dateSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 60px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.arrowButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.dateSelector {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 0 20px;
+}
+
+.dateButton {
+  background: transparent;
+  border: 1px solid whitesmoke;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.activeDate {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dateTag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dateNum {
+  font-size: 20px;
+}
+
+.dateMonth {
+  font-size: 14px;
+}
+
+.dateDay {
+  font-size: 14px;
+}
+
+.filterOptions {
+  margin-bottom: 20px;
+}
+
+.filterOption {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.filterOption input {
+  margin-right: 10px;
+}
+
+.theaterSection {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.theaterList {
+  text-align: left;
+}
+
+.theater {
+  margin-bottom: 20px;
+}
+
+.showtimeButton {
+  background: transparent;
+  border: 1px solid whitesmoke;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  color: whitesmoke;
+  margin-right: 10px;
+}
+
+@media (max-width: 991px) {
   .popupContent {
-    background: transparent;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 22px gray;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    width: 60vw;
-    height: 80vh; 
-    overflow-y: auto; 
-    position: relative;
-    text-align: center;
+    width: 85vw;
   }
-  
-  .closeBtn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    color: black;
-  }
-  
-  h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: whitesmoke;
-  }
-  
-  .dateSection {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .arrowButton {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: whitesmoke;
-  }
-  
-  .dateSelector {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding: 0 20px;
-  }
-  
-  .dateButton {
-    background: transparent;
-    border: 1px solid whitesmoke;
-    border-radius: 8px;
-    padding: 10px;
-    cursor: pointer;
-    color: whitesmoke;
-    text-align: center;
-  }
-  
-  .activeDate {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .dateTag {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .dateNum {
-    font-size: 20px;
-  }
-  
-  .dateMonth {
-    font-size: 14px;
-  }
-  
-  .dateDay {
-    font-size: 14px;
-  }
-  
-  .filterOptions {
-    margin-bottom: 20px;
-  }
-  
-  .filterOption {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .filterOption input {
-    margin-right: 10px;
-  }
-  
-  .theaterList {
-    text-align: left;
-  }
-  
-  .theater {
-    margin-bottom: 20px;
-  }
-  
-  .showtimeButton {
-    background: transparent;
-    border: 1px solid whitesmoke;
-    border-radius: 8px;
-    padding: 10px;
-    cursor: pointer;
-    color: whitesmoke;
-    margin-right: 10px;
-  }
-  
-  @media (max-width: 991px) {
-    .popupContent {
-      width: 75vw;
-    }
-  }
-  
+}
