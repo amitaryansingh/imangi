@@ -21,6 +21,8 @@ const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
         </button>
         <div className={style.theaterInfo}>
           <h2>{theater}</h2>
+          <img src={"screen.svg"} alt="Screen" className={style.screenImage} />
+          <h2>Screen Here</h2>
         </div>
         <div className={style.seatingArrangement}>
           {sections.map((section) => (
