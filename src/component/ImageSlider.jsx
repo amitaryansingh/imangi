@@ -18,7 +18,7 @@ const ImageSlider = () => {
     dots: true,
     infinite: true,
     speed: 1000,
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -27,15 +27,15 @@ const ImageSlider = () => {
       {
         breakpoint: 991,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToShow: 3,
+          slidesToScroll: 2,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],
