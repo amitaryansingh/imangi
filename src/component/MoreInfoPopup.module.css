@@ -15,13 +15,14 @@
 
 .popupContent {
     background: rgba(0, 0, 0, 0.7);
-    padding: 30px;
+    padding: 2vw;
     border-radius: 12px;
     box-shadow: 0 8px 22px gray;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     width: 60vw;
     height: 80vh;
+    max-height: 90vh;
     position: relative;
     text-align: center;
     max-width: 800px; /* Limit the max width of the popup */
@@ -126,6 +127,8 @@ h2 {
 
 @media (max-width: 991px) {
     .popupContent {
-      width: 85vw;
+      width: 95vw;
+      height: 85vh;
+      padding: 1.2vw;
     }
   }
