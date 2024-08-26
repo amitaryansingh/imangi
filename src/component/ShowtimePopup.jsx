@@ -11,6 +11,26 @@ const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) 
 
   const pricePerSeat = 10;
 
+  const sections = [
+    {
+      id: "vip",
+      name: "VIP Section",
+      rows: ["A", "B", "C"],
+      seatsPerRow: [10, 10, 10],
+      pricePerSeat: 20,
+      gap: true,
+    },
+    {
+      id: "standard",
+      name: "Standard Section",
+      rows: ["D", "E", "F", "G"],
+      seatsPerRow: [15, 15, 15, 15],
+      pricePerSeat: 10,
+      gap: true,
+    },
+    // Add more sections as needed
+  ];
+
   const handleNumPeopleClick = (num) => {
     setNumPeople(num);
   };
@@ -100,7 +120,15 @@ const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) 
       </div>
 
       {isSeatSelectionOpen && (
-        <SeatSelectionPopup closePopup={closeSeatSelectionPopup} theater={theater} />
+        <SeatSelectionPopup
+          closePopup={closeSeatSelectionPopup}
+          theater={theater}
+          numPeople={numPeople}
+          viewingFormat={viewingFormat}
+          language={language}
+          pricePerSeat={pricePerSeat}
+          sections={sections}
+        />
       )}
     </>
   );
