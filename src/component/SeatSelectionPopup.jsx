@@ -2,16 +2,28 @@ import React, { useState } from "react";
 import style from "./SeatSelectionPopup.module.css";
 import { FaTimes } from "react-icons/fa";
 
-const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
+const SeatSelectionPopup = ({ closePopup, theater, sections, numPeople }) => {
   const [selectedSeats, setSelectedSeats] = useState({});
 
   const handleSeatClick = (sectionId, row, seatNumber) => {
     const seatKey = `${sectionId}-${row}-${seatNumber}`;
-    setSelectedSeats((prev) => ({
-      ...prev,
-      [seatKey]: !prev[seatKey], // Toggle seat selection
-    }));
+    const currentSelectedSeats = Object.values(selectedSeats).filter(
+      (isSelected) => isSelected
+    ).length;
+
+    // Check if the seat can be selected or deselected
+    if (selectedSeats[seatKey] || currentSelectedSeats < numPeople) {
+      setSelectedSeats((prev) => ({
+        ...prev,
+        [seatKey]: !prev[seatKey], // Toggle seat selection
+      }));
+    }
   };
+
+  // Determine if the required number of seats is selected
+  const isSelectionComplete = Object.values(selectedSeats).filter(
+    (isSelected) => isSelected
+  ).length === numPeople;
 
   return (
     <div className={style.popupOverlay}>
@@ -43,6 +55,12 @@ const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
                             selectedSeats[seatKey] ? style.selectedSeat : ""
                           }`}
                           onClick={() => handleSeatClick(section.id, row, seatNumber)}
+                          disabled={
+                            !selectedSeats[seatKey] &&
+                            Object.values(selectedSeats).filter(
+                              (isSelected) => isSelected
+                            ).length >= numPeople
+                          } // Disable if the max number of seats is reached
                         >
                           {seatNumber}
                         </button>
@@ -61,6 +79,12 @@ const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
                             selectedSeats[seatKey] ? style.selectedSeat : ""
                           }`}
                           onClick={() => handleSeatClick(section.id, row, seatNumber)}
+                          disabled={
+                            !selectedSeats[seatKey] &&
+                            Object.values(selectedSeats).filter(
+                              (isSelected) => isSelected
+                            ).length >= numPeople
+                          } // Disable if the max number of seats is reached
                         >
                           {seatNumber}
                         </button>
@@ -79,6 +103,12 @@ const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
                             selectedSeats[seatKey] ? style.selectedSeat : ""
                           }`}
                           onClick={() => handleSeatClick(section.id, row, seatNumber)}
+                          disabled={
+                            !selectedSeats[seatKey] &&
+                            Object.values(selectedSeats).filter(
+                              (isSelected) => isSelected
+                            ).length >= numPeople
+                          } // Disable if the max number of seats is reached
                         >
                           {seatNumber}
                         </button>
@@ -90,6 +120,11 @@ const SeatSelectionPopup = ({ closePopup, theater, sections }) => {
             </div>
           ))}
         </div>
+        {isSelectionComplete && (
+          <button className={style.confirmBtn}>
+            Confirm Selection
+          </button>
+        )}
       </div>
     </div>
   );
