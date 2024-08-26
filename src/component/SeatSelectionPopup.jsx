@@ -122,7 +122,7 @@ const SeatSelectionPopup = ({ closePopup, theater, sections, numPeople }) => {
         </div>
         {isSelectionComplete && (
           <button className={style.confirmBtn}>
-            Confirm Selection
+            Pay Now
           </button>
         )}
       </div>
