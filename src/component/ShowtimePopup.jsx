@@ -9,27 +9,48 @@ const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) 
   const [language, setLanguage] = useState(null);
   const [isSeatSelectionOpen, setIsSeatSelectionOpen] = useState(false);
 
-  const pricePerSeat = 10;
-
   const sections = [
     {
-      id: "vip",
-      name: "VIP Section",
-      rows: ["A", "B", "C"],
-      seatsPerRow: [10, 10, 10],
-      pricePerSeat: 20,
-      gap: true,
+      id: "wheelchair",
+      name: "",
+      rows: ["A"],
+      seatsPerRow: [
+        { seats: 4, wheelchairAccessible: true }, // 4 wheelchair seats
+        { gap: true }, // gap
+        { seats: 8 },  // 8 regular seats
+        { gap: true }, // gap
+        { seats: 4, wheelchairAccessible: true }, // 4 wheelchair seats
+      ],
+      pricePerSeat: 340,
     },
     {
-      id: "standard",
-      name: "Standard Section",
-      rows: ["D", "E", "F", "G"],
-      seatsPerRow: [15, 15, 15, 15],
-      pricePerSeat: 10,
-      gap: true,
+      id: "executive",
+      name: "Rs. 340 EXECUTIVE",
+      rows: ["B", "C", "D", "E", "F", "G", "H", "I", "J"],
+      seatsPerRow: [
+        { seats: 6 },  // 6 seats in the first block
+        { gap: true }, // gap
+        { seats: 12 }, // 12 seats in the second block
+        { gap: true }, // gap
+        { seats: 6 },  // 6 seats in the third block
+      ],
+      pricePerSeat: 340,
     },
-    // Add more sections as needed
-  ];
+    {
+      id: "club",
+      name: "Rs. 370 CLUB",
+      rows: ["K", "L", "M", "N"],
+      seatsPerRow: [
+        { seats: 6 }, // 6 seats in the first block
+        { gap: true }, // gap
+        { seats: 12 }, // 12 seats in the second block
+        { gap: true }, // gap
+        { seats: 6 },  // 6 seats in the third block
+      ],
+      pricePerSeat: 370,
+    },
+    
+  ];  
 
   const handleNumPeopleClick = (num) => {
     setNumPeople(num);
@@ -112,9 +133,6 @@ const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) 
                 Select seat
               </button>
             )}
-            <div className={style.priceDetails}>
-              <p>Price per seat: ${pricePerSeat}</p>
-            </div>
           </div>
         </div>
       </div>
@@ -126,7 +144,6 @@ const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) 
           numPeople={numPeople}
           viewingFormat={viewingFormat}
           language={language}
-          pricePerSeat={pricePerSeat}
           sections={sections}
         />
       )}
