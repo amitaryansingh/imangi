@@ -59,7 +59,7 @@
 }
 
 .couponButton {
-  background-color:#007bff ;
+  background-color: #007bff;
   color: rgb(112, 74, 74);
   padding: 10px 15px;
   border: 1px solid whitesmoke;
@@ -71,7 +71,7 @@
 }
 
 .couponButton:hover {
-  background-color: #007bff; /* Darker green on hover */
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
 .couponButton.disabled {
@@ -79,7 +79,7 @@
 }
 
 .removeCouponButton {
-  background-color: #dc3545; 
+  background-color: #dc3545;
   color: black;
   padding: 10px 15px;
   border: none;
@@ -102,7 +102,7 @@
 }
 
 .payBtn {
-  background-color:gray;
+  background-color: gray;
   color: black;
   padding: 12px 24px;
   border: none;
@@ -134,43 +134,44 @@
   color: #ff4d4d; /* Change close button color on hover */
 }
 
-.backBtn {
-  background: none; /* No background */
-  border: none;
-  font-size: 24px; /* Adjust size of the icon */
-  color: white; /* Icon color */
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  transition: color 0.3s ease-in-out;
-}
-
-.backBtn:hover {
-  color: #ff4d4d; /* Change icon color on hover */
-}
-
 @media (max-width: 991px) {
   .popupContent {
-    width: 95vw;
-    height: 80vh; /* Increased height for better mobile view */
-    padding: 20px; /* Reduced padding for better fit on smaller screens */
+    width: 90vw;
+    height: 80vh; /* Adjust height for better mobile view */
+    padding: 15px; /* Reduced padding for better fit on smaller screens */
+    flex-direction: column; /* Stack payment methods and order summary vertically */
+  }
+
+  .sections {
+    flex-direction: column;
+  }
+
+  .paymentMethods, .orderSummary {
+    flex: none;
+    width: 100%;
+    padding: 10px;
   }
 }
+
 @media (max-width: 600px) {
   .popupContent {
     width: 100vw; /* Full width for very small screens */
     height: 85vh; /* Almost full height for very small screens */
-    padding: 15px; /* Further reduced padding */
+    padding: 10px; /* Further reduced padding */
   }
 
   .closeBtn {
-    font-size: 20px; 
+    font-size: 20px;
     top: 10px;
     right: 10px;
   }
 
-  h2 {
-    font-size: 20px; 
+  .paymentMethods h3, .orderSummary h3 {
+    font-size: 16px; /* Adjusted font size for small screens */
+  }
+
+  .paymentMethods button, .couponButton, .removeCouponButton, .payBtn {
+    font-size: 14px; /* Adjusted font size for smaller screens */
+    padding: 8px; /* Reduced padding for buttons */
   }
 }

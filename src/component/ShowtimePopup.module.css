@@ -149,4 +149,14 @@
   h2 {
     font-size: 20px; 
   }
+
+  .numPeople {
+    flex-wrap: wrap; /* Allow buttons to wrap to a new line */
+    justify-content: center; /* Center the buttons */
+  }
+
+  .numButton {
+    padding: 8px 10px; /* Slightly reduce padding to fit better */
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
 }
