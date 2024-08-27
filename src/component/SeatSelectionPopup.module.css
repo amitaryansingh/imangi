@@ -132,7 +132,7 @@
 }
 
 .payButton {
-  background-color: #28a745;
+  background-color:gray;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -145,7 +145,7 @@
 }
 
 .payButton:hover {
-  background-color: #218838;
+  background-color:#007bff;
 }
 
 .screenImage {

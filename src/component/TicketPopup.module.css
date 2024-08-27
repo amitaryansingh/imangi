@@ -77,7 +77,7 @@ p {
 }
 
 .downloadButton:focus {
-  outline: none; /* Remove focus outline */
+  outline: none;
 }
 
 .ticketDetails {
@@ -87,7 +87,7 @@ p {
   margin-top: 20px;
   text-align: left;
   width: 100%;
-  max-width: 400px; /* Limit width for better readability */
+  max-width: 400px;
 }
 
 .ticketDetails p {
