@@ -1,4 +1,4 @@
-/* src/SeatSelectionPopup.module.css */
+/* SeatSelectionPopup.module.css */
 
 .popupOverlay {
   position: fixed;
@@ -22,7 +22,7 @@
   box-shadow: 0 8px 22px gray;
   width: 65vw;
   max-height: 80vh;
-  overflow: hidden; /* Prevent content overflow */
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -34,20 +34,20 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
-  position:fixed; 
+  position: fixed;
   top: 15px;
   right: 20px;
   color: white;
-  z-index: 1010; /* Ensure the button is on top */
+  z-index: 1010;
 }
 
 .theaterInfo {
   margin-bottom: 20px;
   font-size: 24px;
   text-align: center;
-  position: sticky; /* Keep it fixed during scroll */
+  position: sticky;
   top: 0;
-  background-color: transparent; /* Match the background to make it seamless */
+  background-color: transparent;
   z-index: 1001;
 }
 
@@ -55,9 +55,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* Adjust gap for spacing */
-  overflow-y: auto; /* Enable scrolling within this area */
-  padding-top: 10px; /* Add some padding to avoid overlap */
+  gap: 20px;
+  overflow-y: auto;
+  padding-top: 10px;
 }
 
 .section {
@@ -75,7 +75,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  justify-content: center; /* Center the row content */
+  justify-content: center;
   gap: 10px;
 }
 
@@ -93,12 +93,12 @@
 .seat {
   width: 30px;
   height: 30px;
-  background-color: gray; /* Green color for seats */
+  background-color: gray;
   border: 1px solid whitesmoke;
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
-  color: black; /* Text color */
+  color: black;
 }
 
 .selectedSeat {
@@ -109,29 +109,26 @@
   width: 20px;
 }
 
-/* SeatSelectionPopup.module.css */
-
 .confirmBtn {
-  background-color: gray; /* Green background */
-  color: white; /* White text */
-  padding: 10px 20px; /* Padding for the button */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Font size */
-  text-align: center; /* Center text */
-  display: block; /* Block display to make it full-width */
-  width: 100%; /* Full width */
-  margin-top: 20px; /* Space above the button */
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  background-color: gray;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
 }
 
 .confirmBtn:hover {
-  background-color:#007bff; /* Darker green on hover */
+  background-color: #007bff;
 }
 
 .confirmBtn:disabled {
-  background-color: #ccc; /* Gray background when disabled */
-  cursor: not-allowed; /* Not allowed cursor when disabled */
+  background-color: #ccc;
+  cursor: not-allowed;
 }
-
