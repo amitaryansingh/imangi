@@ -163,7 +163,26 @@ h2 {
 
 @media (max-width: 991px) {
   .popupContent {
-    width: 85vw;
+    width: 95vw;
+    height: 80vh; /* Increased height for better mobile view */
+    padding: 20px; /* Reduced padding for better fit on smaller screens */
+  }
+}
+@media (max-width: 600px) {
+  .popupContent {
+    width: 100vw; /* Full width for very small screens */
+    height: 85vh; /* Almost full height for very small screens */
+    padding: 15px; /* Further reduced padding */
+  }
+
+  .closeBtn {
+    font-size: 20px; 
+    top: 10px;
+    right: 10px;
+  }
+
+  h2 {
+    font-size: 20px; 
   }
 }
 .yourComponentClass {
