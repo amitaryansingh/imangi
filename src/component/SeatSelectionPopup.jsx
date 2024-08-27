@@ -136,13 +136,14 @@ const SeatSelectionPopup = ({ closePopup, theater, sections, numPeople }) => {
               </div>
             ))}
           </div>
-          <button
-            className={style.payButton}
-            onClick={() => setIsPaymentOpen(true)}
-            disabled={!isSelectionComplete}
-          >
-            Proceed to Payment
-          </button>
+          {isSelectionComplete && (
+            <button
+              className={style.payButton}
+              onClick={() => setIsPaymentOpen(true)}
+            >
+              Proceed to Payment
+            </button>
+          )}
         </div>
       </div>
       {isPaymentOpen && (
