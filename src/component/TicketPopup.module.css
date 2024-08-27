@@ -12,11 +12,11 @@
 }
 
 .popupContent {
-  background: rgba(0, 0, 0, 0.9); /* Darker background for better contrast */
-  color: #f0f0f0; /* Light color for text */
+  background:transparent;
+  color: whitesmoke; 
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 22px gray;
   width: 60vw; /* Adjust width for better fit */
   max-height: 80vh;
   overflow: auto;
@@ -81,7 +81,7 @@ p {
 }
 
 .ticketDetails {
-  background: rgba(0, 0, 0, 0.7);
+  background: gray;
   padding: 20px;
   border-radius: 8px;
   margin-top: 20px;

@@ -12,18 +12,18 @@
 }
 
 .popupContent {
-  background: rgba(0, 0, 0, 0.8); /* Slightly darker background for better contrast */
-  color: #f0f0f0; /* Light color for text */
+  background: transparent; 
+  color: whitesmoke;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 22px gray;
-  width: 55vw; /* Adjusted width to fit better */
-  max-height: 80vh;
+  width: 65vw;
+  max-height: 85vh;
   overflow: auto;
   position: relative;
   display: flex;
-  flex-direction: row; /* Align sections horizontally */
-  gap: 0; /* Remove extra space between sections */
+  flex-direction: row; 
+  gap: 0;
 }
 
 .sections {
@@ -35,7 +35,7 @@
 .paymentMethods, .orderSummary {
   flex: 1;
   padding: 10px;
-  box-sizing: border-box; /* Ensure padding is included in width calculation */
+  box-sizing: border-box;
 }
 
 .paymentMethods h3, .orderSummary h3 {
@@ -59,7 +59,7 @@
 }
 
 .couponButton {
-  background-color: #28a745; /* Green color for the coupon button */
+  background-color:#007bff ;
   color: rgb(112, 74, 74);
   padding: 10px 15px;
   border: none;
@@ -71,7 +71,7 @@
 }
 
 .couponButton:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #007bff; /* Darker green on hover */
 }
 
 .couponButton.disabled {
@@ -80,7 +80,7 @@
 
 .removeCouponButton {
   background-color: #dc3545; /* Red color for the remove coupon button */
-  color: white;
+  color: black;
   padding: 10px 15px;
   border: none;
   border-radius: 8px;
