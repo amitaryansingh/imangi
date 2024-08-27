@@ -49,7 +49,11 @@ const Profile = ({ closePopup }) => {
   return (
     <div className={style.popupOverlay}>
       <div className={style.popupContent}>
-        <button className={style.closeBtn} onClick={closePopup}>
+        <button
+          className={style.closeBtn}
+          onClick={closePopup}
+          onTouchStart={closePopup} // Handle touch events for mobile
+        >
           &times;
         </button>
         {!isAuthenticated ? (

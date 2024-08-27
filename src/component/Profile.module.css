@@ -40,6 +40,7 @@
   top: 15px;
   right: 15px;
   color: whitesmoke; /* Updated for better contrast */
+  z-index: 1001; /* Ensure button is clickable */
 }
 
 /* Header styling */
@@ -172,10 +173,39 @@ h2 {
   margin-top: 10px;
 }
 
+/* Responsive styling */
 @media (max-width: 991px) {
   .popupContent {
     width: 95vw;
-    height:70vh;
-    padding: 1.2vw;
+    height: 80vh; /* Increased height for better mobile view */
+    padding: 20px; /* Reduced padding for better fit on smaller screens */
+    box-shadow: 0 4px 12px gray; /* Adjusted shadow for smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .popupContent {
+    width: 100vw; /* Full width for very small screens */
+    height: 90vh; /* Almost full height for very small screens */
+    padding: 15px; /* Further reduced padding */
+  }
+
+  .closeBtn {
+    font-size: 20px; /* Smaller close button for small screens */
+    top: 10px;
+    right: 10px;
+  }
+
+  h2 {
+    font-size: 20px; /* Smaller font size for small screens */
+  }
+
+  .submitButton, .adminButton {
+    font-size: 16px; /* Adjusted font size for buttons */
+    padding: 8px 10px; /* Adjusted padding for buttons */
+  }
+
+  .toggleText {
+    font-size: 12px; /* Smaller font size for toggle text */
   }
 }
