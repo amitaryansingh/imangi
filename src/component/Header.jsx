@@ -5,7 +5,7 @@ import { LuCalendarClock } from "react-icons/lu";
 import { BiSolidOffer } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import axios from "axios";
-import Profile from "./Profile";
+import Profile from "../Authentication/Profile";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -112,7 +112,10 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg border-body" data-bs-theme={isDarkMode ? "dark" : "light"}>
+    <nav
+      className="navbar navbar-expand-lg border-body"
+      data-bs-theme={isDarkMode ? "dark" : "light"}
+    >
       <div className="container-fluid">
         <img className={style.navbarBrand} src="logo2.png" alt="LOGO" />
         <button

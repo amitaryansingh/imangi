@@ -5,7 +5,7 @@ import { FaHome, FaSearch } from "react-icons/fa";
 import { LuCalendarClock } from "react-icons/lu";
 import { BiSolidOffer } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
-import Profile from "./Profile";
+import Profile from "../Authentication/Profile";
 import { Link } from "react-router-dom";
 const Mobheader = () => {
   const [showPopup, setShowPopup] = useState(false);
