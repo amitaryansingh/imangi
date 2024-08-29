@@ -9,6 +9,8 @@ const Profile = ({ closePopup }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState("");
   const [formData, setFormData] = useState({
     usrname: "",
     name: "",
@@ -18,6 +20,7 @@ const Profile = ({ closePopup }) => {
     dob: "",
     role: "USER",
   });
+  const [consoleOutput, setConsoleOutput] = useState(""); // State to store console output
 
   const navigate = useNavigate();
 
@@ -35,6 +38,7 @@ const Profile = ({ closePopup }) => {
       mobile: value,
     }));
   };
+
   const handleLogout = () => {
     const confirmLogout = window.confirm("Are you sure you want to logout?");
     if (confirmLogout) {
@@ -43,48 +47,78 @@ const Profile = ({ closePopup }) => {
       navigate("/");
     }
   };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+
+  const handleSignup = async () => {
     try {
-      // Admin login logic
-      if (isAdmin) {
-        const loginResponse = await UserService.login(
-          formData.email,
-          formData.password
-        );
-        if (loginResponse.role === "ADMIN") {
-          alert(loginResponse.message);
-          closePopup();
-          navigate("/admin");
-        } else {
-          alert("Unauthorized: Admin access only.");
-        }
+      setConsoleOutput("Attempting to register...");
+      await UserService.register(formData);
+      setOtpSent(true);
+      setConsoleOutput("OTP has been sent to your email. Please verify.");
+    } catch (error) {
+      setConsoleOutput(`Error: ${error.message}`);
+    }
+  };
+
+  const handleVerifyOtp = async () => {
+    try {
+      setConsoleOutput("Verifying OTP...");
+      const verifyResponse = await UserService.verifyOtp(formData.email, otp);
+      if (verifyResponse.success) {
+        setConsoleOutput("Account verified successfully. Logging you in...");
+        closePopup();
+        navigate("/dashboard");
       } else {
-        // User Registration or Login
-        if (isLogin) {
-          const loginResponse = await UserService.login(
-            formData.email,
-            formData.password
-          );
-          alert(loginResponse.message);
-          closePopup();
-        } else {
-          await UserService.register(formData);
-          setFormData({
-            usrname: "",
-            name: "",
-            email: "",
-            password: "",
-            mobile: "",
-            dob: "",
-          });
-          alert("User registered successfully");
-          closePopup();
-        }
+        setConsoleOutput("Invalid OTP. Please try again.");
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred. Please try again.");
+      setConsoleOutput(`Error: ${error.message}`);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (isAdmin) {
+      handleAdminLogin();
+    } else if (isLogin) {
+      handleUserLogin();
+    } else if (otpSent) {
+      handleVerifyOtp();
+    } else {
+      handleSignup();
+    }
+  };
+
+  const handleAdminLogin = async () => {
+    try {
+      setConsoleOutput("Attempting admin login...");
+      const loginResponse = await UserService.login(
+        formData.email,
+        formData.password
+      );
+      if (loginResponse.role === "ADMIN") {
+        setConsoleOutput(loginResponse.message);
+        closePopup();
+        navigate("/admin");
+      } else {
+        setConsoleOutput("Unauthorized: Admin access only.");
+      }
+    } catch (error) {
+      setConsoleOutput(`Error: ${error.message}`);
+    }
+  };
+
+  const handleUserLogin = async () => {
+    try {
+      setConsoleOutput("Attempting user login...");
+      const loginResponse = await UserService.login(
+        formData.email,
+        formData.password
+      );
+      setConsoleOutput(loginResponse.message);
+      closePopup();
+    } catch (error) {
+      setConsoleOutput(`Error: ${error.message}`);
     }
   };
 
@@ -108,7 +142,7 @@ const Profile = ({ closePopup }) => {
               {isAdmin ? "Admin Login" : isLogin ? "User Login" : "Signup"}
             </h2>
             <form onSubmit={handleSubmit}>
-              {!isLogin && !isAdmin && (
+              {!isLogin && !isAdmin && !otpSent && (
                 <>
                   <div className={style.formDiv}>
                     <label className={style.labelStyle} htmlFor="usrname">
@@ -198,26 +232,50 @@ const Profile = ({ closePopup }) => {
                   required
                 />
               </div>
+              {otpSent && (
+                <div className={style.formDiv}>
+                  <label className={style.labelStyle} htmlFor="otp">
+                    Enter OTP:
+                  </label>
+                  <input
+                    className={style.inputStyle}
+                    type="text"
+                    id="otp"
+                    name="otp"
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    required
+                  />
+                </div>
+              )}
               <button className={style.submitButton} type="submit">
-                {isAdmin ? "Login" : isLogin ? "Login" : "Signup"}
+                {isAdmin ? "Login" : isLogin ? "Login" : otpSent ? "Verify OTP" : "Signup"}
               </button>
             </form>
-            <p
-              className={style.toggleText}
-              onClick={() => setIsLogin(!isLogin)}
-            >
-              {isAdmin
-                ? ""
-                : isLogin
-                ? "Don't have an account? Signup"
-                : "Already have an account? Login"}
-            </p>
-            <button
-              className={style.adminButton}
-              onClick={() => setIsAdmin(!isAdmin)}
-            >
-              {isAdmin ? "Switch to User" : "Admin Login"}
-            </button>
+            {!otpSent && (
+              <p
+                className={style.toggleText}
+                onClick={() => setIsLogin(!isLogin)}
+              >
+                {isAdmin
+                  ? ""
+                  : isLogin
+                  ? "Don't have an account? Signup"
+                  : "Already have an account? Login"}
+              </p>
+            )}
+            {!otpSent && (
+              <button
+                className={style.adminButton}
+                onClick={() => setIsAdmin(!isAdmin)}
+              >
+                {isAdmin ? "Switch to User" : "Admin Login"}
+              </button>
+            )}
+            {/* Displaying the console output */}
+            <div className={style.consoleOutput}>
+              <pre>{consoleOutput}</pre>
+            </div>
           </>
         ) : (
           <>
@@ -247,14 +305,59 @@ const Profile = ({ closePopup }) => {
                 <h3>Edit Profile</h3>
                 <form>
                   <div className={style.formDiv}>
-                    <label className={style.labelStyle} htmlFor="editName">
-                      Edit Name:
+                    <label className={style.labelStyle} htmlFor="username">
+                      Username:
                     </label>
                     <input
                       className={style.inputStyle}
                       type="text"
-                      id="editName"
-                      name="editName"
+                      id="username"
+                      name="username"
+                      value={formData.usrname}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className={style.formDiv}>
+                    <label className={style.labelStyle} htmlFor="email">
+                      Email:
+                    </label>
+                    <input
+                      className={style.inputStyle}
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className={style.formDiv}>
+                    <label className={style.labelStyle} htmlFor="password">
+                      Password:
+                    </label>
+                    <input
+                      className={style.inputStyle}
+                      type="password"
+                      id="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className={style.formDiv}>
+                    <label className={style.labelStyle} htmlFor="mobile">
+                      Mobile Number:
+                    </label>
+                    <PhoneInput
+                      className={style.inputStyle}
+                      country="US"
+                      value={formData.mobile}
+                      onChange={handlePhoneChange}
+                      international
+                      defaultCountry="US"
+                      required
                     />
                   </div>
                   <div className={style.formDiv}>
@@ -266,71 +369,13 @@ const Profile = ({ closePopup }) => {
                       type="date"
                       id="dob"
                       name="dob"
-                    />
-                  </div>
-                  <div className={style.formDiv}>
-                    <label className={style.labelStyle} htmlFor="mobile">
-                      Mobile Number:
-                    </label>
-                    <PhoneInput
-                      className={style.inputStyle}
-                      country="US"
-                      international
-                      defaultCountry="US"
+                      value={formData.dob}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                   <button className={style.submitButton} type="submit">
-                    Save Changes
-                  </button>
-                </form>
-              </div>
-            )}
-            {selectedOption === "yourBooking" && (
-              <div className={style.optionContent}>
-                <h3>Your Booking</h3>
-                <p>Details of your booking...</p>
-              </div>
-            )}
-            {selectedOption === "helpSupport" && (
-              <div className={style.optionContent}>
-                <h3>Help and Support</h3>
-                <p>Information about help and support...</p>
-              </div>
-            )}
-            {selectedOption === "contactUs" && (
-              <div className={style.optionContent}>
-                <h3>Contact Us</h3>
-                <p>Details to contact us...</p>
-              </div>
-            )}
-            {selectedOption === "accountSettings" && (
-              <div className={style.optionContent}>
-                <h3>Account and Settings</h3>
-                <form>
-                  <div className={style.formDiv}>
-                    <label className={style.labelStyle} htmlFor="email">
-                      Email:
-                    </label>
-                    <input
-                      className={style.inputStyle}
-                      type="email"
-                      id="email"
-                      name="email"
-                    />
-                  </div>
-                  <div className={style.formDiv}>
-                    <label className={style.labelStyle} htmlFor="password">
-                      New Password:
-                    </label>
-                    <input
-                      className={style.inputStyle}
-                      type="password"
-                      id="password"
-                      name="password"
-                    />
-                  </div>
-                  <button className={style.submitButton} type="submit">
-                    Save Settings
+                    Update Profile
                   </button>
                 </form>
               </div>
