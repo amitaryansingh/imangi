@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "./ManageUsers.module.css";
 import UserService from "../../Authentication/UserService"; // Adjust the import path as necessary
 import UpdateUser from "./Updateuser";
-
+import AddUser from "./AddUser";
 function ManageUsers({ onClose }) {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
-
+  const [showAddUser, setShowAddUser] = useState(false);
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -15,7 +15,6 @@ function ManageUsers({ onClose }) {
     try {
       const token = localStorage.getItem("token"); // Retrieve the token from localStorage
       const response = await UserService.getAllUsers(token);
-      console.log(response);
       setUsers(response.ourUsersList); // Assuming the list of users is under the key 'ourUsersList'
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -40,6 +39,15 @@ function ManageUsers({ onClose }) {
     }
   };
 
+  const handleAddClick = () => {
+    setShowAddUser(true);
+  };
+
+  const handleAddClose = () => {
+    setShowAddUser(false);
+    fetchUsers(); // Refresh the list after adding a new theater
+  };
+
   const handleUpdateClick = (user) => {
     setSelectedUser(user);
   };
@@ -58,16 +66,26 @@ function ManageUsers({ onClose }) {
         </button>
       </div>
       <div className={styles.form}></div>
-      <table className="table table-striped">
+      <table className="table table-striped text-center">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Delete</th>
-            <th scope="col">Update</th>
+            <td colspan="6">
+              <button
+                className="btn btn-success w-100"
+                onClick={handleAddClick}
+              >
+                Add New User
+              </button>
+            </td>
           </tr>
         </thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Update</th>
+        </tr>
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
@@ -97,6 +115,7 @@ function ManageUsers({ onClose }) {
       {selectedUser && (
         <UpdateUser userId={selectedUser.id} onClose={handleUpdateClose} />
       )}
+      {showAddUser && <AddUser onClose={handleAddClose} />}
     </div>
   );
 }
