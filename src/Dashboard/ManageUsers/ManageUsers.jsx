@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ManageUsers.module.css";
-import UserService from "../Authentication/UserService"; // Adjust the import path as necessary
+import UserService from "../../Authentication/UserService"; // Adjust the import path as necessary
 import UpdateUser from "./Updateuser";
 
 function ManageUsers({ onClose }) {

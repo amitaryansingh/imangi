@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ManageMovies from "./ManageMovies";
-import ManageTheatres from "./ManageTheatres";
-import ManageShowtimes from "./ManageShowtimes";
-import ManageReservations from "./ManageReservations";
-import ManageUsers from "./ManageUsers";
+import ManageMovies from "./ManageMovies/ManageMovies";
+import ManageTheatres from "./ManageTheaters/ManageTheatres";
+import ManageShowtimes from "./ManageShowTimes/ManageShowtimes";
+import ManageReservations from "./ManageReservations/ManageReservations";
+import ManageUsers from "./ManageUsers/ManageUsers";
 import styles from "./AdminDashboard.module.css";
 
 function AdminDashboard() {
