@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import UserService from "../Authentication/UserService";
-import style from "./UpdateUser.module.css"; // Assuming you have a CSS module for styling
+import style from "./Updateuser.module.css"; // Assuming you have a CSS module for styling
 
 function UpdateUser({ userId, onClose }) {
   const navigate = useNavigate();
