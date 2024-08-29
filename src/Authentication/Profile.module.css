@@ -29,6 +29,9 @@
   overflow-y: auto; /* Scrollbar if content overflows */
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
+.popupContent h2{
+  position: initial;
+}
 
 /* Close button styling */
 .closeBtn {

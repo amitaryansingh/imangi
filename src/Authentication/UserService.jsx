@@ -35,7 +35,7 @@ class UserService {
   static async getAllUsers(token) {
     try {
       const response = await axios.get(
-        `${UserService.BASE_URL}/admin/get-all-users`,
+        `${UserService.BASE_URL}/admin/getAllUsers`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -49,7 +49,7 @@ class UserService {
   static async getYourProfile(token) {
     try {
       const response = await axios.get(
-        `${UserService.BASE_URL}/adminuser/get-profile`,
+        `${UserService.BASE_URL}/adminuser/getProfile`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -63,7 +63,7 @@ class UserService {
   static async getUserById(userId, token) {
     try {
       const response = await axios.get(
-        `${UserService.BASE_URL}/admin/get-users/${userId}`,
+        `${UserService.BASE_URL}/admin/getUsers/${userId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
