@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ManageUsers.module.css";
-import UserService from "../../Authentication/UserService"; // Adjust the import path as necessary
+import UserService from "../../Authentication/UserService";
 import UpdateUser from "./Updateuser";
 import AddUser from "./AddUser";
 function ManageUsers({ onClose }) {
@@ -13,9 +13,9 @@ function ManageUsers({ onClose }) {
 
   const fetchUsers = async () => {
     try {
-      const token = localStorage.getItem("token"); // Retrieve the token from localStorage
+      const token = localStorage.getItem("token");
       const response = await UserService.getAllUsers(token);
-      setUsers(response.ourUsersList); // Assuming the list of users is under the key 'ourUsersList'
+      setUsers(response.ourUsersList);
     } catch (error) {
       console.error("Error fetching users:", error);
     }
@@ -23,15 +23,13 @@ function ManageUsers({ onClose }) {
 
   const deleteUser = async (userId) => {
     try {
-      // Prompt for confirmation before deleting the user
       const confirmDelete = window.confirm(
         "Are you sure you want to delete this user?"
       );
 
-      const token = localStorage.getItem("token"); // Retrieve the token from localStorage
+      const token = localStorage.getItem("token");
       if (confirmDelete) {
         await UserService.deleteUser(userId, token);
-        // After deleting the user, fetch the updated list of users
         fetchUsers();
       }
     } catch (error) {
@@ -45,7 +43,7 @@ function ManageUsers({ onClose }) {
 
   const handleAddClose = () => {
     setShowAddUser(false);
-    fetchUsers(); // Refresh the list after adding a new theater
+    fetchUsers();
   };
 
   const handleUpdateClick = (user) => {
@@ -54,7 +52,7 @@ function ManageUsers({ onClose }) {
 
   const handleUpdateClose = () => {
     setSelectedUser(null);
-    fetchUsers(); // Optionally refresh the user list after updating
+    fetchUsers();
   };
 
   return (

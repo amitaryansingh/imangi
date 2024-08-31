@@ -36,9 +36,9 @@ const ImageSlider = () => {
       {
         breakpoint: 700,
         settings: {
-          slidesToShow:2, // Show 2 slides in one row
+          slidesToShow:2,
           slidesToScroll:1,
-          rows:2, // Display 2 rows
+          rows:2,
         },
       },
       {

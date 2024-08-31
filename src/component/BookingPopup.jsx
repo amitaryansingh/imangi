@@ -130,7 +130,7 @@ const BookingPopup = ({ closePopup, movieName, movieDuration }) => {
           theater={selectedShowtime.theater}
           time={selectedShowtime.time}
           movieName={movieName}
-          movieDuration={movieDuration} // Pass the movie duration here
+          movieDuration={movieDuration}
         />
       )}
     </>

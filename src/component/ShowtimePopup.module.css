@@ -1,4 +1,4 @@
-/* ShowTime.module.css */
+
 
 .popupOverlay {
   position: fixed;
@@ -129,15 +129,15 @@
 @media (max-width: 991px) {
   .popupContent {
     width: 95vw;
-    height: 80vh; /* Increased height for better mobile view */
-    padding: 20px; /* Reduced padding for better fit on smaller screens */
+    height: 80vh; 
+    padding: 20px; 
   }
 }
 @media (max-width: 600px) {
   .popupContent {
-    width: 100vw; /* Full width for very small screens */
-    height: 85vh; /* Almost full height for very small screens */
-    padding: 15px; /* Further reduced padding */
+    width: 100vw; 
+    height: 85vh; 
+    padding: 15px; 
   }
 
   .closeBtn {
@@ -151,12 +151,12 @@
   }
 
   .numPeople {
-    flex-wrap: wrap; /* Allow buttons to wrap to a new line */
-    justify-content: center; /* Center the buttons */
+    flex-wrap: wrap; 
+    justify-content: center; 
   }
 
   .numButton {
-    padding: 8px 10px; /* Slightly reduce padding to fit better */
-    font-size: 14px; /* Reduce font size for smaller screens */
+    padding: 8px 10px; 
+    font-size: 14px; 
   }
 }

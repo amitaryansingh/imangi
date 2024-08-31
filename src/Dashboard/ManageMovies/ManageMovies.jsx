@@ -9,8 +9,8 @@ function ManageMovies({ onClose }) {
   const [duration, setDuration] = useState("");
   const [releaseDate, setReleaseDate] = useState("");
   const [story, setStory] = useState("");
-  const [poster, setPoster] = useState(null); // Changed from src to poster
-  const [trailer, setTrailer] = useState(null); // Single video file
+  const [poster, setPoster] = useState(null);
+  const [trailer, setTrailer] = useState(null);
   const [castDetails, setCastDetails] = useState([]);
   const [newCast, setNewCast] = useState({ name: "", role: "", image: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -38,7 +38,6 @@ function ManageMovies({ onClose }) {
 
     console.log("Submitted Movie Data:", movieData);
 
-    // Clear the form after submission
     setTitle("");
     setLanguage("");
     setIsAdult(false);
@@ -111,7 +110,6 @@ function ManageMovies({ onClose }) {
           type="file"
           accept="video/*"
           onChange={(e) => {
-            // Ensure only one trailer is set
             setTrailer(e.target.files[0]);
           }}
         />

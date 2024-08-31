@@ -1,40 +1,40 @@
-/* Mobile Header Styles */
+
 .mobileHeader {
   display: none;
-  position: fixed; /* Fix the header position */
-  top: 0; /* Align it to the top */
+  position: fixed; 
+  top: 0; 
   left: 0;
-  width: 100vw; /* Full width */
+  width: 100vw; 
   background-color: black;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  z-index: 10000; /* Ensure it's above other elements */
+  z-index: 10000; 
 }
 
-/* Menu icon */
+
 .menuIcon {
   font-size: 1.8rem;
   color: white;
   cursor: pointer;
 }
 
-/* Logo */
+
 .logo {
   height: 40px;
   width: 80px;
 }
 
-/* Side menu styles */
+
 .sideMenu {
   position: fixed;
   top: 8vh;
   left: -250px;
   width: 250px;
-  height: 100vh; /* Full height */
+  height: 100vh; 
   background-color: black;
   overflow-y: auto;
-  padding-bottom: 60px; /* Space for bottom header */
+  padding-bottom: 60px; 
   transition: left 0.3s ease;
   z-index: 1000;
 }
@@ -66,7 +66,7 @@
   margin-right: 10px;
 }
 
-/* Search styles */
+
 .searchContainer {
   display: flex;
   align-items: center;
@@ -86,21 +86,21 @@
   color: #000;
 }
 
-/* Bottom header styles */
+
 .bottomHeader {
   position: fixed;
-  bottom: 0; /* Align it to the bottom */
+  bottom: 0; 
   left: 0;
-  width: 100vw; /* Full width */
+  width: 100vw; 
   background-color: rgb(0, 0, 0);
-  display: none; /* Hidden by default */
+  display: none; 
   justify-content: space-evenly;
   padding: 10px 0;
   border-top: 1px solid #ccc;
-  z-index: 1000; /* Ensure it's above other elements */
+  z-index: 1000; 
 }
 
-/* Bottom menu items */
+
 .bottomMenuItem {
   list-style: none;
   padding: 5px;
@@ -117,7 +117,7 @@
   margin-right: 5px;
 }
 
-/* Dark Mode Styles */
+
 .dark-mode .mobileHeader {
   background-color: #333;
 }
@@ -145,20 +145,20 @@
 
 @media (max-width: 1100px) {
   .mobileHeader {
-    display: flex; /* Show mobile header on mobile and tablet screens */
+    display: flex; 
   }
 
   .bottomHeader {
-    display: flex; /* Show bottom header on mobile and tablet screens */
+    display: flex; 
   }
 }
 
 @media (min-width: 1100px) {
   .sideMenu {
-    display: none; /* Hide side menu on larger screens */
+    display: none; 
   }
 
   .bottomHeader {
-    display: none; /* Hide bottom header on larger screens */
+    display: none; 
   }
 }

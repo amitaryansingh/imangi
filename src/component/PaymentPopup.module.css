@@ -51,7 +51,7 @@
   border: 1px solid whitesmoke;
   background-color: grey;
   font-size: 16px;
-  width: 100%; /* Ensure buttons take full width */
+  width: 100%; 
 }
 
 .couponSection {
@@ -71,11 +71,11 @@
 }
 
 .couponButton:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }
 
 .couponButton.disabled {
-  background-color: #6c757d; /* Gray color when disabled */
+  background-color: #6c757d; 
 }
 
 .removeCouponButton {
@@ -111,11 +111,11 @@
   font-size: 18px;
   margin-top: 20px;
   transition: background-color 0.3s ease-in-out;
-  width: 100%; /* Ensure pay button takes full width */
+  width: 100%; 
 }
 
 .payBtn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }
 
 .closeBtn {
@@ -131,15 +131,15 @@
 }
 
 .closeBtn:hover {
-  color: #ff4d4d; /* Change close button color on hover */
+  color: #ff4d4d; 
 }
 
 @media (max-width: 991px) {
   .popupContent {
     width: 90vw;
-    height: 80vh; /* Adjust height for better mobile view */
-    padding: 15px; /* Reduced padding for better fit on smaller screens */
-    flex-direction: column; /* Stack payment methods and order summary vertically */
+    height: 80vh; 
+    padding: 15px; 
+    flex-direction: column; 
   }
 
   .sections {
@@ -155,9 +155,9 @@
 
 @media (max-width: 600px) {
   .popupContent {
-    width: 100vw; /* Full width for very small screens */
-    height: 85vh; /* Almost full height for very small screens */
-    padding: 10px; /* Further reduced padding */
+    width: 100vw; 
+    height: 85vh; 
+    padding: 10px; 
   }
 
   .closeBtn {
@@ -167,11 +167,11 @@
   }
 
   .paymentMethods h3, .orderSummary h3 {
-    font-size: 16px; /* Adjusted font size for small screens */
+    font-size: 16px; 
   }
 
   .paymentMethods button, .couponButton, .removeCouponButton, .payBtn {
-    font-size: 14px; /* Adjusted font size for smaller screens */
-    padding: 8px; /* Reduced padding for buttons */
+    font-size: 14px; 
+    padding: 8px; 
   }
 }

@@ -1,4 +1,4 @@
-/* MoreInfoPopup.module.css */
+
 .popupOverlay {
     position: fixed;
     top: 0;
@@ -25,8 +25,8 @@
     max-height: 90vh;
     position: relative;
     text-align: center;
-    max-width: 800px; /* Limit the max width of the popup */
-    overflow: hidden; /* Hide overflow for the entire popup content */
+    max-width: 800px; 
+    overflow: hidden; 
 }
 
 .closeBtn {
@@ -38,7 +38,7 @@
     top: 15px;
     right: 15px;
     color: white;
-    z-index: 1001; /* Ensure close button is above all content */
+    z-index: 1001; 
 }
 
 h2 {
@@ -48,16 +48,16 @@ h2 {
     color: whitesmoke;
     position: sticky;
     padding: 10px;
-    z-index: 1000; /* Ensure header is above all content */
+    z-index: 1000; 
 }
 
 .details {
     text-align: left;
     font-size: 16px;
     color: white;
-    max-height: calc(80vh - 80px); /* Adjust height to fit within the viewport minus header and padding */
-    overflow-y: auto; /* Enable scrolling for the content */
-    padding-right: 10px; /* Prevent content from being cut off */
+    max-height: calc(80vh - 80px); 
+    overflow-y: auto; 
+    padding-right: 10px; 
 }
 
 .infoContainer {
@@ -94,13 +94,13 @@ h2 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    max-height: 300px; /* Set a max height to control overflow */
+    overflow-y: auto; 
+    max-height: 300px; 
 }
 
 .castItem {
     text-align: center;
-    max-width: 100px; /* Limit the width of each cast item */
+    max-width: 100px; 
     flex: 1 1 auto;
 }
 
@@ -120,16 +120,16 @@ h2 {
 }
 
 .movieTrailer video {
-    width: 100%; /* Make video take full width of container */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 400px; /* Limit height if necessary */
+    width: 100%; 
+    height: auto; 
+    max-height: 400px; 
 }
 
 @media (max-width: 991px) {
     .popupContent {
       width: 95vw;
-      height: 80vh; /* Increased height for better mobile view */
-      padding: 20px; /* Reduced padding for better fit on smaller screens */
+      height: 80vh; 
+      padding: 20px; 
     }
   }
   .yourComponentClass {
@@ -139,9 +139,9 @@ h2 {
   
   @media (max-width: 600px) {
     .popupContent {
-      width: 100vw; /* Full width for very small screens */
-      height: 85vh; /* Almost full height for very small screens */
-      padding: 15px; /* Further reduced padding */
+      width: 100vw; 
+      height: 85vh; 
+      padding: 15px; 
     }
   
     .closeBtn {

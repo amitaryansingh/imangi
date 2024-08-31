@@ -157,77 +157,77 @@
 @media (max-width: 991px) {
   .popupContent {
     width: 95vw;
-    height: 80vh; /* Increased height for better mobile view */
-    padding: 15px; /* Reduced padding for better fit on smaller screens */
+    height: 80vh; 
+    padding: 15px; 
   }
 
   .seatBlock {
-    flex-wrap: wrap; /* Allow seats to wrap to the next line if needed */
-    justify-content: center; /* Center the seats */
+    flex-wrap: wrap; 
+    justify-content: center; 
   }
 
   .seat {
-    width: 24px; /* Slightly reduced width for better fit */
-    height: 24px; /* Slightly reduced height for better fit */
-    font-size: 14px; /* Reduced font size for better fit */
+    width: 24px; 
+    height: 24px; 
+    font-size: 14px; 
   }
 
   .seatGap {
-    width: 10px; /* Reduced gap width for better fit */
+    width: 10px; 
   }
 
   .theaterInfo {
-    font-size: 20px; /* Reduced font size for better fit */
+    font-size: 20px; 
   }
 
   .row {
-    gap: 5px; /* Reduced gap between row items */
+    gap: 5px; 
   }
 
   .sectionName {
-    font-size: 18px; /* Reduced font size for better fit */
+    font-size: 18px; 
   }
 
   .payButton {
-    font-size: 14px; /* Reduced font size for better fit */
+    font-size: 14px; 
   }
 }
 
 @media (max-width: 600px) {
   .popupContent {
-    width: 100vw; /* Full width for very small screens */
-    height: 85vh; /* Almost full height for very small screens */
-    padding: 10px; /* Further reduced padding */
+    width: 100vw; 
+    height: 85vh; 
+    padding: 10px; 
   }
 
   .seatBlock {
-    flex-wrap: wrap; /* Ensure wrapping on very small screens */
-    gap: 5px; /* Reduced gap between seats */
+    flex-wrap: wrap; 
+    gap: 5px; 
   }
 
   .seat {
-    width: 20px; /* Further reduced width for very small screens */
-    height: 20px; /* Further reduced height for very small screens */
-    font-size: 12px; /* Further reduced font size */
+    width: 20px; 
+    height: 20px; 
+    font-size: 12px; 
   }
 
   .seatGap {
-    width: 5px; /* Further reduced gap width */
+    width: 5px; 
   }
 
   .theaterInfo {
-    font-size: 18px; /* Further reduced font size for very small screens */
+    font-size: 18px; 
   }
 
   .row {
-    gap: 5px; /* Ensure proper gap between row items */
+    gap: 5px; 
   }
 
   .sectionName {
-    font-size: 16px; /* Further reduced font size */
+    font-size: 16px; 
   }
 
   .payButton {
-    font-size: 12px; /* Further reduced font size */
+    font-size: 12px; 
   }
 }

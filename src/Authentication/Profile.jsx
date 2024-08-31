@@ -20,7 +20,7 @@ const Profile = ({ closePopup }) => {
     dob: "",
     role: "USER",
   });
-  const [consoleOutput, setConsoleOutput] = useState(""); // State to store console output
+  const [consoleOutput, setConsoleOutput] = useState("");
 
   const navigate = useNavigate();
 
@@ -131,7 +131,7 @@ const Profile = ({ closePopup }) => {
       <div className={style.popupContent}>
         <button
           className={style.closeBtn}
-          onClick={closePopup} // Ensure this triggers closePopup
+          onClick={closePopup}
         >
           &times;
         </button>

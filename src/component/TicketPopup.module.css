@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker background for better contrast */
+  background-color: rgba(0, 0, 0, 0.6); 
   z-index: 1000;
 }
 
@@ -17,7 +17,7 @@
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 8px 22px gray;
-  width: 60vw; /* Adjust width for better fit */
+  width: 60vw; 
   max-height: 80vh;
   overflow: auto;
   position: relative;
@@ -45,7 +45,7 @@
 }
 
 .closeBtn:hover {
-  color: #ff4d4d; /* Change close button color on hover */
+  color: #ff4d4d; 
 }
 
 h3 {
@@ -73,7 +73,7 @@ p {
 }
 
 .downloadButton:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }
 
 .downloadButton:focus {
@@ -101,15 +101,15 @@ p {
 @media (max-width: 991px) {
   .popupContent {
     width: 95vw;
-    height: 80vh; /* Increased height for better mobile view */
-    padding: 20px; /* Reduced padding for better fit on smaller screens */
+    height: 80vh; 
+    padding: 20px; 
   }
 }
 @media (max-width: 600px) {
   .popupContent {
-    width: 100vw; /* Full width for very small screens */
-    height: 85vh; /* Almost full height for very small screens */
-    padding: 15px; /* Further reduced padding */
+    width: 100vw; 
+    height: 85vh; 
+    padding: 15px; 
   }
 
   .closeBtn {

@@ -48,12 +48,12 @@ function ManageTheatres({ onClose }) {
 
   const handleUpdateClose = () => {
     setSelectedTheater(null);
-    fetchTheaters(); // Optionally refresh the theater list after updating
+    fetchTheaters();
   };
 
   const handleAddClose = () => {
     setShowAddTheater(false);
-    fetchTheaters(); // Refresh the list after adding a new theater
+    fetchTheaters();
   };
 
   return (

@@ -48,12 +48,12 @@ function ManageShowtimes({ onClose }) {
 
   const handleUpdateClose = () => {
     setSelectedShowtime(null);
-    fetchShowtimes(); // Optionally refresh the showtime list after updating
+    fetchShowtimes();
   };
 
   const handleAddClose = () => {
     setShowAddShowtime(false);
-    fetchShowtimes(); // Refresh the list after adding a new showtime
+    fetchShowtimes();
   };
 
   return (

@@ -32,12 +32,12 @@
   gap: 1rem;
   padding: 2rem;
   border-radius: 8px;
-  background: transparent; /* Default transparent background */
+  background: transparent;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .bodyText {
-  z-index: 2; /* Text content on top */
+  z-index: 2;
   width: 50%;
 }
 
@@ -45,18 +45,18 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 50%; /* Take up half of the section */
+  width: 50%;
   height: 100%;
   object-fit: cover;
-  z-index: 1; /* Image behind text */
-  opacity: 0.8; /* Increased opacity for better image visibility */
-  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%); /* Clip to make it blend into text area */
+  z-index: 1;
+  opacity: 0.8;
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .bodySection h2, .bodySection p {
   position: relative;
-  z-index: 2; /* Ensure text is in front of the image */
-  color: #333; /* Text color */
+  z-index: 2;
+  color: #333;
 }
 
 .bodySection h2 {
@@ -69,7 +69,7 @@
   font-size: 1rem;
 }
 
-/* Media Query for Mobile Devices */
+
 @media (max-width: 991px) {
   .bodyHeader h1 {
     font-size: 2rem;
@@ -77,8 +77,8 @@
 
   .bodySection {
     flex-direction: column;
-    padding: 1rem; /* Adjusted padding for better spacing */
-    background: rgba(255, 255, 255, 0.9); /* Light background for better contrast on mobile */
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.9);
   }
 
   .bodyText {
@@ -87,7 +87,7 @@
 
   .bodySection img {
     width: 100%;
-    opacity: 0.5; /* Lower opacity for mobile to improve text contrast */
+    opacity: 0.5;
     clip-path: none;
   }
 

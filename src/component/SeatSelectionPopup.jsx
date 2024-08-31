@@ -38,7 +38,7 @@ const SeatSelectionPopup = ({ closePopup, theater, sections, numPeople }) => {
     (seatKey) => selectedSeats[seatKey]
   );
 
-  const totalAmount = selectedSeatsArray.length * 340; // Assuming each seat costs ₹340
+  const totalAmount = selectedSeatsArray.length * 340;
 
   return (
     <>

@@ -15,11 +15,11 @@ const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) 
       name: "Rs. 290 EXECUTIVE",
       rows: ["A", "B", "C", "D"],
       seatsPerRow: [
-        { seats: 6 }, // 6 seats in the first block
-        { gap: true }, // gap
-        { seats: 12 }, // 12 seats in the second block
-        { gap: true }, // gap
-        { seats: 6 },  // 6 seats in the third block
+        { seats: 6 }, 
+        { gap: true }, 
+        { seats: 12 }, 
+        { gap: true }, 
+        { seats: 6 },  
       ],
       pricePerSeat: 290,
     },
@@ -28,11 +28,11 @@ const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) 
       name: "Rs. 340 CLUB",
       rows: ["E", "F", "G", "H", "I", "J", "K", "K", "L"],
       seatsPerRow: [
-        { seats: 6 },  // 6 seats in the first block
-        { gap: true }, // gap
-        { seats: 12 }, // 12 seats in the second block
-        { gap: true }, // gap
-        { seats: 6 },  // 6 seats in the third block
+        { seats: 6 },  
+        { gap: true }, 
+        { seats: 12 }, 
+        { gap: true }, 
+        { seats: 6 },  
       ],
       pricePerSeat: 340,
     },
@@ -41,11 +41,11 @@ const ShowtimePopup = ({ closePopup, theater, time, movieName, movieDuration }) 
       name: "Rs. 600 PREMIUM",
       rows: ["M"],
       seatsPerRow: [
-        { seats: 4, wheelchairAccessible: true }, // 4 wheelchair seats
-        { gap: true }, // gap
-        { seats: 8 },  // 8 regular seats
-        { gap: true }, // gap
-        { seats: 4, wheelchairAccessible: true }, // 4 wheelchair seats
+        { seats: 4, wheelchairAccessible: true }, 
+        { gap: true }, 
+        { seats: 8 },  
+        { gap: true }, 
+        { seats: 4, wheelchairAccessible: true }, 
       ],
       pricePerSeat: 340,
     },

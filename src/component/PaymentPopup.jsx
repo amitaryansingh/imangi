@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import style from './PaymentPopup.module.css';
-import TicketPopup from './TicketPopup'; // Import the TicketPopup component
+import TicketPopup from './TicketPopup';
 
 const PaymentPopup = ({ closePopup, movieName, totalAmount, selectedSeats }) => {
   const [paymentMode, setPaymentMode] = useState(null);
   const [couponApplied, setCouponApplied] = useState(false);
   const [finalAmount, setFinalAmount] = useState(totalAmount);
-  const [showTicketPopup, setShowTicketPopup] = useState(false); // State to control the TicketPopup
+  const [showTicketPopup, setShowTicketPopup] = useState(false);
 
   const handleApplyCoupon = () => {
     if (!couponApplied) {
-      setFinalAmount(finalAmount * 0.9); // Apply 10% discount
+      setFinalAmount(finalAmount * 0.9);
       setCouponApplied(true);
     }
   };
 
   const handleRemoveCoupon = () => {
     if (couponApplied) {
-      setFinalAmount(totalAmount); // Remove coupon discount
+      setFinalAmount(totalAmount);
       setCouponApplied(false);
     }
   };
 
   const handlePayment = () => {
     alert("Payment Successful!");
-    setShowTicketPopup(true); // Show the TicketPopup after payment
+    setShowTicketPopup(true);
   };
 
   return (
@@ -64,10 +64,10 @@ const PaymentPopup = ({ closePopup, movieName, totalAmount, selectedSeats }) => 
               <div className={style.orderSummaryDetails}>
                 <div>
                   <p>Movie Name: {movieName}</p>
-                  <p>Language: Hindi</p> {/* Replace with dynamic data if needed */}
+                  <p>Language: Hindi</p> {/* dynamic data if needed */}
                   <p>Theater Name: XYZ Theater</p> {/* Replace with dynamic data if needed */}
                   <p>Seats: {selectedSeats.join(", ")}</p>
-                  <p>Time: 7:00 PM</p> {/* Replace with dynamic data if needed */}
+                  <p>Time: 7:00 PM</p> {/*dynamic data if needed */}
                 </div>
                 <div className={style.orderSummaryAmount}>
                   <p>Subtotal: ₹{finalAmount.toFixed(2)}</p>

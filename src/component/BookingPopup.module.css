@@ -14,7 +14,7 @@
 
 .popupOverlay.hide {
   opacity: 0;
-  pointer-events: none; /* Ensures no clicks on hidden popup */
+  pointer-events: none;
 }
 
 
@@ -164,15 +164,15 @@ h2 {
 @media (max-width: 991px) {
   .popupContent {
     width: 95vw;
-    height: 80vh; /* Increased height for better mobile view */
-    padding: 20px; /* Reduced padding for better fit on smaller screens */
+    height: 80vh; 
+    padding: 20px; 
   }
 }
 @media (max-width: 600px) {
   .popupContent {
-    width: 100vw; /* Full width for very small screens */
-    height: 85vh; /* Almost full height for very small screens */
-    padding: 15px; /* Further reduced padding */
+    width: 100vw; 
+    height: 85vh; 
+    padding: 15px; 
   }
 
   .closeBtn {

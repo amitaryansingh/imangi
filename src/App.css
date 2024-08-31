@@ -6,15 +6,6 @@
   box-sizing: border-box;
   overflow-x:calc();
 }
-:root {
-  background-color:black;
-  text-color:white;
-}
-
-.dark-mode {
-  background-color:white;
-  text-color: black;
-}
 
 button{
   padding:0px;
@@ -40,20 +31,19 @@ body {
   display: none;
 }
 
-/* Global Styles */
 
 :root {
-  --primary-color: #000000; /* Default text color for light mode */
-  --background-color:whitesmoke; /* Default background color for light mode */
-  --icon-color: whitesmoke; /* Default icon color for light mode */
-  --scrolled-bg-color: whitesmoke; /* Background color when scrolled in light mode */
+  --primary-color: #000000; 
+  --background-color:whitesmoke; 
+  --icon-color: whitesmoke; 
+  --scrolled-bg-color: whitesmoke; 
 }
 
 .dark-mode {
-  --primary-color:black; /* Text color for dark mode */
-  --background-color: #121212; /* Background color for dark mode */
-  --icon-color:gray; /* Icon color for dark mode */
-  --scrolled-bg-color:gray; /* Background color when scrolled in dark mode */
+  --primary-color:black; 
+  --background-color: #121212; 
+  --icon-color:gray; 
+  --scrolled-bg-color:gray; 
 }
 
 body {
@@ -61,20 +51,20 @@ body {
   background-color: var(--background-color);
 }
 
-/* Add this to apply the theme to all text in the header */
+
 header {
   color: var(--primary-color);
 }
 
 .icon {
-  color: var(--icon-color); /* This will apply to your React icons */
+  color: var(--icon-color); 
 }
 
 .scrolled {
-  background-color: var(--scrolled-bg-color); /* Dynamic background based on theme */
+  background-color: var(--scrolled-bg-color); 
 }
 
-/* Add any additional styling you need to adjust for dark mode here */
+
 
 @media (max-width: 991px) {
   .mobileMenu {

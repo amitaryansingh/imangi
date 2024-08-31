@@ -42,7 +42,7 @@ const Mobheader = () => {
 
   const handleLocationSelect = (location) => {
     setSelectedLocation(location);
-    toggleLocationPopup(); // Close the popup after selection
+    toggleLocationPopup();
   };
 
   return (
