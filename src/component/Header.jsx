@@ -18,9 +18,9 @@ const Header = () => {
   useEffect(() => {
     const fetchLocation = async () => {
       try {
-        const response = await fetch("http://ip-api.com/json");
+        const response = await fetch("http://api.ipstack.com/check?access_key=fa2fb775c91cadda6959e1c6b47fcf47");
         const data = await response.json();
-        setCity(data.city);
+        setCity(data.city || "Unknown");
       } catch (error) {
         setCity("Error");
       }
@@ -44,9 +44,31 @@ const Header = () => {
   }, []);
 
   const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark-mode", !darkMode);
+    setDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      if (newMode) {
+        document.documentElement.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
+      }
+      return newMode;
+    });
   };
+  
+  // Set the initial theme based on localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark-mode");
+    } else {
+      setDarkMode(false);
+      document.documentElement.classList.remove("dark-mode");
+    }
+  }, []);
+  
 
   const toggleProfilePopup = () => {
     setIsProfileOpen(!isProfileOpen);
@@ -54,6 +76,11 @@ const Header = () => {
 
   const toggleLocationPopup = () => {
     setIsLocationPopupOpen(!isLocationPopupOpen);
+  };
+
+  const handleCitySelect = (selectedCity) => {
+    setCity(selectedCity);
+    setIsLocationPopupOpen(false);
   };
 
   return (
@@ -64,19 +91,19 @@ const Header = () => {
           <ul className={style.navList}>
             <li className={style.navItem}>
               <a className={style.navLink} href="/">
-                <FaHome className={style.icon} />
+                <FaHome className={`${style.icon} icon`} />
                 Home
               </a>
             </li>
             <li className={style.navItem}>
               <a className={style.navLink} href="#">
-                <LuCalendarClock className={style.icon} />
+                <LuCalendarClock className={`${style.icon} icon`} />
                 ShowTiming
               </a>
             </li>
             <li className={style.navItem}>
               <a className={style.navLink} href="#">
-                <BiSolidOffer className={style.icon} />
+                <BiSolidOffer className={`${style.icon} icon`} />
                 Offers
               </a>
             </li>
@@ -85,7 +112,7 @@ const Header = () => {
         <div className={style.rightSection}>
           <div className={style.leftSection}>
             <div className={style.locationBar} onClick={toggleLocationPopup}>
-              <GiPositionMarker className={style.iconLocation} /> {city}
+              <GiPositionMarker className={`${style.iconLocation} icon`} /> {city}
             </div>
           </div>
           <form className={style.search} role="search">
@@ -94,25 +121,27 @@ const Header = () => {
                 className={style.searchInput}
                 type="search"
                 placeholder="Search"
-                aria-label="Search"                   />
-                 <FaSearch className={style.searchIcon} />
-               </div>
-             </form>
-             <div className={style.pro} onClick={toggleProfilePopup}>
-               <a className={style.navLink} href="#">
-                 <CgProfile className={style.icon} />
-                 Profile
-               </a>
-             </div>
-             {isProfileOpen && <Profile closePopup={toggleProfilePopup} />}
-             <div className={style.themeToggle} onClick={toggleTheme}>
-               {darkMode ? <FaSun className={style.icon} /> : <FaMoon className={style.icon} />}
-             </div>
-           </div>
-         </div>
-         {isLocationPopupOpen && <LocationPopup closePopup={toggleLocationPopup} initialCity={city} />}
-       </header>
-     );
+                aria-label="Search"
+              />
+              <FaSearch className={`${style.searchIcon} icon`} />
+            </div>
+          </form>
+          <div className={style.pro} onClick={toggleProfilePopup}>
+            <a className={style.navLink} href="#">
+              <CgProfile className={`${style.icon} icon`} />
+              Profile
+            </a>
+          </div>
+          {isProfileOpen && <Profile closePopup={toggleProfilePopup} />}
+          <div className={style.themeToggle} onClick={toggleTheme}>
+            {darkMode ? <FaSun className={`${style.icon} icon`} /> : <FaMoon className={`${style.icon} icon`} />}
+          </div>
+        </div>
+      </div>
+      {isLocationPopupOpen && <LocationPopup closePopup={toggleLocationPopup} onSelectCity={handleCitySelect} initialCity={city} />}
+    </header>
+  );
+  
    };
 
 export default Header;

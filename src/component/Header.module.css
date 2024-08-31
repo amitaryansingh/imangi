@@ -15,9 +15,11 @@
   display: flex;
   align-items: center;
 }
+
 .scrolled {
   background-color: black;
 }
+
 .logo {
   height: 60px;
   width: 100px;
@@ -144,17 +146,6 @@
   border-color: white;
 }
 
-.dark-mode {
-  --background-color: #333;
-  --text-color: #fff;
-  /* Add more dark mode variables if needed */
-}
-
-/* Apply the theme variables */
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
 
 @media (max-width: 1100px) {
   .header {

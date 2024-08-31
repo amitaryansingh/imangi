@@ -14,7 +14,7 @@ const cities = [
   'Jamshedpur', 'Udaipur', 'Bhubaneswar', 'Raipur', 'Sonepat'
 ];
 
-const LocationPopup = ({ closePopup, initialCity }) => {
+const LocationPopup = ({ closePopup, onSelectCity, initialCity }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredCities, setFilteredCities] = useState(cities);
   
@@ -23,6 +23,10 @@ const LocationPopup = ({ closePopup, initialCity }) => {
       cities.filter(city => city.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   }, [searchTerm]);
+
+  const handleCityClick = (city) => {
+    onSelectCity(city);
+  };
 
   return (
     <div className={style.popupOverlay}>
@@ -42,7 +46,7 @@ const LocationPopup = ({ closePopup, initialCity }) => {
         </div>
         <div className={style.cityList}>
           {filteredCities.map((city, index) => (
-            <div key={index} className={style.cityItem}>
+            <div key={index} className={style.cityItem} onClick={() => handleCityClick(city)}>
               {city}
             </div>
           ))}

@@ -40,6 +40,41 @@ body {
   display: none;
 }
 
+/* Global Styles */
+
+:root {
+  --primary-color: #000000; /* Default text color for light mode */
+  --background-color:whitesmoke; /* Default background color for light mode */
+  --icon-color: whitesmoke; /* Default icon color for light mode */
+  --scrolled-bg-color: whitesmoke; /* Background color when scrolled in light mode */
+}
+
+.dark-mode {
+  --primary-color:black; /* Text color for dark mode */
+  --background-color: #121212; /* Background color for dark mode */
+  --icon-color:gray; /* Icon color for dark mode */
+  --scrolled-bg-color:gray; /* Background color when scrolled in dark mode */
+}
+
+body {
+  color: var(--primary-color);
+  background-color: var(--background-color);
+}
+
+/* Add this to apply the theme to all text in the header */
+header {
+  color: var(--primary-color);
+}
+
+.icon {
+  color: var(--icon-color); /* This will apply to your React icons */
+}
+
+.scrolled {
+  background-color: var(--scrolled-bg-color); /* Dynamic background based on theme */
+}
+
+/* Add any additional styling you need to adjust for dark mode here */
 
 @media (max-width: 991px) {
   .mobileMenu {
