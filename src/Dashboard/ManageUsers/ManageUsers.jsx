@@ -66,7 +66,7 @@ function ManageUsers({ onClose }) {
         </button>
       </div>
       <div className={styles.form}></div>
-      <table className="table table-striped text-center">
+      <table className="table table-striped text-center align-middle">
         <thead>
           <tr>
             <td colspan="6">
@@ -83,6 +83,7 @@ function ManageUsers({ onClose }) {
           <th scope="col">ID</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
+          <th scope="col">Role</th>
           <th scope="col">Delete</th>
           <th scope="col">Update</th>
         </tr>
@@ -90,8 +91,9 @@ function ManageUsers({ onClose }) {
           {users.map((user) => (
             <tr key={user.id}>
               <td scope="row">{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
+              <td scope="col">{user.name}</td>
+              <td scope="col">{user.email}</td>
+              <td scope="col">{user.role}</td>
               <td>
                 <button
                   className="btn btn-danger"

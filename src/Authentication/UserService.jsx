@@ -31,6 +31,28 @@ class UserService {
       throw err;
     }
   }
+  static async verify(email, otp) {
+    console.log(otp); // This is fine for debugging
+    try {
+      const response = await axios.post(
+        `${UserService.BASE_URL}/auth/verify`, // Correct URL path
+        null, // No body data, so pass `null` here
+        {
+          params: {
+            email, // These are query parameters
+            otp,
+          },
+        }
+      );
+      return response.data;
+    } catch (err) {
+      console.error(
+        "Verification failed:",
+        err.response ? err.response.data : err.message
+      );
+      throw err;
+    }
+  }
 
   static async getAllUsers(token) {
     try {

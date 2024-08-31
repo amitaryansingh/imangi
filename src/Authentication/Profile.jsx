@@ -62,11 +62,11 @@ const Profile = ({ closePopup }) => {
   const handleVerifyOtp = async () => {
     try {
       setConsoleOutput("Verifying OTP...");
-      const verifyResponse = await UserService.verifyOtp(formData.email, otp);
-      if (verifyResponse.success) {
-        setConsoleOutput("Account verified successfully. Logging you in...");
-        closePopup();
-        navigate("/dashboard");
+      const verifyResponse = await UserService.verify(formData.email, otp);
+      if (verifyResponse) {
+        setConsoleOutput(verifyResponse.message);
+        await handleUserLogin();
+        navigate("/");
       } else {
         setConsoleOutput("Invalid OTP. Please try again.");
       }
@@ -98,8 +98,8 @@ const Profile = ({ closePopup }) => {
       );
       if (loginResponse.role === "ADMIN") {
         setConsoleOutput(loginResponse.message);
-        closePopup();
         navigate("/admin");
+        closePopup();
       } else {
         setConsoleOutput("Unauthorized: Admin access only.");
       }
@@ -249,7 +249,13 @@ const Profile = ({ closePopup }) => {
                 </div>
               )}
               <button className={style.submitButton} type="submit">
-                {isAdmin ? "Login" : isLogin ? "Login" : otpSent ? "Verify OTP" : "Signup"}
+                {isAdmin
+                  ? "Login"
+                  : isLogin
+                  ? "Login"
+                  : otpSent
+                  ? "Verify OTP"
+                  : "Signup"}
               </button>
             </form>
             {!otpSent && (
