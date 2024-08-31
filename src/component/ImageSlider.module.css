@@ -1,19 +1,14 @@
 .sliderWrapper {
-  position: relative;
+  top:2vh;
+  position:relative;
   width: 100vw;
   margin-left: 0.5vw;
-  margin-top: -41vh;
 }
 
 .slickslide {
   filter: brightness(1);
   padding: 1vw;
   transition: transform 0.2s ease;
-}
-
-.centerSlide {
-  filter: brightness(1);
-  transform: scale(1.1);
 }
 
 .slickslide img {
@@ -139,13 +134,81 @@
   text-decoration: none;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1099px) {
   .sliderWrapper {
-    margin-top: -60vh;
+    top:-14vh;
   }
 }
 
-.yourComponentClass {
-  background-color: var(--background-color);
-  color: var(--text-color);
+
+@media (max-width: 700px) {
+  .sliderWrapper {
+    top:0vh;
+  }
+
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slick-slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .slick-track {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .slick-slide {
+    width: 50%;
+    flex: 0 0 50%;
+    padding: 0; /* Remove padding if you want slides to be edge-to-edge */
+  }
+
+  .slick-slide:nth-child(odd) {
+    padding-right: 10px; /* Optional spacing between columns */
+  }
+
+  .slick-slide:nth-child(even) {
+    padding-left: 10px; /* Optional spacing between columns */
+  }
+}
+
+@media (min-width:400px) and (max-width: 700px) {
+  .sliderWrapper {
+    margin-bottom: 10vh;
+  }
+
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slick-slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .slick-track {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .slick-slide {
+    width: 50%; /* Each slide will take up half the width */
+    flex: 0 0 50%;
+    padding: 0; /* Remove padding if you want slides to be edge-to-edge */
+  }
+
+  .slick-slide:nth-child(odd) {
+    padding-right: 10px; /* Optional spacing between columns */
+  }
+
+  .slick-slide:nth-child(even) {
+    padding-left: 10px; /* Optional spacing between columns */
+  }
 }

@@ -15,6 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+      <Mobheader />
       <Routes>
         <Route
           path="/"
@@ -23,7 +24,6 @@ function App() {
               <ImageSlider />
               <Body />
               <Footer />
-              <Mobheader />
             </>
           }
         />

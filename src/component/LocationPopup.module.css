@@ -1,0 +1,97 @@
+.popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.321);
+    z-index: 1000;
+  }
+  
+  .popupContent {
+    background: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px gray;
+    width: 65vw;
+    max-height: 80vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+  
+  .closeBtn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    z-index: 1010;
+  }
+  
+  .theaterInfo {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    background-color: transparent;
+    z-index: 1001;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .cityList {
+    overflow-y: auto;
+  }
+  
+  .cityItem {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .cityItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  @media (max-width: 991px) {
+    .popupContent {
+      width: 95vw;
+      height: 80vh;
+      padding: 15px;
+    }
+  
+    .searchInput {
+      padding: 8px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .popupContent {
+      width: 100vw;
+      height: 85vh;
+      padding: 10px;
+    }
+  
+    .searchInput {
+      padding: 6px;
+    }
+  }
+  

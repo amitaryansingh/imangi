@@ -17,11 +17,12 @@ const ImageSlider = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 700,
     slidesToShow: 3,
-    slidesToScroll: 5,
+    slidesToScroll: 3,
+    rows:3,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed:2000,
     arrows: false,
     responsive: [
       {
@@ -29,17 +30,27 @@ const ImageSlider = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          rows:2,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 700,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow:2, // Show 2 slides in one row
+          slidesToScroll:1,
+          rows:2, // Display 2 rows
+        },
+      },
+      {
+        breakpoint:400,
+        settings: {
+          slidesToShow:1,
+          slidesToScroll:1,
+          rows:2,
         },
       },
     ],
-  };
+  };  
 
   const images = [
     {

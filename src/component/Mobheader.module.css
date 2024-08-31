@@ -1,49 +1,139 @@
-.navigation{
-    display: none;
+/* Mobile header styles */
+.mobileHeader {
+  display: none;
+  position: fixed; /* Fix the header position */
+  top: 0; /* Align it to the top */
+  left: 0;
+  width: 100vw; /* Full width */
+  background-color: black;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  z-index: 10000; /* Ensure it's above other elements */
 }
-.li:hover{
-   color: white;
+
+/* Menu icon */
+.menuIcon {
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
 }
-.a{
-  color: #25292c;
-  font-weight: 650;
+
+/* Logo */
+.logo {
+  height: 40px;
+  width: 80px;
 }
-@media (max-width:991px) {
-.navigation {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: gray;
-    z-index: 1000; 
+
+/* Side menu styles */
+.sideMenu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100vh; /* Full height */
+  background-color: black;
+  overflow-y: auto;
+  padding-bottom: 60px; /* Space for bottom header */
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.sideMenu.open {
+  left: 0;
+}
+
+.menuItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItem {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.menuLink {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+/* Search styles */
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.searchIcon {
+  margin-left: 10px;
+  color: #000;
+}
+
+/* Bottom header styles */
+.bottomHeader {
+  position: fixed;
+  bottom: 0; /* Align it to the bottom */
+  left: 0;
+  width: 100vw; /* Full width */
+  background-color: rgb(255, 0, 0);
+  display: none; /* Hidden by default */
+  justify-content: space-evenly;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+/* Bottom menu items */
+.bottomMenuItem {
+  list-style: none;
+  padding: 5px;
+}
+
+.bottomMenuItem .menuLink {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.bottomMenuItem .icon {
+  margin-right: 5px;
+}
+
+/* Media queries */
+@media (max-width: 1100px) {
+  .mobileHeader {
+    display: flex; /* Show mobile header on mobile and tablet screens */
   }
-  
-  .navitems {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-  }
-  
-  .navitem {
-    flex-grow: 1; /* Allows items to grow and take equal space */
-    text-align: center; /* Centers the text inside each item */
-    color: #fff; /* White text color */
-    padding: 10px 0; /* Adds padding for better touch targets */
-  }
-  
-  .navitem:hover {
-    background-color: #495057; /* Hover effect for better visibility */
-  }
-  
-  .icon {
-    font-size: 1.6rem;
-    vertical-align: middle;
-    margin-bottom: 5px;
+
+  .bottomHeader {
+    display: flex; /* Show bottom header on mobile and tablet screens */
   }
 }
-.yourComponentClass {
-  background-color: var(--background-color);
-  color: var(--text-color);
+
+@media (min-width: 1100px) {
+  .sideMenu {
+    display: none; /* Hide side menu on larger screens */
+  }
+
+  .bottomHeader {
+    display: none; /* Hide bottom header on larger screens */
+  }
 }

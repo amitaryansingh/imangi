@@ -1,134 +1,163 @@
-/* Header.module.css */
 .header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100vw;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  transition: background-color 0.3s ease;
 }
 
-.headerIcons {
+.container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+.scrolled {
+  background-color: black;
+}
+.logo {
+  height: 60px;
+  width: 100px;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.locationBar {
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-size: 1rem;
   display: flex;
   align-items: center;
 }
 
-.icon {
-  font-size: 1.6rem;
-  vertical-align: middle;
+.locationBar:hover {
+  border-color: white;
+}
+
+.nav {
+  flex-grow: 1;
+  margin-left: 2rem;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.icon, .iconLocation, .searchIcon {
+  font-size: 1.6rem; /* Standardize icon size */
   margin-right: 4px;
-  margin-bottom: 5px;
+}
+.searchIcon{
+  color: white;
+}
+.rightSection {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5vw;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding: 0.5rem;
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+
+.searchContainer:hover {
+  border-color: white;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  padding-right: 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.pro {
+  background-color: transparent;
+  color: gray;
+  border: 1px solid gray;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.pro:hover {
+  border-color: white;
 }
 
 .icon2 {
   font-size: 1.6rem;
-  vertical-align: middle;
   margin-right: 4px;
 }
 
-.navbarBrand {
-  height: 40px;
-  width: 100px;
-}
+/* Existing styles... */
 
-.profile, .search, .modeToggle {
+.themeToggle {
+  background-color: transparent;
+  color: gray;
+  border: 1px solid gray;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
   margin-left: 1rem;
 }
 
-.searchContainer {
-  position: relative;
-  width: 100%;
+.themeToggle:hover {
+  border-color: white;
 }
 
-.searchIcon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #868080;
-  font-size: 1rem;
+.dark-mode {
+  --background-color: #333;
+  --text-color: #fff;
+  /* Add more dark mode variables if needed */
 }
 
-.mobnavbar {
-  display: none;
+/* Apply the theme variables */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-@media (max-width: 991px) {
-  .profile, .search {
-    margin-left: 0;
-    width: 100%;
+@media (max-width: 1100px) {
+  .header {
+    display: none;
   }
-}
-
-/* Modal Styles */
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modalContent {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 500px;
-  text-align: center;
-}
-
-/* Dark mode styles */
-.dark-mode .navbar {
-  background-color: #333;
-  color: #fff;
-}
-
-.dark-mode .btn-outline-secondary {
-  border-color: #666;
-  color: #fff;
-}
-
-.dark-mode .dropdown-menu {
-  background-color: #444;
-  color: #fff;
-}
-
-.dark-mode .form-control {
-  background-color: #555;
-  color: #fff;
-}
-
-.dark-mode .searchIcon {
-  color: #ccc;
-}
-
-/* Light mode styles */
-.light-mode .navbar {
-  background-color: #fff;
-  color: #000;
-}
-
-.light-mode .btn-outline-secondary {
-  border-color: #ccc;
-  color: #000;
-}
-
-.light-mode .dropdown-menu {
-  background-color: #fff;
-  color: #000;
-}
-
-.light-mode .form-control {
-  background-color: #fff;
-  color: #000;
-}
-
-.light-mode .searchIcon {
-  color: #666;
 }

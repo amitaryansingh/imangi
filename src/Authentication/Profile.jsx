@@ -131,8 +131,7 @@ const Profile = ({ closePopup }) => {
       <div className={style.popupContent}>
         <button
           className={style.closeBtn}
-          onClick={closePopup}
-          onTouchStart={closePopup}
+          onClick={closePopup} // Ensure this triggers closePopup
         >
           &times;
         </button>
