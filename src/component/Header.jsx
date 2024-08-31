@@ -18,7 +18,7 @@ const Header = () => {
   useEffect(() => {
     const fetchLocation = async () => {
       try {
-        const response = await fetch("http://api.ipstack.com/check?access_key=fa2fb775c91cadda6959e1c6b47fcf47");
+        const response = await fetch("https://api.ipstack.com/check?access_key=fa2fb775c91cadda6959e1c6b47fcf47");
         const data = await response.json();
         setCity(data.city || "Unknown");
       } catch (error) {
