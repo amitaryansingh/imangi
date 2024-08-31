@@ -14,6 +14,7 @@ const Mobheader = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [isLocationPopupOpen, setIsLocationPopupOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState("Select Location");
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -32,8 +33,16 @@ const Mobheader = () => {
   };
 
   const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark-mode", !darkMode);
+    setDarkMode(prevDarkMode => {
+      const newDarkMode = !prevDarkMode;
+      document.documentElement.classList.toggle("dark-mode", newDarkMode);
+      return newDarkMode;
+    });
+  };
+
+  const handleLocationSelect = (location) => {
+    setSelectedLocation(location);
+    toggleLocationPopup(); // Close the popup after selection
   };
 
   return (
@@ -72,9 +81,9 @@ const Mobheader = () => {
           <li className={style.menuItem} onClick={() => { toggleLocationPopup(); closeMenu(); }}>
             <a className={style.menuLink} href="#">
               <GiPositionMarker className={style.icon} />
-              Location
+              {selectedLocation}
             </a>
-            {isLocationPopupOpen && <LocationPopup closePopup={toggleLocationPopup} />}
+            {isLocationPopupOpen && <LocationPopup onSelectLocation={handleLocationSelect} closePopup={toggleLocationPopup} />}
           </li>
           <li className={style.menuItem} onClick={closeMenu}>
             <form className={style.search} role="search">

@@ -16,7 +16,7 @@
 
 .contentContainer {
   position: absolute;
-  bottom:-10vh;
+  bottom: -10vh;
   left: -3vw;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
 }
 
 .title {
-  font-size:3vw;
+  font-size: 3vw;
   color: whitesmoke;
   text-align: center;
 }
@@ -45,7 +45,7 @@
   border-radius: 5px;
   border: 1px solid gray;
   cursor: pointer;
-  font-size:1vw;
+  font-size: 1vw;
   padding: 8px;
   margin: 0;
 }
@@ -59,7 +59,7 @@
 .muteButton {
   position: absolute;
   left: 95vw;
-  bottom:-10vh;
+  bottom: -10vh;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -74,7 +74,7 @@
 .leftButton,
 .rightButton {
   position: absolute;
-  top:75%;
+  top: 75%;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -97,22 +97,48 @@
   color: gray;
 }
 
-@media (max-width:1100px) {
+/* Dark Mode Styles */
+.dark-mode .title {
+  color: #e0e0e0;
+}
+
+.dark-mode .bookButton,
+.dark-mode .infoButton {
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+.dark-mode .bookButton:hover,
+.dark-mode .infoButton:hover {
+  border-color: #e0e0e0;
+  color: #e0e0e0;
+}
+
+.dark-mode .icon3,
+.dark-mode .iconNav {
+  color: #ccc;
+}
+
+.dark-mode .muteButton {
+  color: #ccc;
+}
+
+@media (max-width: 1100px) {
   .videocontainer {
     top: -30vh;
   }
 
   .videocontainer video {
-    object-fit:contain;
+    object-fit: contain;
   }
 
   .contentContainer {
-    bottom:-15vw;
-    translate:28vw;
+    bottom: -15vw;
+    translate: 28vw;
   }
 
   .title {
-    font-size:5vw;
+    font-size: 5vw;
   }
 
   .bookButton,
@@ -127,7 +153,7 @@
 
   .muteButton {
     left: 95vw;
-    bottom:-1vh;
+    bottom: -1vh;
   }
 
   .leftButton,
@@ -136,20 +162,19 @@
   }
 }
 
-
-@media (max-width:700px) {
+@media (max-width: 700px) {
   .videocontainer {
     height: 40vh;
-    top:-32vh;
+    top: -32vh;
   }
 
   .contentContainer {
-    bottom:-28vh;
-    translate:28vw;
+    bottom: -28vh;
+    translate: 28vw;
   }
 
   .title {
-    font-size:5vw;
+    font-size: 5vw;
     width: 100%;
   }
 
@@ -160,20 +185,20 @@
   }
 
   .icon3 {
-    font-size:7vw;
+    font-size: 7vw;
   }
 
   .muteButton {
-    left:88vw;
-    top:54vh;
+    left: 88vw;
+    top: 54vh;
   }
 
-  .iconNav{
-    font-size:7vw;
+  .iconNav {
+    font-size: 7vw;
   }
 
   .leftButton,
   .rightButton {
-    top:48vh;
+    top: 48vh;
   }
 }
