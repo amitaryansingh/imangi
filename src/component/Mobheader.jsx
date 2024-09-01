@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Mobheader.module.css";
 import { FaBars, FaHome, FaSearch, FaSun, FaMoon } from "react-icons/fa";
 import { LuCalendarClock } from "react-icons/lu";
@@ -11,10 +11,37 @@ import { Link } from "react-router-dom";
 
 const Mobheader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isLocationPopupOpen, setIsLocationPopupOpen] = useState(false);
+  const [city, setCity] = useState("Loading...");
   const [darkMode, setDarkMode] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState("Select Location");
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isLocationPopupOpen, setIsLocationPopupOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchLocation = async () => {
+      try {
+        const response = await fetch(
+          "https://api.ipstack.com/check?access_key=fa2fb775c91cadda6959e1c6b47fcf47"
+        );
+        const data = await response.json();
+        setCity(data.city || "Unknown");
+      } catch (error) {
+        setCity("Error");
+      }
+    };
+
+    fetchLocation();
+  }, []);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark-mode");
+    } else {
+      setDarkMode(false);
+      document.documentElement.classList.remove("dark-mode");
+    }
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -24,25 +51,31 @@ const Mobheader = () => {
     setMenuOpen(false);
   };
 
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
+  const toggleProfilePopup = () => {
+    setIsProfileOpen(!isProfileOpen);
   };
 
   const toggleLocationPopup = () => {
     setIsLocationPopupOpen(!isLocationPopupOpen);
   };
 
-  const toggleTheme = () => {
-    setDarkMode(prevDarkMode => {
-      const newDarkMode = !prevDarkMode;
-      document.documentElement.classList.toggle("dark-mode", newDarkMode);
-      return newDarkMode;
-    });
+  const handleCitySelect = (selectedCity) => {
+    setCity(selectedCity);
+    setIsLocationPopupOpen(false);
   };
 
-  const handleLocationSelect = (location) => {
-    setSelectedLocation(location);
-    toggleLocationPopup();
+  const toggleTheme = () => {
+    setDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      if (newMode) {
+        document.documentElement.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
+      }
+      return newMode;
+    });
   };
 
   return (
@@ -71,19 +104,25 @@ const Mobheader = () => {
               Offers
             </Link>
           </li>
-          <li className={style.menuItem} onClick={() => { togglePopup(); closeMenu(); }}>
+          <li className={style.menuItem} onClick={() => { toggleProfilePopup(); closeMenu(); }}>
             <a className={style.menuLink} href="#">
               <CgProfile className={style.icon} />
               Profile
             </a>
-            {showPopup && <Profile closePopup={togglePopup} />}
+            {isProfileOpen && <Profile closePopup={toggleProfilePopup} />}
           </li>
           <li className={style.menuItem} onClick={() => { toggleLocationPopup(); closeMenu(); }}>
             <a className={style.menuLink} href="#">
               <GiPositionMarker className={style.icon} />
-              {selectedLocation}
+              {city}
             </a>
-            {isLocationPopupOpen && <LocationPopup onSelectLocation={handleLocationSelect} closePopup={toggleLocationPopup} />}
+            {isLocationPopupOpen && (
+              <LocationPopup
+                closePopup={toggleLocationPopup}
+                onSelectCity={handleCitySelect}
+                initialCity={city}
+              />
+            )}
           </li>
           <li className={style.menuItem} onClick={closeMenu}>
             <form className={style.search} role="search">

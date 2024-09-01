@@ -126,8 +126,14 @@ const Profile = ({ closePopup }) => {
   };
 
   return (
-    <div className={style.popupOverlay}>
-      <div className={style.popupContent}>
+    <div
+      className={style.popupOverlay}
+      onClick={closePopup}  // Close popup on clicking overlay
+    >
+      <div
+        className={style.popupContent}
+        onClick={(e) => e.stopPropagation()}  // Prevent event propagation to overlay
+      >
         <button className={style.closeBtn} onClick={closePopup}>
           &times;
         </button>
@@ -298,89 +304,24 @@ const Profile = ({ closePopup }) => {
                 <li onClick={() => handleOptionClick("accountSettings")}>
                   Account and Settings
                 </li>
-                <li onClick={() => handleLogout()}>Logout</li>
+                <li onClick={() => handleOptionClick("aboutUs")}>
+                  About Us
+                </li>
+                <li onClick={handleLogout}>Logout</li>
               </ul>
-            </div>
-            {selectedOption === "editProfile" && (
-              <div className={style.optionContent}>
-                <h3>Edit Profile</h3>
-                <form>
-                  <div className={style.formDiv}>
-                    <label className={style.labelStyle} htmlFor="username">
-                      Username:
-                    </label>
-                    <input
-                      className={style.inputStyle}
-                      type="text"
-                      id="username"
-                      name="username"
-                      value={formData.usrname}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className={style.formDiv}>
-                    <label className={style.labelStyle} htmlFor="email">
-                      Email:
-                    </label>
-                    <input
-                      className={style.inputStyle}
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className={style.formDiv}>
-                    <label className={style.labelStyle} htmlFor="password">
-                      Password:
-                    </label>
-                    <input
-                      className={style.inputStyle}
-                      type="password"
-                      id="password"
-                      name="password"
-                      value={formData.password}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className={style.formDiv}>
-                    <label className={style.labelStyle} htmlFor="mobile">
-                      Mobile Number:
-                    </label>
-                    <PhoneInput
-                      className={style.inputStyle}
-                      country="US"
-                      value={formData.mobile}
-                      onChange={handlePhoneChange}
-                      international
-                      defaultCountry="US"
-                      required
-                    />
-                  </div>
-                  <div className={style.formDiv}>
-                    <label className={style.labelStyle} htmlFor="dob">
-                      Date of Birth:
-                    </label>
-                    <input
-                      className={style.inputStyle}
-                      type="date"
-                      id="dob"
-                      name="dob"
-                      value={formData.dob}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <button className={style.submitButton} type="submit">
-                    Update Profile
-                  </button>
-                </form>
+              <div className={style.optionDetails}>
+                {selectedOption === "editProfile" && (
+                  <div>Edit your profile details here.</div>
+                )}
+                {selectedOption === "yourBooking" && (
+                  <div>View your booking details here.</div>
+                )}
+                {selectedOption === "helpSupport" && (
+                  <div>Access help and support here.</div>
+                )}
+                {selectedOption === "aboutUs" && <div>Learn about us here.</div>}
               </div>
-            )}
+            </div>
           </>
         )}
       </div>
