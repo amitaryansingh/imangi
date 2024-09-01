@@ -23,10 +23,8 @@ const Header = () => {
         );
         const data = await response.json();
 
-        // Extract city name and clean it
         let cityName = data.address.city || data.address.town || data.address.village || "Unknown";
 
-        // Remove specific terms from city name
         if (cityName) {
           cityName = cityName.replace(
             / Municipal Corporation| Urban Agglomeration| Metropolitan Region/i,
