@@ -1,6 +1,6 @@
 import axios from "axios";
 class UserService {
-  static BASE_URL = "http://localhost:1010";
+  static BASE_URL = "imangi-a3c5cxh5fzhbbkez.centralindia-01.azurewebsites.net";
 
   static async login(email, password) {
     try {
