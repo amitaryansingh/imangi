@@ -16,19 +16,48 @@ const Header = () => {
   const [isLocationPopupOpen, setIsLocationPopupOpen] = useState(false);
 
   useEffect(() => {
-    const fetchLocation = async () => {
+    const fetchLocation = async (latitude, longitude) => {
       try {
         const response = await fetch(
-          "https://api.ipstack.com/check?access_key=fa2fb775c91cadda6959e1c6b47fcf47"
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`
         );
         const data = await response.json();
-        setCity(data.city || "Unknown");
+
+        // Extract city name and clean it
+        let cityName = data.address.city || data.address.town || data.address.village || "Unknown";
+
+        // Remove specific terms from city name
+        if (cityName) {
+          cityName = cityName.replace(
+            / Municipal Corporation| Urban Agglomeration| Metropolitan Region/i,
+            ""
+          ).trim();
+        }
+
+        setCity(cityName);
       } catch (error) {
         setCity("Error");
       }
     };
 
-    fetchLocation();
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            fetchLocation(latitude, longitude);
+          },
+          (error) => {
+            console.error("Error fetching location: ", error);
+            setCity("Location Unavailable");
+          }
+        );
+      } else {
+        setCity("Geolocation not supported");
+      }
+    };
+
+    getLocation();
 
     const handleScroll = () => {
       if (window.scrollY > 0) {
