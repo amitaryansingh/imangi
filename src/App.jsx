@@ -19,6 +19,7 @@ function App() {
       <Mobheader />
       <Routes>
         <Route
+          exact
           path="/"
           element={
             <>
