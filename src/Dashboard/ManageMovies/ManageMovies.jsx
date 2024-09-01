@@ -1,54 +1,59 @@
-import React, { useState } from "react";
-import styles from "./ManageMovies.module.css";
+import React, { useState, useEffect } from "react";
+import MovieService from "./MovieService";
+import styles from "../ManageUsers/ManageUsers.module.css";
+import UpdateMovie from "./UpdateMovie";
+import AddMovie from "./AddMovie";
 
 function ManageMovies({ onClose }) {
-  const [title, setTitle] = useState("");
-  const [language, setLanguage] = useState("");
-  const [isAdult, setIsAdult] = useState(false);
-  const [genere, setGenere] = useState("");
-  const [duration, setDuration] = useState("");
-  const [releaseDate, setReleaseDate] = useState("");
-  const [story, setStory] = useState("");
-  const [poster, setPoster] = useState(null);
-  const [trailer, setTrailer] = useState(null);
-  const [castDetails, setCastDetails] = useState([]);
-  const [newCast, setNewCast] = useState({ name: "", role: "", image: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [showAddMovie, setShowAddMovie] = useState(false);
 
-  const handleAddCast = () => {
-    if (newCast.name && newCast.role && newCast.image) {
-      setCastDetails([...castDetails, newCast]);
-      setNewCast({ name: "", role: "", image: "" });
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  const fetchMovies = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await MovieService.getAllMovies(token);
+      setMovies(response || []);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
     }
   };
 
-  const handleSubmit = () => {
-    const movieData = {
-      title,
-      language,
-      isAdult,
-      genere,
-      duration,
-      releaseDate,
-      story,
-      poster,
-      trailer,
-      castDetails,
-    };
+  const deleteMovie = async (movieId) => {
+    try {
+      const confirmDelete = window.confirm(
+        "Are you sure you want to delete this movie?"
+      );
+      const token = localStorage.getItem("token");
+      if (confirmDelete) {
+        await MovieService.deleteMovie(movieId, token);
+        fetchMovies(); // Refresh the list after deletion
+      }
+    } catch (error) {
+      console.error("Error deleting movie:", error);
+    }
+  };
 
-    console.log("Submitted Movie Data:", movieData);
+  const handleUpdateClick = (movie) => {
+    setSelectedMovie(movie);
+  };
 
-    setTitle("");
-    setLanguage("");
-    setIsAdult(false);
-    setGenere("");
-    setDuration("");
-    setReleaseDate("");
-    setStory("");
-    setPoster(null);
-    setTrailer(null);
-    setCastDetails([]);
-    setSubmitted(true);
+  const handleAddClick = () => {
+    setShowAddMovie(true);
+  };
+
+  const handleUpdateClose = () => {
+    setSelectedMovie(null);
+    fetchMovies();
+  };
+
+  const handleAddClose = () => {
+    setShowAddMovie(false);
+    fetchMovies();
   };
 
   return (
@@ -59,203 +64,58 @@ function ManageMovies({ onClose }) {
           X
         </button>
       </div>
-      <div className={styles.form}>
-        <label className={styles.label}>Title</label>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-
-        <label className={styles.label}>Language</label>
-        <input
-          type="text"
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
-        />
-
-        <label className={styles.label}>Genere</label>
-        <input
-          type="text"
-          value={genere}
-          onChange={(e) => setGenere(e.target.value)}
-        />
-
-        <label className={styles.label}>Duration</label>
-        <input
-          type="text"
-          value={duration}
-          onChange={(e) => setDuration(e.target.value)}
-        />
-
-        <label className={styles.label}>Release Date</label>
-        <input
-          type="date"
-          value={releaseDate}
-          onChange={(e) => setReleaseDate(e.target.value)}
-        />
-
-        <label className={styles.label}>Story</label>
-        <textarea value={story} onChange={(e) => setStory(e.target.value)} />
-
-        <label className={styles.label}>Poster Image</label>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setPoster(e.target.files[0])}
-        />
-
-        <label className={styles.label}>Trailer File</label>
-        <input
-          type="file"
-          accept="video/*"
-          onChange={(e) => {
-            setTrailer(e.target.files[0]);
-          }}
-        />
-
-        <label className={`${styles.label} ${styles.checkboxContainer}`}>
-          Adult Content
-          <input
-            type="checkbox"
-            className={styles.checkbox}
-            checked={isAdult}
-            onChange={(e) => setIsAdult(e.target.checked)}
-          />
-        </label>
-
-        <div className={styles.castSection}>
-          <h3>Add Cast Member</h3>
-          <div className={styles.newCastForm}>
-            <label className={styles.label}>Name</label>
-            <input
-              type="text"
-              value={newCast.name}
-              onChange={(e) => setNewCast({ ...newCast, name: e.target.value })}
-            />
-
-            <label className={styles.label}>Role</label>
-            <input
-              type="text"
-              value={newCast.role}
-              onChange={(e) => setNewCast({ ...newCast, role: e.target.value })}
-            />
-
-            <label className={styles.label}>Image URL</label>
-            <input
-              type="text"
-              value={newCast.image}
-              onChange={(e) =>
-                setNewCast({ ...newCast, image: e.target.value })
-              }
-            />
-
-            <button className={styles.addButton} onClick={handleAddCast}>
-              Add Cast Member
-            </button>
-          </div>
-        </div>
-
-        <div className={styles.castContainer}>
-          {castDetails.map((cast, index) => (
-            <div key={index} className={styles.castItem}>
-              <img
-                className={styles.castImage}
-                src={cast.image}
-                alt={cast.name}
-              />
-              <div className={styles.castInfo}>
-                <p>{cast.name}</p>
-              </div>
-              <div className={styles.castInfo}>
-                <p>{cast.role}</p>
-              </div>
-              <div>
+      <table className="table table-striped text-center align-middle">
+        <thead>
+          <tr>
+            <td colSpan="6">
+              <button
+                className="btn btn-success w-100"
+                onClick={handleAddClick}
+              >
+                Add New Movie
+              </button>
+            </td>
+          </tr>
+        </thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Title</th>
+          <th scope="col">Language</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Update</th>
+        </tr>
+        <tbody>
+          {movies.map((movie) => (
+            <tr key={movie.id}>
+              <td scope="row">{movie.id}</td>
+              <td>{movie.title}</td>
+              <td>{movie.language}</td>
+              <td>{movie.duration}</td>
+              <td>
                 <button
-                  className={styles.removeButton}
-                  onClick={() =>
-                    setCastDetails(castDetails.filter((_, i) => i !== index))
-                  }
+                  className="btn btn-danger"
+                  onClick={() => deleteMovie(movie.id)}
                 >
-                  Remove
+                  Delete
                 </button>
-              </div>
-            </div>
+              </td>
+              <td>
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => handleUpdateClick(movie)}
+                >
+                  Update
+                </button>
+              </td>
+            </tr>
           ))}
-        </div>
-
-        {submitted ? (
-          <div className={styles.submissionMessage}>
-            <h3>Movie details submitted successfully!</h3>
-            <button
-              className={styles.addMoreButton}
-              onClick={() => setSubmitted(false)}
-            >
-              Add More
-            </button>
-          </div>
-        ) : (
-          <button className={styles.submitButton} onClick={handleSubmit}>
-            Submit
-          </button>
-        )}
-      </div>
-
-      {(poster || trailer) && (
-        <div className={styles.previewContainer}>
-          <h3>Preview</h3>
-          <div className={styles.previewItem}>
-            <p>
-              <strong>Title:</strong> {title}
-            </p>
-            <p>
-              <strong>Language:</strong> {language}
-            </p>
-            <p>
-              <strong>Adult Content:</strong> {isAdult ? "Yes" : "No"}
-            </p>
-            <p>
-              <strong>Genere:</strong> {genere}
-            </p>
-            <p>
-              <strong>Duration:</strong> {duration}
-            </p>
-            <p>
-              <strong>Release Date:</strong> {releaseDate}
-            </p>
-            <p>
-              <strong>Story:</strong> {story}
-            </p>
-          </div>
-
-          {trailer && (
-            <p>
-              <strong>Trailer:</strong>{" "}
-              <a
-                href={URL.createObjectURL(trailer)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Watch Trailer
-              </a>
-            </p>
-          )}
-
-          {poster && (
-            <p>
-              <strong>Poster:</strong>{" "}
-              <a
-                className={styles.previewImage}
-                href={URL.createObjectURL(poster)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Poster
-              </a>
-            </p>
-          )}
-        </div>
+        </tbody>
+      </table>
+      {selectedMovie && (
+        <UpdateMovie movieId={selectedMovie.id} onClose={handleUpdateClose} />
       )}
+      {showAddMovie && <AddMovie onClose={handleAddClose} />}
     </div>
   );
 }

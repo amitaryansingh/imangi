@@ -64,7 +64,7 @@ function ManageTheatres({ onClose }) {
           X
         </button>
       </div>
-      <table className="table table-striped text-center">
+      <table className="table table-striped text-center align-middle">
         <thead>
           <tr>
             <td colspan="6">
