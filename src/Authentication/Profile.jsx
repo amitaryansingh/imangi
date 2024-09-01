@@ -157,8 +157,7 @@ const Profile = ({ closePopup }) => {
                       value={formData.usrname}
                       onChange={handleInputChange}
                       required
-                      pattern="[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;,.?]{3,20}"
-                      title="Username must be 3-20 characters long and can only contain alphanumeric characters or !@#$%^&*()_+{}[]:;,.?"
+                      title="Username"
                     />
                   </div>
                   <div className={style.formDiv}>
