@@ -1,6 +1,7 @@
 import axios from "axios";
 class TheaterService {
-  static BASE_URL = "http://localhost:1010";
+  static BASE_URL =
+    "https://imangi-a3c5cxh5fzhbbkez.centralindia-01.azurewebsites.net";
 
   static async addTheater(TheaterData, token) {
     try {

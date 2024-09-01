@@ -1,9 +1,8 @@
 import axios from "axios";
 
 class MovieService {
-  static BASE_URL = "http://localhost:1010"; // Update the port if necessary
-
-  // Admin endpoints
+  static BASE_URL =
+    "https://imangi-a3c5cxh5fzhbbkez.centralindia-01.azurewebsites.net";
 
   static async addMovie(movieData, token) {
     try {
@@ -44,8 +43,6 @@ class MovieService {
       throw err;
     }
   }
-
-  // Public endpoints
 
   static async getMovieById(id) {
     try {

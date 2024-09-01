@@ -1,7 +1,8 @@
 import axios from "axios";
 
 class ReservationService {
-  static BASE_URL = "http://localhost:1010"; // Update the port if necessary
+  static BASE_URL =
+    "https://imangi-a3c5cxh5fzhbbkez.centralindia-01.azurewebsites.net";
 
   static async addReservation(reservationData, token) {
     try {
