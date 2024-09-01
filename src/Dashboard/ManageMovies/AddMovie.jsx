@@ -57,6 +57,7 @@ function ManageMovies({ onClose }) {
     } catch (error) {
       console.error("Error adding movie:", error);
     }
+    await MovieService.getAllMovies();
   };
 
   return (
