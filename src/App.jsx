@@ -3,8 +3,7 @@ import {
   Routes,
   Route,
   BrowserRouter,
-  Navigate,
-  HashRouter,
+  Navigate
 } from "react-router-dom";
 import Header from "./component/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,7 +19,7 @@ import ErrorPage from "./Authentication/ErrorPage";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Header />
       <Mobheader />
       <Routes>
@@ -44,7 +43,7 @@ function App() {
         {/* Error page for undefined routes */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
