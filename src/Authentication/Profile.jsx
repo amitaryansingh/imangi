@@ -64,7 +64,6 @@ const Profile = ({ closePopup }) => {
       setConsoleOutput("Verifying OTP...");
       const verifyResponse = await UserService.verify(formData.email, otp);
       if (verifyResponse) {
-        setConsoleOutput(verifyResponse.message);
         await handleUserLogin();
         navigate("/");
       } else {
@@ -129,10 +128,7 @@ const Profile = ({ closePopup }) => {
   return (
     <div className={style.popupOverlay}>
       <div className={style.popupContent}>
-        <button
-          className={style.closeBtn}
-          onClick={closePopup}
-        >
+        <button className={style.closeBtn} onClick={closePopup}>
           &times;
         </button>
         {!UserService.isAuthenticated() ? (
