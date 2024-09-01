@@ -97,7 +97,6 @@ const Profile = ({ closePopup }) => {
       );
       if (loginResponse.role === "ADMIN") {
         setConsoleOutput(loginResponse.message);
-        closePopup();
         navigate("/admin");
       } else {
         setConsoleOutput("Unauthorized: Admin access only.");
@@ -105,6 +104,7 @@ const Profile = ({ closePopup }) => {
     } catch (error) {
       setConsoleOutput(`Error: ${error.message}`);
     }
+    closePopup();
   };
 
   const handleUserLogin = async () => {
@@ -128,11 +128,11 @@ const Profile = ({ closePopup }) => {
   return (
     <div
       className={style.popupOverlay}
-      onClick={closePopup}  // Close popup on clicking overlay
+      onClick={closePopup} // Close popup on clicking overlay
     >
       <div
         className={style.popupContent}
-        onClick={(e) => e.stopPropagation()}  // Prevent event propagation to overlay
+        onClick={(e) => e.stopPropagation()} // Prevent event propagation to overlay
       >
         <button className={style.closeBtn} onClick={closePopup}>
           &times;
@@ -303,9 +303,7 @@ const Profile = ({ closePopup }) => {
                 <li onClick={() => handleOptionClick("accountSettings")}>
                   Account and Settings
                 </li>
-                <li onClick={() => handleOptionClick("aboutUs")}>
-                  About Us
-                </li>
+                <li onClick={() => handleOptionClick("aboutUs")}>About Us</li>
                 <li onClick={handleLogout}>Logout</li>
               </ul>
               <div className={style.optionDetails}>
@@ -318,7 +316,9 @@ const Profile = ({ closePopup }) => {
                 {selectedOption === "helpSupport" && (
                   <div>Access help and support here.</div>
                 )}
-                {selectedOption === "aboutUs" && <div>Learn about us here.</div>}
+                {selectedOption === "aboutUs" && (
+                  <div>Learn about us here.</div>
+                )}
               </div>
             </div>
           </>
