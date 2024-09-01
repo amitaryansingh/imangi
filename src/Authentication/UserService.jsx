@@ -1,7 +1,7 @@
 import axios from "axios";
 class UserService {
   static BASE_URL =
-    "https://imangi-a3c5cxh5fzhbbkez.centralindia-01.azurewebsites.net/";
+    "https://imangi-a3c5cxh5fzhbbkez.centralindia-01.azurewebsites.net";
 
   static async login(email, password) {
     try {
