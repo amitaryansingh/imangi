@@ -30,7 +30,7 @@ function App() {
         />
         {/* Admin-only routes */}
         <Route
-          path="/admin"
+          path="https://imangi.live/admin"
           element={
             UserService.adminOnly() ? <AdminDashboard /> : <Navigate to="/" />
           }
