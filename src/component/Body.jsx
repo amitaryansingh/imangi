@@ -12,16 +12,17 @@ const Body = () => {
           <div className={styles.bodyText}>
             <h2>History of Imangi</h2>
             <p>
-              Founded in 2011, Imangi Studios emerged as a pioneering force in the entertainment industry with a mission to blend innovative technology with captivating storytelling. The company’s journey began with a vision to create exceptional gaming experiences that resonate with a global audience.
-              <br /><br />
-              Imangi's early success was marked by the release of Temple Run, a groundbreaking mobile game that redefined the endless runner genre. The game’s combination of dynamic gameplay, intuitive controls, and immersive environments captivated players worldwide, propelling Imangi to the forefront of mobile gaming. Temple Run quickly became a cultural phenomenon, leading to numerous awards and accolades.
-              <br /><br />
-              As the company expanded, Imangi continued to push the boundaries of interactive entertainment. Their portfolio grew to include a variety of engaging and innovative games, each characterized by a commitment to high-quality design and user experience. The studio’s success is rooted in its ability to adapt to evolving technology and market trends, ensuring that each new project reflects the latest advancements in gaming.
-              <br /><br />
-              In addition to game development, Imangi has made strides in other areas of digital entertainment, including partnerships with major brands and media properties. The company's dedication to excellence and creativity has established it as a leading player in the industry, known for its ability to deliver unforgettable experiences.
-              <br /><br />
-              Today, Imangi Studios stands as a testament to the power of innovation and storytelling. With a dedicated team and a passion for pushing the envelope, Imangi continues to shape the future of entertainment, creating memorable experiences for audiences around the globe. As the company looks to the future, it remains committed to exploring new horizons and setting new standards in the world of interactive media.
-            </p>
+  Imangi is an innovative movie ticket booking website designed to enhance your movie-going experience. With a modern and user-friendly interface, Imangi allows users to easily browse the latest movie releases, check showtimes, and select their preferred seats—all from the comfort of their homes.
+  <br /><br />
+  The website offers comprehensive search options, including filters for genre, language, and location, making it simple to find movies that suit your preferences. Real-time updates provide the latest information on seat availability, ensuring an accurate and seamless booking process.
+  <br /><br />
+  Imangi prioritizes convenience and security, featuring a streamlined payment process with multiple options for a hassle-free experience. Users can create personal accounts to track bookings, receive personalized recommendations, and stay informed about new releases or special promotions.
+  <br /><br />
+  The platform enhances your movie experience by offering exclusive discounts and deals, catering to both casual viewers and avid cinema-goers. Whether planning a solo movie night, a date, or an outing with friends, Imangi simplifies the entire ticket booking process.
+  <br /><br />
+  Imangi is more than just a ticket booking website; it’s your destination for an exceptional movie experience. With a commitment to customer satisfaction and a passion for innovation, Imangi continues to set new standards in the world of online movie ticket booking, making every movie outing a memorable one.
+</p>
+
           </div>
           <img src="m1.jpg" alt="History of Imangi"/>
         </section>
