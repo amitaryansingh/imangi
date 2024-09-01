@@ -1,5 +1,11 @@
 import React from "react";
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  BrowserRouter,
+  Navigate,
+  HashRouter,
+} from "react-router-dom";
 import Header from "./component/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -14,7 +20,7 @@ import ErrorPage from "./Authentication/ErrorPage";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Mobheader />
       <Routes>
@@ -38,7 +44,7 @@ function App() {
         {/* Error page for undefined routes */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
