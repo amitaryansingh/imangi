@@ -3,7 +3,7 @@ import style from "./Profile.module.css";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import UserService from "./UserService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Profile = ({ closePopup }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -98,6 +98,7 @@ const Profile = ({ closePopup }) => {
       if (loginResponse.role.toUpperCase() === "ADMIN") {
         setConsoleOutput("Navigating to admin...");
         navigate("/admin");
+        closePopup();
       } else {
         setConsoleOutput("Unauthorized: Admin access only.");
       }
@@ -293,6 +294,11 @@ const Profile = ({ closePopup }) => {
                 <li onClick={() => handleOptionClick("yourBooking")}>
                   Your Booking
                 </li>
+                {UserService.adminOnly() && (
+                  <li>
+                    <Link to="/admin">Admin Page</Link>
+                  </li>
+                )}
                 <li onClick={() => handleOptionClick("helpSupport")}>
                   Help and Support
                 </li>
@@ -313,10 +319,16 @@ const Profile = ({ closePopup }) => {
                   <div>View your booking details here.</div>
                 )}
                 {selectedOption === "helpSupport" && (
-                  <div>Access help and support here.</div>
+                  <div>Find help and support here.</div>
+                )}
+                {selectedOption === "contactUs" && (
+                  <div>Contact us for any queries.</div>
+                )}
+                {selectedOption === "accountSettings" && (
+                  <div>Manage your account settings here.</div>
                 )}
                 {selectedOption === "aboutUs" && (
-                  <div>Learn about us here.</div>
+                  <div>Learn more about us here.</div>
                 )}
               </div>
             </div>
