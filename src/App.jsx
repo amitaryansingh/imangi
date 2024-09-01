@@ -18,6 +18,14 @@ function App() {
       <Header />
       <Mobheader />
       <Routes>
+        {/* Admin-only routes */}
+        <Route
+          exact
+          path="/admin"
+          element={
+            UserService.adminOnly() ? <AdminDashboard /> : <Navigate to="/" />
+          }
+        />
         <Route
           exact
           path="/"
@@ -27,13 +35,6 @@ function App() {
               <Body />
               <Footer />
             </>
-          }
-        />
-        {/* Admin-only routes */}
-        <Route
-          path="/admin"
-          element={
-            UserService.adminOnly() ? <AdminDashboard /> : <Navigate to="/" />
           }
         />
         {/* Error page for undefined routes */}
