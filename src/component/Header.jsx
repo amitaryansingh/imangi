@@ -6,7 +6,7 @@ import { BiSolidOffer } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { GiPositionMarker } from "react-icons/gi";
 import Profile from "../Authentication/Profile";
-import LocationPopup from './LocationPopup';
+import LocationPopup from "./LocationPopup";
 
 const Header = () => {
   const [city, setCity] = useState("Loading...");
@@ -18,7 +18,9 @@ const Header = () => {
   useEffect(() => {
     const fetchLocation = async () => {
       try {
-        const response = await fetch("https://api.ipstack.com/check?access_key=fa2fb775c91cadda6959e1c6b47fcf47");
+        const response = await fetch(
+          "https://api.ipstack.com/check?access_key=fa2fb775c91cadda6959e1c6b47fcf47"
+        );
         const data = await response.json();
         setCity(data.city || "Unknown");
       } catch (error) {
@@ -56,7 +58,7 @@ const Header = () => {
       return newMode;
     });
   };
-  
+
   // Set the initial theme based on localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -68,7 +70,6 @@ const Header = () => {
       document.documentElement.classList.remove("dark-mode");
     }
   }, []);
-  
 
   const toggleProfilePopup = () => {
     setIsProfileOpen(!isProfileOpen);
@@ -112,7 +113,8 @@ const Header = () => {
         <div className={style.rightSection}>
           <div className={style.leftSection}>
             <div className={style.locationBar} onClick={toggleLocationPopup}>
-              <GiPositionMarker className={`${style.iconLocation} icon`} /> {city}
+              <GiPositionMarker className={`${style.iconLocation} icon`} />{" "}
+              {city}
             </div>
           </div>
           <form className={style.search} role="search">
@@ -127,21 +129,30 @@ const Header = () => {
             </div>
           </form>
           <div className={style.pro} onClick={toggleProfilePopup}>
-            <a className={style.navLink} href="#">
+            <a className={style.navLink}>
               <CgProfile className={`${style.icon} icon`} />
               Profile
             </a>
           </div>
           {isProfileOpen && <Profile closePopup={toggleProfilePopup} />}
           <div className={style.themeToggle} onClick={toggleTheme}>
-            {darkMode ? <FaSun className={`${style.icon} icon`} /> : <FaMoon className={`${style.icon} icon`} />}
+            {darkMode ? (
+              <FaSun className={`${style.icon} icon`} />
+            ) : (
+              <FaMoon className={`${style.icon} icon`} />
+            )}
           </div>
         </div>
       </div>
-      {isLocationPopupOpen && <LocationPopup closePopup={toggleLocationPopup} onSelectCity={handleCitySelect} initialCity={city} />}
+      {isLocationPopupOpen && (
+        <LocationPopup
+          closePopup={toggleLocationPopup}
+          onSelectCity={handleCitySelect}
+          initialCity={city}
+        />
+      )}
     </header>
   );
-  
-   };
+};
 
 export default Header;
