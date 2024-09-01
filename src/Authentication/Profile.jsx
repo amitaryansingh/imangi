@@ -97,8 +97,8 @@ const Profile = ({ closePopup }) => {
       );
       if (loginResponse.role === "ADMIN") {
         setConsoleOutput(loginResponse.message);
-        navigate("/admin");
         closePopup();
+        navigate("/admin");
       } else {
         setConsoleOutput("Unauthorized: Admin access only.");
       }
