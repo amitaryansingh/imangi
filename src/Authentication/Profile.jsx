@@ -97,7 +97,6 @@ const Profile = ({ closePopup }) => {
       );
       if (loginResponse.role.toUpperCase() === "ADMIN") {
         setConsoleOutput("Navigating to admin...");
-        navigate("/admin");
         closePopup();
       } else {
         setConsoleOutput("Unauthorized: Admin access only.");
