@@ -97,13 +97,13 @@ const Profile = ({ closePopup }) => {
       );
       if (loginResponse.role.toUpperCase() === "ADMIN") {
         setConsoleOutput("Navigating to admin...");
-        closePopup();
       } else {
         setConsoleOutput("Unauthorized: Admin access only.");
       }
     } catch (error) {
       setConsoleOutput(`Error: ${error.message}`);
     }
+    closePopup();
   };
 
   const handleUserLogin = async () => {
