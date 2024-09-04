@@ -58,3 +58,8 @@ h2 {
 .data{
   color:rgb(177, 169, 169);
 }
+@media screen and (max-width: 676px) {
+  .popupContent {
+  width: 80vw;
+  }
+}
