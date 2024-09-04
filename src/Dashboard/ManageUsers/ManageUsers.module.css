@@ -25,15 +25,7 @@
   border: 1px solid white;
   border-radius: 50%;
 }
-@media screen and (max-width: 676px) {
-.btn{
-  --bs-btn-padding-x:0.02rem;
-  --bs-btn-font-size:0.5rem
-}
-.table{
-  font-size: 0.5rem;
- }
-}
+
 
 
 
