@@ -30,6 +30,9 @@
   --bs-btn-padding-x:0.02rem;
   --bs-btn-font-size:0.5rem
 }
+.table{
+  font-size: 0.5rem;
+ }
 }
 
 
