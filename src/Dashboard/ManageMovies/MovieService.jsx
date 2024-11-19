@@ -1,7 +1,8 @@
 import axios from "axios";
 
 class MovieService {
-  static BASE_URL = "imangi-a3c5cxh5fzhbbkez.centralindia-01.azurewebsites.net";
+  static BASE_URL =
+    "https://imangi-a3c5cxh5fzhbbkez.centralindia-01.azurewebsites.net";
 
   static async addMovie(movieData, token) {
     try {
